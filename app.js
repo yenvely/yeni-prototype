@@ -1010,6 +1010,66 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
           });
           break;
+
+        case 'pw-expired':
+          showPopup({
+            iconClass: 'fa-solid fa-circle-exclamation',
+            color: 'var(--warning-color)',
+            bg: 'hsla(38, 92%, 50%, 0.15)',
+            title: '비밀번호 변경 주기 만료',
+            body: '비밀번호 변경 후 90일이 경과하였습니다.<br>보안 정책에 따라 안전을 위해 비밀번호를 변경해주시기 바랍니다. [3-5]',
+            buttons: [
+              {
+                text: '비밀번호 변경하기',
+                type: 'primary',
+                action: () => {
+                  switchScreen('forgot-pw');
+                  resetForgotPwWorkflow();
+                  showToast('비밀번호 변경 화면으로 이동했습니다.');
+                }
+              },
+              {
+                text: '다음에 하기',
+                type: 'secondary',
+                action: () => {
+                  showToast('비밀번호 변경 주기가 초기화되었습니다. (90일 재연장)');
+                }
+              }
+            ]
+          });
+          break;
+
+        case 'account-disabled':
+          showPopup({
+            iconClass: 'fa-solid fa-user-slash',
+            color: 'var(--error-color)',
+            bg: 'var(--error-glow)',
+            title: '계정 비활성화 상태',
+            body: '비활성화된 계정입니다. 워크플레이스 최고 관리자에게 문의해주십시오. [3-6]',
+            buttons: [
+              {
+                text: '확인',
+                type: 'primary'
+              }
+            ]
+          });
+          break;
+
+        case 'ip-restricted':
+          showPopup({
+            iconClass: 'fa-solid fa-network-wired',
+            color: 'var(--error-color)',
+            bg: 'var(--error-glow)',
+            title: '접속 허용 IP 제한',
+            body: '허용되지 않은 IP 대역에서의 접속 시도입니다.<br>사내망 연결 또는 허용 IP 범위를 관리자 설정에서 확인해주십시오. [3-7]',
+            buttons: [
+              {
+                text: '확인',
+                type: 'primary'
+              }
+            ]
+          });
+          break;
           
         case 'double-login':
           showPopup({
@@ -1036,6 +1096,29 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
           });
           break;
+
+        case 'force-logout-other':
+          if (!isLoggedIn) {
+            showToast('자동 로그아웃을 테스트하려면 먼저 앱에 로그인해주세요!');
+            return;
+          }
+          showPopup({
+            iconClass: 'fa-solid fa-circle-xmark',
+            color: 'var(--error-color)',
+            bg: 'var(--error-glow)',
+            title: '중복 기기 로그인 접속 세션 종료',
+            body: '다른 기기 또는 브라우저에서 동일한 계정으로 로그인되어 세션 정보가 끊어졌습니다.<br>안전을 위해 로그아웃 처리됩니다. [7-1]',
+            buttons: [
+              {
+                text: '확인',
+                type: 'primary',
+                action: () => {
+                  handleLogout();
+                }
+              }
+            ]
+          });
+          break;
           
         case 'auto-logout':
           if (!isLoggedIn) {
@@ -1051,6 +1134,29 @@ document.addEventListener('DOMContentLoaded', () => {
             buttons: [
               {
                 text: '다시 로그인하기',
+                type: 'primary',
+                action: () => {
+                  handleLogout();
+                }
+              }
+            ]
+          });
+          break;
+
+        case 'force-logout-permission':
+          if (!isLoggedIn) {
+            showToast('자동 로그아웃을 테스트하려면 먼저 앱에 로그인해주세요!');
+            return;
+          }
+          showPopup({
+            iconClass: 'fa-solid fa-user-shield',
+            color: 'var(--error-color)',
+            bg: 'var(--error-glow)',
+            title: '워크플레이스 권한 변경 세션 만료',
+            body: '해당 워크플레이스 내 소유자/관리자 권한 또는 보안 규칙이 변경되어 보안 세션 유지를 위해 로그아웃 처리됩니다. [7-3]',
+            buttons: [
+              {
+                text: '확인',
                 type: 'primary',
                 action: () => {
                   handleLogout();

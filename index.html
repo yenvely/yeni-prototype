@@ -53,6 +53,24 @@
           <p style="font-size: 11px; margin-top: 4px;">"탈퇴 처리된 계정입니다. (7일간 재가입 제한)"</p>
         </button>
 
+        <button class="policy-btn" data-policy="pw-expired">
+          <span class="title">비밀번호 변경 주기 만료 [3-5]</span>
+          <span class="tag">선택형 팝업 (+90일)</span>
+          <p style="font-size: 11px; margin-top: 4px;">"변경 후 90일 경과. 비밀번호를 변경해주세요."</p>
+        </button>
+
+        <button class="policy-btn" data-policy="account-disabled">
+          <span class="title">계정 비활성화 상태 [3-6]</span>
+          <span class="tag">단순 안내 팝업</span>
+          <p style="font-size: 11px; margin-top: 4px;">"비활성화된 계정입니다. 관리자에게 문의해주세요."</p>
+        </button>
+
+        <button class="policy-btn" data-policy="ip-restricted">
+          <span class="title">접속 허용 IP 제한 [3-7]</span>
+          <span class="tag">단순 안내 팝업</span>
+          <p style="font-size: 11px; margin-top: 4px;">"허용되지 않은 IP에서의 접속입니다."</p>
+        </button>
+
         <button class="policy-btn" data-policy="double-login">
           <span class="title">중복 로그인 시도 [3-8]</span>
           <span class="tag">선택형 팝업</span>
@@ -64,10 +82,22 @@
       <div class="panel-section">
         <h3>⏳ 자동 로그아웃 정책 (Sec 4)</h3>
         
+        <button class="policy-btn" data-policy="force-logout-other">
+          <span class="title">타 기기 로그인 강제 로그아웃 [7-1]</span>
+          <span class="tag">강제 로그아웃</span>
+          <p style="font-size: 11px; margin-top: 4px;">타 계정 강제 로그인 감지에 따른 세션 종료</p>
+        </button>
+
         <button class="policy-btn" data-policy="auto-logout">
           <span class="title">자동 로그아웃 실행 [7-2]</span>
           <span class="tag">강제 로그아웃</span>
           <p style="font-size: 11px; margin-top: 4px;">보안 정책에 따라 세션 만료 및 로그인 창 리로드</p>
+        </button>
+
+        <button class="policy-btn" data-policy="force-logout-permission">
+          <span class="title">권한 변경 강제 로그아웃 [7-3]</span>
+          <span class="tag">강제 로그아웃</span>
+          <p style="font-size: 11px; margin-top: 4px;">워크플레이스 내 사용자 권한 변경으로 강제 로그아웃</p>
         </button>
       </div>
 
