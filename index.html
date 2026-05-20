@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudGate 3.0 Mobile Prototype</title>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Core Design System -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- --- [LEFT SIDE] INTERACTIVE POLICY CONTROLLER --- -->
+    <div class="control-panel">
+      <div class="panel-header">
+        <h2>
+          <i class="fa-solid fa-sliders-h" style="color: var(--primary-color);"></i>
+          CloudGate 3.0 Sandbox
+        </h2>
+        <p>기획 정책 및 UI 설계에 명시된 예외 케이스 및 팝업 정책을 직접 테스트해보세요.</p>
+        
+        <!-- Theme Toggle & Status Summary -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 10px;">
+          <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">테마 전환:</span>
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="테마 전환">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Section: Login & Authentication Policies -->
+      <div class="panel-section">
+        <h3>🔑 로그인 오류 & 정책 (#C02)</h3>
+        
+        <button class="policy-btn" data-policy="wrong-pw">
+          <span class="title">오류 5회 미만 [3-2]</span>
+          <span class="tag">단순 안내 팝업</span>
+          <p style="font-size: 11px; margin-top: 4px;">"이메일 또는 비밀번호를 확인해주세요."</p>
+        </button>
+
+        <button class="policy-btn" data-policy="too-many-fails">
+          <span class="title">오류 5회 이상 초과 [3-3]</span>
+          <span class="tag">비밀번호 재설정 유도</span>
+          <p style="font-size: 11px; margin-top: 4px;">비밀번호 오류 횟수 초과 안내 및 재설정 유도</p>
+        </button>
+
+        <button class="policy-btn" data-policy="withdrawn-acc">
+          <span class="title">탈퇴된 계정 [3-4]</span>
+          <span class="tag">재가입 제한 안내</span>
+          <p style="font-size: 11px; margin-top: 4px;">"탈퇴 처리된 계정입니다. (7일간 재가입 제한)"</p>
+        </button>
+
+        <button class="policy-btn" data-policy="double-login">
+          <span class="title">중복 로그인 시도 [3-8]</span>
+          <span class="tag">선택형 팝업</span>
+          <p style="font-size: 11px; margin-top: 4px;">"다른 기기에서 로그인 중입니다. 접속하시겠습니까?"</p>
+        </button>
+      </div>
+
+      <!-- Section: Auto-Logout policies -->
+      <div class="panel-section">
+        <h3>⏳ 자동 로그아웃 정책 (Sec 4)</h3>
+        
+        <button class="policy-btn" data-policy="auto-logout">
+          <span class="title">자동 로그아웃 실행 [7-2]</span>
+          <span class="tag">강제 로그아웃</span>
+          <p style="font-size: 11px; margin-top: 4px;">보안 정책에 따라 세션 만료 및 로그인 창 리로드</p>
+        </button>
+      </div>
+
+      <!-- Instructions Link -->
+      <div style="font-size: 11px; color: var(--text-tertiary); text-align: center; border-top: 1.5px solid var(--border-color); padding-top: 12px; margin-top: 10px;">
+        Designed for <strong style="color: var(--primary-color);">yenvely/yeni-prototype</strong>
+      </div>
+    </div>
+
+    <!-- --- [RIGHT SIDE] IPHONE 15 PRO DEVICE MOCKUP --- -->
+    <div class="device-wrapper">
+      
+      <!-- Dynamic Island for layout alerts -->
+      <div class="dynamic-island" id="island">
+        <div class="island-content" id="island-content">
+          <i class="fa-solid fa-circle-check" style="color: var(--success-color);"></i>
+          <span>Welcome to CloudGate</span>
+        </div>
+      </div>
+
+      <!-- Status Bar -->
+      <div class="status-bar">
+        <div class="time" id="device-time">14:02</div>
+        <div class="right-icons">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </div>
+
+      <!-- Viewport / Inside the Screen -->
+      <div class="viewport">
+
+        <!-- --- POPUP OVERLAY (Common Modal for Policies) --- -->
+        <div class="popup-overlay" id="popup-overlay">
+          <div class="popup-card">
+            <div class="popup-icon" id="popup-icon-box">
+              <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+            <div class="popup-title" id="popup-title">알림</div>
+            <div class="popup-body" id="popup-body">본문 내용이 표시되는 곳입니다.</div>
+            <div class="popup-buttons" id="popup-buttons-container">
+              <!-- Dynamically populated buttons -->
+              <button class="btn btn-primary" style="padding: 10px 16px;">확인</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- --- SCREEN 1: LOGIN (SCR-LOGIN-001) --- -->
+        <div class="screen screen-login active" id="screen-login">
+          <div class="login-header">
+            <div class="service-logo">
+              <i class="fa-solid fa-cloud-bolt"></i>
+            </div>
+            <h1>CloudGate 3.0</h1>
+            <p>보안이 강화된 차세대 클라우드 상담 데스크</p>
+          </div>
+
+          <div class="login-form">
+            <!-- Email Input Field -->
+            <div class="input-group" id="email-group">
+              <label for="email">이메일 주소</label>
+              <div class="input-wrapper">
+                <input 
+                  type="email" 
+                  id="email" 
+                  class="input-field" 
+                  placeholder="이메일 주소를 입력하세요." 
+                  autocomplete="email"
+                  required
+                >
+              </div>
+              <span class="error-msg" id="email-error">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span class="text">필수 입력 항목입니다.</span>
+              </span>
+            </div>
+
+            <!-- Password Input Field -->
+            <div class="input-group" id="pw-group">
+              <label for="password">비밀번호</label>
+              <div class="input-wrapper">
+                <input 
+                  type="password" 
+                  id="password" 
+                  class="input-field" 
+                  placeholder="비밀번호를 입력하세요." 
+                  required
+                >
+                <button type="button" class="toggle-pw" id="toggle-pw-btn" aria-label="비밀번호 보기">
+                  <i class="fa-solid fa-eye" id="eye-icon"></i>
+                </button>
+              </div>
+              <span class="error-msg" id="pw-error">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span class="text">필수 입력 항목입니다.</span>
+              </span>
+            </div>
+
+            <button class="btn btn-primary" id="login-btn" style="margin-top: 10px;">
+              <span class="btn-text">로그인</span>
+              <div class="spinner" id="login-spinner"></div>
+            </button>
+
+            <a href="#" class="forgot-pw">비밀번호를 잊으셨나요?</a>
+          </div>
+        </div>
+
+        <!-- --- SCREEN 2: HOME (DASHBOARD) --- -->
+        <div class="screen screen-home" id="screen-home">
+          <div class="home-header">
+            <div class="welcome">
+              <p style="font-size: 12px; margin-bottom: 2px;">반갑습니다,</p>
+              <h2>권예은님</h2>
+            </div>
+            <div class="user-badge">
+              <i class="fa-solid fa-crown" style="font-size: 10px;"></i>
+              소유자
+            </div>
+          </div>
+
+          <!-- Overview Stat Cards Grid -->
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-comments"></i>
+              </div>
+              <span class="val" id="val-waiting">3</span>
+              <span class="lbl">상담 요청 대기</span>
+            </div>
+            <div class="stat-card">
+              <div class="icon-wrapper" style="background: hsla(192, 95%, 47%, 0.15); color: var(--accent-color);">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <span class="val" id="val-ongoing">12</span>
+              <span class="lbl">진행 중인 상담</span>
+            </div>
+          </div>
+
+          <!-- SVG Chart Widget -->
+          <div class="chart-widget">
+            <div class="chart-header">
+              <span class="title">오늘의 상담 인입 추이</span>
+              <span class="tag">인입 급증</span>
+            </div>
+            <svg class="chart-svg" viewBox="0 0 200 80">
+              <defs>
+                <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="var(--primary-color)" stop-opacity="0.3"></stop>
+                  <stop offset="100%" stop-color="var(--primary-color)" stop-opacity="0.00"></stop>
+                </linearGradient>
+              </defs>
+              <path 
+                class="chart-line" 
+                fill="none" 
+                stroke="var(--primary-color)" 
+                stroke-width="3" 
+                stroke-linecap="round"
+                d="M10 70 L40 65 L70 40 L100 45 L130 18 L160 30 L190 10"
+              />
+              <path 
+                fill="url(#chart-grad)" 
+                d="M10 70 L40 65 L70 40 L100 45 L130 18 L160 30 L190 10 L190 75 L10 75 Z"
+              />
+              <!-- Data Point Indicators -->
+              <circle cx="130" cy="18" r="4" fill="var(--primary-color)"></circle>
+              <circle cx="190" cy="10" r="4" fill="var(--accent-color)"></circle>
+            </svg>
+          </div>
+
+          <!-- Counseling Channels Section -->
+          <div class="channels-section">
+            <h2 style="font-size: 14px; margin-bottom: 4px;">활성 상담 채널</h2>
+            <div class="channel-list">
+              <div class="channel-item">
+                <div class="channel-info">
+                  <div class="channel-icon" style="background: #3B82F6;">
+                    <i class="fa-solid fa-globe"></i>
+                  </div>
+                  <span class="channel-name">웹챗 (WebChat)</span>
+                </div>
+                <span class="channel-status active">ON</span>
+              </div>
+              <div class="channel-item">
+                <div class="channel-info">
+                  <div class="channel-icon" style="background: #FEE500; color: #3C1E1E;">
+                    <i class="fa-solid fa-comment"></i>
+                  </div>
+                  <span class="channel-name">카카오 상담톡</span>
+                </div>
+                <span class="channel-status active">ON</span>
+              </div>
+              <div class="channel-item">
+                <div class="channel-info">
+                  <div class="channel-icon" style="background: #03C75A;">
+                    <i class="fa-solid fa-n"></i>
+                  </div>
+                  <span class="channel-name">네이버 톡톡</span>
+                </div>
+                <span class="channel-status">대기</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- --- SCREEN 3: MY PAGE --- -->
+        <div class="screen screen-mypage" id="screen-mypage">
+          <div class="profile-card">
+            <div class="avatar-wrapper">
+              <i class="fa-solid fa-user-gear"></i>
+            </div>
+            <div class="profile-info">
+              <div class="profile-name">권예은</div>
+              <div class="profile-role">워크플레이스 소유자</div>
+            </div>
+          </div>
+
+          <!-- Security Settings Group -->
+          <div class="settings-group">
+            <h3>보안 설정</h3>
+            <div class="setting-list">
+              <div class="setting-item">
+                <div class="setting-item-label">
+                  <i class="fa-solid fa-user-shield"></i>
+                  <span>2단계 인증 로그인</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="two-step-toggle" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div class="setting-item-label">
+                  <i class="fa-solid fa-hourglass-half"></i>
+                  <span>자동 로그아웃 시간</span>
+                </div>
+                <div class="select-wrapper">
+                  <select id="auto-logout-select">
+                    <option value="1">1시간</option>
+                    <option value="6" selected>6시간</option>
+                    <option value="12">12시간</option>
+                    <option value="24">24시간</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Communication Channels Notification Toggles -->
+          <div class="settings-group">
+            <h3>알림 채널 정책</h3>
+            <div class="setting-list">
+              <div class="setting-item">
+                <div class="setting-item-label">
+                  <i class="fa-solid fa-envelope"></i>
+                  <span>이메일 공식 안내 수신</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <div class="setting-item-label">
+                  <i class="fa-solid fa-sms"></i>
+                  <span>중요 SMS 문자 알림</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Logout Button -->
+          <button class="btn btn-secondary" id="logout-btn" style="margin-top: 10px;">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            로그아웃
+          </button>
+        </div>
+
+        <!-- Bottom Navigation Bar (Visible only when logged in) -->
+        <div class="bottom-nav" id="bottom-nav">
+          <div class="nav-item active" id="nav-home">
+            <i class="fa-solid fa-house"></i>
+            <span>홈 대시보드</span>
+          </div>
+          <div class="nav-item" id="nav-mypage">
+            <i class="fa-solid fa-user"></i>
+            <span>마이페이지</span>
+          </div>
+        </div>
+
+        <!-- Home indicator line -->
+        <div class="home-indicator"></div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast Alerts Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Interactivity Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
