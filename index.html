@@ -44,7 +44,7 @@
         <button class="policy-btn" data-policy="too-many-fails">
           <span class="title">오류 5회 이상 초과 [3-3]</span>
           <span class="tag">비밀번호 재설정 유도</span>
-          <p style="font-size: 11px; margin-top: 4px;">비밀번호 오류 횟수 초과 안내 및 재설정 유도</p>
+          <p style="font-size: 11px; margin-top: 4px;">오류 횟수 초과 안내 및 재설정 화면 진입 유도</p>
         </button>
 
         <button class="policy-btn" data-policy="withdrawn-acc">
@@ -172,7 +172,103 @@
               <div class="spinner" id="login-spinner"></div>
             </button>
 
-            <a href="#" class="forgot-pw">비밀번호를 잊으셨나요?</a>
+            <a href="#" class="forgot-pw" id="trigger-forgot-pw-link">비밀번호를 잊으셨나요?</a>
+          </div>
+        </div>
+
+        <!-- --- SCREEN 1.5: FIND & RESET PASSWORD (NEW FLOW) --- -->
+        <div class="screen screen-forgot-pw" id="screen-forgot-pw">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 4px;">
+            <button class="chat-back-btn" id="forgot-pw-back-btn" aria-label="뒤로가기">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <h2 style="font-size: 16px;">비밀번호 찾기 / 재설정</h2>
+          </div>
+
+          <!-- Step Progress Indicator -->
+          <div class="steps-indicator">
+            <div class="step-node active" id="step-node-1">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>1. 이메일 인증</span>
+            </div>
+            <div class="step-node" id="step-node-2">
+              <i class="fa-solid fa-key"></i>
+              <span>2. 새 비밀번호</span>
+            </div>
+          </div>
+
+          <!-- STEP 1: Email Code Sending & Verification -->
+          <div class="forgot-pw-step active" id="forgot-step-1">
+            <p style="font-size: 12px;">등록된 이메일 주소로 전송된 6자리 인증 코드를 작성해주세요.</p>
+            
+            <div class="input-group">
+              <label>이메일 주소</label>
+              <div class="input-wrapper" style="gap: 8px;">
+                <input type="email" id="forgot-email" class="input-field" placeholder="가입 이메일을 입력하세요.">
+                <button class="btn btn-primary" id="send-code-btn" style="padding: 12px 14px; width: auto; font-size: 12px; white-space: nowrap;">
+                  코드 전송
+                </button>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label>인증코드 (6자리)</label>
+              <input type="text" id="forgot-code" class="input-field" placeholder="인증코드 6자리를 입력하세요" disabled maxlength="6">
+              
+              <div class="timer-box" id="forgot-timer-box" style="display: none;">
+                <i class="fa-solid fa-clock"></i>
+                <span id="verification-timer">30:00</span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" id="verify-code-btn" style="margin-top: 10px;" disabled>
+              인증 완료
+            </button>
+          </div>
+
+          <!-- STEP 2: Password Complexity Checklist Setting -->
+          <div class="forgot-pw-step" id="forgot-step-2">
+            <p style="font-size: 12px; color: var(--text-secondary);">보안 정책에 부합하는 새로운 강력한 비밀번호를 설정하세요.</p>
+            
+            <!-- New Password Input -->
+            <div class="input-group" id="forgot-new-pw-group">
+              <label>새 비밀번호</label>
+              <div class="input-wrapper">
+                <input type="password" id="forgot-new-pw" class="input-field" placeholder="새 비밀번호 입력">
+                <button type="button" class="toggle-pw" id="forgot-toggle-pw-1">
+                  <i class="fa-solid fa-eye" id="forgot-eye-1"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="input-group" id="forgot-confirm-pw-group">
+              <label>비밀번호 확인</label>
+              <div class="input-wrapper">
+                <input type="password" id="forgot-confirm-pw" class="input-field" placeholder="비밀번호 재확인 입력">
+                <button type="button" class="toggle-pw" id="forgot-toggle-pw-2">
+                  <i class="fa-solid fa-eye" id="forgot-eye-2"></i>
+                </button>
+              </div>
+              <span class="error-msg" id="forgot-confirm-error">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span class="text">비밀번호가 일치하지 않습니다.</span>
+              </span>
+            </div>
+
+            <!-- Policy Checklist Boxes (Dynamic checkmarks) -->
+            <ul class="pw-rules">
+              <li id="rule-length"><i class="fa-solid fa-circle-dot"></i> 최소 8자 이상</li>
+              <li id="rule-lower"><i class="fa-solid fa-circle-dot"></i> 소문자 포함</li>
+              <li id="rule-upper"><i class="fa-solid fa-circle-dot"></i> 대문자 포함</li>
+              <li id="rule-number"><i class="fa-solid fa-circle-dot"></i> 숫자 포함</li>
+              <li id="rule-special"><i class="fa-solid fa-circle-dot"></i> 특수문자 포함</li>
+              <li id="rule-match"><i class="fa-solid fa-circle-dot"></i> 비밀번호 일치</li>
+            </ul>
+
+            <button class="btn btn-primary" id="change-pw-submit-btn" style="margin-top: 10px;" disabled>
+              비밀번호 변경 완료
+            </button>
           </div>
         </div>
 
@@ -191,18 +287,18 @@
 
           <!-- Overview Stat Cards Grid -->
           <div class="stat-grid">
-            <div class="stat-card">
+            <div class="stat-card" style="cursor: pointer;" id="home-stat-waiting">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-comments"></i>
               </div>
-              <span class="val" id="val-waiting">3</span>
+              <span class="val" id="val-waiting">1</span>
               <span class="lbl">상담 요청 대기</span>
             </div>
-            <div class="stat-card">
+            <div class="stat-card" style="cursor: pointer;" id="home-stat-ongoing">
               <div class="icon-wrapper" style="background: hsla(192, 95%, 47%, 0.15); color: var(--accent-color);">
                 <i class="fa-solid fa-headset"></i>
               </div>
-              <span class="val" id="val-ongoing">12</span>
+              <span class="val" id="val-ongoing">0</span>
               <span class="lbl">진행 중인 상담</span>
             </div>
           </div>
@@ -273,6 +369,88 @@
           </div>
         </div>
 
+        <!-- --- SCREEN 2.5: COUNSELING DESK / CHAT SIMULATOR (NEW SCREEN) --- -->
+        <div class="screen screen-chat" id="screen-chat">
+          
+          <!-- Chat Queue tabs -->
+          <div class="chat-tab-header">
+            <div class="chat-tab active" id="tab-waiting">
+              대기 중
+              <span class="badge" id="waiting-count-badge">1</span>
+            </div>
+            <div class="chat-tab" id="tab-ongoing">
+              진행 중
+              <span class="badge" id="ongoing-count-badge" style="background: var(--accent-color); display: none;">0</span>
+            </div>
+          </div>
+
+          <!-- Chat Lists container -->
+          <div class="chat-queue-list" id="chat-queue-list">
+            <!-- Dynamically populated room cards. Example initially present: -->
+            <div class="chat-room-item" id="waiting-room-minsu">
+              <div class="chat-room-info">
+                <div class="customer-avatar">김</div>
+                <div class="chat-room-text">
+                  <span class="customer-name">김민수 고객</span>
+                  <span class="chat-room-lastmsg">결제 플랜 및 구독 관리 변경 문의드립니다...</span>
+                </div>
+              </div>
+              <button class="btn btn-primary" id="start-chat-btn" style="width: auto; padding: 6px 12px; font-size: 11px; border-radius: 8px;">
+                상담 시작
+              </button>
+            </div>
+
+            <!-- Empty indicator -->
+            <div id="chat-empty-msg" style="display: none; text-align: center; color: var(--text-tertiary); font-size: 12px; margin-top: 40px; width: 100%;">
+              <i class="fa-solid fa-check-circle" style="font-size: 24px; color: var(--success-color); margin-bottom: 8px; display: block;"></i>
+              상담 요청 대기 건이 없습니다.
+            </div>
+          </div>
+
+          <!-- Chat Interface Dialog Layer -->
+          <div class="chat-interface" id="chat-interface">
+            <div class="chat-interface-header">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button class="chat-back-btn" id="chat-interface-back">
+                  <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div style="display: flex; flex-direction: column;">
+                  <span class="customer-name" style="font-size: 13px;">김민수 고객</span>
+                  <span id="chat-elapsed-timer" style="font-size: 10px; color: var(--text-secondary);">경과 시간: 00:00</span>
+                </div>
+              </div>
+              <button class="btn btn-secondary" id="end-chat-btn" style="width: auto; padding: 6px 12px; font-size: 11px; border-radius: 8px; background: var(--error-glow); color: var(--error-color);">
+                상담 종료
+              </button>
+            </div>
+
+            <!-- Message speech bubble thread -->
+            <div class="chat-history" id="chat-history">
+              <div class="msg-bubble customer">
+                안녕하세요. 이번 달 청구 요금제 플랜을 변경하고 싶은데 소유자 계정만 변경 가능한가요?
+              </div>
+            </div>
+
+            <!-- Input controller area -->
+            <div class="chat-input-pane">
+              <select class="chat-quick-templates" id="chat-quick-templates">
+                <option value="" disabled selected>⚡ 상담 템플릿 빠른 전송</option>
+                <option value="welcome">첫 인사: 안녕하세요, 반갑습니다. 선임상담사 권예은입니다.</option>
+                <option value="plan_info">안내: 구독 결제 수단 변경은 소유자 권한 회원만 결제 관리에서 즉시 변경 가능합니다.</option>
+                <option value="bye">끝 인사: 다른 문의 사항 있으시면 언제든 대시보드를 찾아주세요. 감사합니다.</option>
+              </select>
+              
+              <div class="chat-send-row">
+                <textarea class="chat-textbox" id="chat-textbox" placeholder="메시지를 입력하세요..."></textarea>
+                <button class="chat-send-btn" id="chat-send-btn">
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
         <!-- --- SCREEN 3: MY PAGE --- -->
         <div class="screen screen-mypage" id="screen-mypage">
           <div class="profile-card">
@@ -285,7 +463,7 @@
             </div>
           </div>
 
-          <!-- Security Settings Group -->
+          <!-- Live Settings Group -->
           <div class="settings-group">
             <h3>보안 설정</h3>
             <div class="setting-list">
@@ -316,7 +494,64 @@
             </div>
           </div>
 
-          <!-- Communication Channels Notification Toggles -->
+          <!-- Workspace Members List Management (NEW INTERACTIVE ROW) -->
+          <div class="settings-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-right: 4px;">
+              <h3>워크플레이스 멤버 관리 (<span id="member-count">3</span>)</h3>
+              <button id="invite-member-btn" style="border: none; background: none; color: var(--primary-color); font-size: 11px; font-weight: 700; cursor: pointer;">
+                + 초대하기
+              </button>
+            </div>
+            <div class="member-list-wrapper" id="member-list-wrapper">
+              
+              <!-- Row: Owner -->
+              <div class="member-item-row">
+                <div class="member-item-info">
+                  <div class="member-item-avatar" style="background: var(--primary-glow); color: var(--primary-color);">권</div>
+                  <div class="member-item-details">
+                    <span class="member-item-name">권예은</span>
+                    <span class="member-item-badge owner">소유자</span>
+                  </div>
+                </div>
+                <span style="font-size: 11px; font-weight: 600; color: var(--text-tertiary); padding-right: 8px;">소유권자</span>
+              </div>
+
+              <!-- Row: Admin -->
+              <div class="member-item-row" id="member-row-taehee">
+                <div class="member-item-info">
+                  <div class="member-item-avatar">김</div>
+                  <div class="member-item-details">
+                    <span class="member-item-name">김태희</span>
+                    <span class="member-item-badge admin" id="badge-taehee">관리자</span>
+                  </div>
+                </div>
+                <select class="member-role-select" data-member="taehee">
+                  <option value="admin" selected>관리자</option>
+                  <option value="member">멤버</option>
+                  <option value="remove">강퇴</option>
+                </select>
+              </div>
+
+              <!-- Row: Member -->
+              <div class="member-item-row" id="member-row-seojin">
+                <div class="member-item-info">
+                  <div class="member-item-avatar">박</div>
+                  <div class="member-item-details">
+                    <span class="member-item-name">박서진</span>
+                    <span class="member-item-badge" id="badge-seojin">멤버</span>
+                  </div>
+                </div>
+                <select class="member-role-select" data-member="seojin">
+                  <option value="admin">관리자</option>
+                  <option value="member" selected>멤버</option>
+                  <option value="remove">강퇴</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Notification Toggles -->
           <div class="settings-group">
             <h3>알림 채널 정책</h3>
             <div class="setting-list">
@@ -355,6 +590,10 @@
           <div class="nav-item active" id="nav-home">
             <i class="fa-solid fa-house"></i>
             <span>홈 대시보드</span>
+          </div>
+          <div class="nav-item" id="nav-chat">
+            <i class="fa-solid fa-comments"></i>
+            <span>상담 데스크</span>
           </div>
           <div class="nav-item" id="nav-mypage">
             <i class="fa-solid fa-user"></i>
