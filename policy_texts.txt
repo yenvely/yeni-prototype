@@ -1,0 +1,7110 @@
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동  
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+내정보 설정
+cloudgate
+대시보드
+5
+상담데스크
+채팅
+콜
+문의 게시판
+티켓
+메시지
+워크플레이스
+분석
+분석
+티켓 분석
+상담 분석
+메시지 발송 통계
+성과 분석
+설문조사 통계
+리포트 분석
+Beta
+회원 관리
+회원 관리
+계정 관리
+상담사 근태 관리
+워크플레이스 설정
+워크플레이스 설정
+기본 설정
+브랜드 설정
+보안 설정
+금칙어 설정
+브랜드
+브랜드1
+브랜드2
+FORMS & TABLES
+Form Elements
+Form Layout
+Form Validation
+Form Wizard
+Table
+Mui DataGrid
+CHARTS & MISC
+Charts
+Others
+Documentation
+Support
+Menu Level 1
+Menu Level 2
+Menu Level 3
+검색
+Search ⌘K
+채팅 상담
+채팅 상담
+콜 상담
+콜 상담
+브랜드 관리
+채널 연동
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+기본 설정
+서비스를 시작하기 전 지점의 기본정보를 설정할 수 있습니다.
+지점1
+/
+지점 관리
+/
+Breadcrumb
+/
+기본 설정
+이용가이드
+Upload New Photo
+Reset
+Allowed JPG, GIF or PNG. Max size of 800K
+First Name
+John
+Input
+Help text
+Last Name
+Doe
+Input
+Help text
+Email
+john.doe@example.com
+Input
+Help text
+Organisation
+Pixinvent
+Input
+Help text
+Phone Number
+202 555 0111
+Input
+Help text
+Address
+Address
+Input
+Help text
+State
+California
+Input
+Help text
+Zip Code
+231465
+Input
+Help text
+Country
+Select Country
+Chip
+Help text
+Language
+Select Language
+Chip
+Help text
+Time Zone
+Select Timezone
+Chip
+Help text
+Currency
+Select Currency
+Chip
+Help text
+Save Changes
+Cancel
+Delete Account
+Are you sure you want to delete your account?
+Once you delete your account, there is no going back. Please be certain.
+I confirm my account deactivation
+deactivate account
+The White Communication.
+이용가이드
+서비스 이용약관
+개인정보 처리방침
+개인정보 수집 및 이용
+정말 탈퇴하시겠습니까?
+마케팅 활용 동의 및 광고 수신 동의(선택)
+탈퇴 후 계정 및 이용 정보는 복구할 수 없으며 클라우드게이트 서비스 이용이 제한됩니다.
+(0/20)
+취소
+탈퇴
+탈퇴 안내
+마케팅 활용 동의 및 광고 수신 동의(선택)
+현재 계정은 워크플레이스 소유자로 지정되어 있어 탈퇴할 수 없습니다.
+탈퇴를 진행하려면 아래 절차를 먼저 완료해 주세요.
+(0/20)
+소유자 권한을 다른 멤버에게 이관
+본인 명의로 등록된 결제 수단이 있는 경우, 결제 정보 변경
+확인
+회원 탈퇴 안내
+마케팅 활용 동의 및 광고 수신 동의(선택)
+회원 탈퇴가 완료되었습니다.
+클라우드게이트를 이용해 주셔서 감사합니다.
+(0/20)
+확인
+마케팅 활용 동의 및 광고 수신 동의(선택)
+탈퇴한 계정입니다.
+탈퇴 후 30일간 동일 계정으로 재가입할 수 없습니다. (재가입 가능일 : 2026. 10. 10)
+(0/20)
+확인
+ #C01. 상담중인 상담 미존재
+ # 소유자 권한
+#C02. 상담중인 상담 존재
+# 탈퇴 후 30일 이내
+Vuexy
+Vuexy
+SNS 간편 로그인
+구글 로그인
+네이버 로그인
+카카오 로그인
+G
+또는
+이메일
+이메일 주소를 입력하세요.
+Input
+Help text
+비밀번호
+비밀번호를 입력하세요.
+Input
+Help text
+이메일 저장
+아이디 찾기 · 비밀번호 재설정
+로그인
+회원가입
+or
+상담 중인 브랜드 안내
+종료되지 않은 상담건이 있는 경우 탈퇴가 불가합니다. 
+브랜드01, 브랜드02, 브랜드03
+취소
+확인
+채팅 상담
+채팅 상담
+콜 상담
+콜 상담
+비밀번호 변경
+현재 비밀번호
+현재 비밀번호를 입력하세요.
+Input
+Help text
+새 비밀번호
+새 비밀번호를 입력하세요.
+Input
+영문/숫자/*제외한 특수문자 조합(8~15자)
+새 비밀번호 확인
+새 비밀번호를 한번 더 입력하세요.
+Input
+영문/숫자/*제외한 특수문자 조합(8~15자)
+마케팅 활용 동의 및 광고 수신 동의(선택)
+취소
+변경
+  홍길동
+  twc1234@thewc.co.kr
+가입일자 : 2023.12.06
+톡 상담
+               상담 중
+ 콜 상담
+                식사 중
+내정보 설정
+비밀번호 변경
+Billing Plan
+4
+마케팅/광고 수신 동의
+월
+FAQ
+로그아웃
+2026-04-22
+-
+최초 작성
+VERSION
+DATE
+CG002-6
+Page ID
+Page Description
+프로필
+Description
+
+프로필 아이콘 ・선택 시 [1-1] 팝업 출력 ・내정보 : 이름, 이메일 출력   ① 이름 : 최대 20자이며 1행을 초과하는 경우 ‘...’적용   ② 이메일 : 1행을 초과하는 경우 ‘...’적용 
+[버튼] 내정보 설정 ・선택 시  ‘내정보 설정' 화면으로 이동 
+[버튼] 로그아웃 ・선택 시 로그아웃 처리 및 로그인 화면으로 이동
+2026-04-22
+-
+최초 작성
+VERSION
+DATE
+CG002-6
+Page ID
+Page Description
+내정보 설정
+Description
+
+계정 정보 ・로그인한 계정의 기본 정보 출력  ① 이메일 ② 이름 ③ 휴대폰 번호 + 최종 변경일 ④ 가입 일자 ⑤ 가입 방법 (가입 유형 구분 : Naver, Google, Kakao) ⑥ 소속 워크플레이스 ⑦ 권한 ⑧ 계정 상태 
+이름 ・필수 입력 항목 ・Default : DB에 저장된 이름 출력 ・Place holder text : 이름을 입력하세요. ・수정 가능하며 선택 시 [1-1] 커서 활성화 ・입력 조건    ① 한글, 영문, 숫자 입력 가능    ② 최소 1자 이상 ~ 최대 20자 이하    ③ 20자 초과  입력 제한  ・데이터 입력 시 Validation Check 진행     - 규칙 위배 시 에러 메시지 출력    ① [2-2] 미입력    ② [2-3] 규칙 위배 (한글, 영문, 숫자 외 데이터 입력) 
+[버튼] 저장 ・선택 시 아래의 기능 적용   ① 이름 input Box에 입력된 정보로 DB 업데이트 처리   ② [1-1]커서 비활성화, 취소/저장 버튼 Hidden 처리 
+[버튼] 취소 ・선택 시 [2-1]이름 Default로 변경
+
+2026-04-22
+-
+최초 작성
+VERSION
+DATE
+CG002-6
+Page ID
+Page Description
+내정보 설정
+Description
+
+[버튼] 비밀번호 변경 ・선택 시 [1-1] 비밀변호 변경 팝업 출력 ・SNS 로그인 계정에는 [1-2] 비밀번호 영역 hidden 처리 
+[입력] 현재 비밀번호 ・필수 입력 항목 ・Place holder text : 현재 비밀번호를 입력하세요. ・조건   ① 규칙     - 영문 대소문자, 숫자, 기호 포함 8자 이상 - 90자 이하     - 영문 대문자 (A–Z), 영문 소문자 (a–z), 숫자 (0–9), 기호 (!@#$%^&*()_+-=[]{}|;:'",.<>/?)     - 5자리 반복 및 연속 패턴은 사용 불가  ・Default : 데이터 입력 시 마스킹 처리     - 미리보기 버튼은 상시 노출되며 선택 시 입력 데이터 UI에 노출 ・데이터 입력 시 Validation Check 진행     - 규칙 위배 시 에러 메시지 출력   ① [2-1] 미입력   ② [2-2] 규칙 위배   ③ [2-3] 현재 비밀번호 오입력 
+ [입력] 새 비밀번호 ・필수 입력 항목 ・Place holder text : 새 비밀번호를 입력하세요. ・조건   ① 규칙 : 영문 대소문자, 숫자, 기호 포함 8자 이상 - 90자 이하     - 영문 대문자 (A–Z), 영문 소문자 (a–z), 숫자 (0–9), 기호 (!@#$%^&*()_+-=[]{}|;:'",.<>/?)     - 5자리 반복 및 연속 패턴은 사용 불가  ・Default : 데이터 입력 시 마스킹 처리     - 미리보기 버튼은 상시 노출되며 선택 시 입력 데이터 UI에 노출 ・데이터 입력 시 Validation Check 진행     - 규칙 위배 시 에러 메시지 출력   ① [2-1] 미입력    ② [2-2] 규칙 위배 
+[입력] 새 비밀번호 확인 ・필수 입력 항목 ・Place holder text : 비밀번호를 한번 더 입력하세요. ・입력 조건 :  [1] 비밀번호에 입력한 데이터와 동일 ・Default : 데이터 입력 시 마스킹 처리 ・미리보기 버튼은 상시 노출되며 선택 시 입력 데이터 UI에 노출 ・데이터 입력 시 Validation Check 진행     - 규칙 위배 시 에러 메시지 출력    ① [2-1] 미입력     ② [2-2] 규칙 위배    ③ [2-3] 새 비밀번호 오입력 
+Tool Tip ・마우스 오버 시 툴팁 출력 
+최종 변경일 ・최종 변경일 출력 ex) YYYY. MM. DD (N일 경과)    - N일은 최종 변경일 포함하여 금일까지 ‘일자’ 카운팅
+2026-04-22
+-
+최초 작성
+VERSION
+DATE
+CG002-6
+Page ID
+Page Description
+내정보 관리
+Description
+
+[버튼] 변경  ・활성화 조건 : ‘비밀번호, 비밀번호 확인’ 항목 모두 정상 입력  ・선택 시 아래의 케이스별로 기능 적용  #C01. 현재  비밀번호와 동일한 경우   ① [1-1] ‘사용 불가' 안내 팝업 출력      - [1-2] 확인 버튼 선택 시 팝업 닫힘 처리  #C02. 정상적으로 변경 완료  ① [1-3] ‘변경 완료' 안내 팝업 출력      - [1-4] 확인 버튼 선택 시 팝업 닫힘 처리  ② DB에 입력한 ‘새 비밀번호’ DB에 업데이트 처리 
+[버튼] 취소  ・팝업 닫힘 처리
+3-3
+이름* 
+이름을 입력하세요.
+필수 입력 항목입니다.
+이름* 
+!!@@@
+한글, 영문, 숫자만 입력할 수 있습니다.
+비밀번호 확인*
+비밀번호를 확인하세요. 
+필수 입력 항목입니다.
+비밀번호 확인*
+*********
+영문/숫자/기호 조합의 8~90자로 입력하세요.
+비밀번호 확인*
+*********
+비밀번호가 일치하지 않습니다.
+2-2
+2-3
+2-1
+3
+4
+홍길동   
+1-1
+2
+3
+1
+# 규칙 위배
+비밀번호*
+문자, 숫자, 기호를 조합해 8자 이상 비밀번호를 입력하세요.
+필수 입력 항목 입니다.
+비밀번호*
+*********
+영문/숫자/기호 조합의 8~90자로 입력하세요.
+비밀번호*
+*********
+현재 비밀번호가 일치하지 않습니다.
+새 비밀번호*
+*********
+새 비밀번호가 일치하지 않습니다.
+비밀번호 확인*
+비밀번호를 확인하세요. 
+필수 입력 항목입니다.
+비밀번호 확인*
+*********
+영문/숫자/기호 조합의 8~90자로 입력하세요.
+비밀번호 확인*
+*********
+비밀번호가 일치하지 않습니다.
+3-3
+2-2
+2-1
+3-1
+2
+1-1
+3
+4
+비밀번호 변경
+현재 비밀번호
+현재 비밀번호를 입력하세요.
+Input
+Help text
+새 비밀번호
+새 비밀번호를 입력하세요.
+Input
+영문/숫자/*제외한 특수문자 조합(8~15자)
+새 비밀번호 확인
+새 비밀번호를 한번 더 입력하세요.
+Input
+영문/숫자/*제외한 특수문자 조합(8~15자)
+마케팅 활용 동의 및 광고 수신 동의(선택)
+취소
+변경
+비밀번호 변경 불가
+현재  비밀번호는 사용이 불가합니다.
+취소
+확인
+비밀번호 변경 완료
+비밀번호가 변경되었습니다.
+취소
+확인
+1-1
+1
+2
+1-3
+1-2
+1-4
+휴대폰 번호 변경
+마케팅 활용 동의 및 광고 수신 동의(선택)
+휴대폰 번호
+(0/20)
+‘-’를 제외하고 숫자만 입력하세요.
+보내기
+휴대폰 인증번호
+(0/20)
+휴대폰 인증번호 를 입력하세요.
+인증
+취소
+변경
+휴대폰 번호 변경
+마케팅 활용 동의 및 광고 수신 동의(선택)
+휴대폰 번호
+010-2222-2222
+Help text
+재입력
+휴대폰 인증번호
+956636
+Input
+Help text
+인증
+인증이 완료되었습니다.
+취소
+변경
+Description
+
+[입력] 휴대폰 번호 ・필수 입력 항목 ・Place holder text : ‘-’를 제외하고 숫자만 입력하세요. ・입력 조건 : 11자리 숫자 (숫자만 입력 가능)     -  숫자 입력 시 3-4-4 형식에 맞게 자동 하이픈 적용       ex) 010-2222-2222 ・데이터 입력 시 Validation Check 진행 ・케이스별로 아래의 기능 적용    ① 규칙 위배     -  에러 메시지 및 아이콘  적용      #C01. [1-1] 미입력      #C02. [1-2] 입력 데이터 규칙 위배      #C03. [1-3] 탈퇴 계정 (탈퇴일로부터 7일)       - 7일 이후에는 신규 가입자로 가입 가능       #C04. [1-4] 해당 계정에 매핑된 휴대폰 번호 입력     ② 정상 입력      - [2] 보내기 버튼 활성화되며 [Enter] 입력 시 ‘보내기' 버튼  클릭 처리         
+[버튼] 보내기 ・활성화 조건 : ‘휴대폰 번호' 정상 입력   ・버튼 선택 시 아래의 기능 적용    ① [3] 재입력 버튼으로 변경    ② [2-1] 휴대폰 번호  Input Box 비활성화 처리    ③ [4] 휴대폰 인증번호 Input Box 활성화처리    ④ 입력한 휴대폰 번호로 [2-2] 인증번호 발송       - ‘인증번호' 발송(DB에서 6자리 숫자로 랜덤 전송)       - 유효시간은 버튼 클릭 한 시점으로 부터 +3분 출력    ⑤ [2-3] 인증번호 발송 완료 메시지 출력    ⑥ 남은시간 카운트 다운        - 인증코드 유효시간 3분 초과 시 자동 만료       - 남은시간은 ‘보내기' 버튼 클릭 시점으로부터 5분 카운팅        - 1초 단위로 카운트다운 (2분 59초, 2분 28초, 2분 27초 ...)     ⑦ [2-4] 재전송 기능 제공       - 선택 시 입력한 휴대폰 번호에 인증번호 재전송 및 인증시간 초기화    ⑧ 인증번호 발송은 1일 최대 5회 가능하며 초과 시 [2-5] 에러 메시지 출력 
+[버튼] 재입력 ・선택 시 입력한 휴대폰 번호에 전송된 인증번호 초기화 되며 Default 적용 
+[입력] 휴대폰 인증번호 ・필수 입력 항목 ・활성화 조건 : 휴대폰으로 인증번호 전송 완료  ・Place holder text : 인증번호를 입력하세요. ・입력 조건 : 숫자만 입력 가능 (마스킹 처리 ❌)    - 최대 6자리만 입력 가능하며 추가 입력 제한 
+[버튼] 인증 ・활성화 조건 : 인증번호 6자리 숫자 입력 ・선택 시 인증번호 Validation Check 진행     #C01. [5-1] 인증 완료    ① 비활성화 : 휴대폰 번호/ 휴대폰 인증번호 Input Box, [인증] 버튼     ② 활성화 : [재입력] 버튼    ③ 인증번호 정상 입력 시 안내 메시지 출력          MSG : 인증이 완료되었습니다.    ④ 남은시간 만료 처리    #C02. [5-2] 인증번호 불일치    ① 인증번호 오류 입력 시 에러메시지 출력          MSG : 인증번호가 일치하지 않습니다.    ② 입력된 인증번호 전체 삭제 시 남은시간, [재전송] 기능 제공 
+인증번호 만료    ① ‘인증시간 초과’ 안내 메시지 출력 및 재전송 기능 제공          MSG : 인증 시간이 만료되었습니다. 다시 요청해 주세요.    ② 문자로 발송된 인증번호 초기화 및 인증시간 만료 처리    ③ 비활성화 : 휴대폰 번호 Input Box, [인증] 버튼     ④ 활성화 : 휴대폰 인증번호 input Box (Place holder text 적용)
+2026-03-25
+-
+최초 작성
+VERSION
+DATE
+CG004-5
+Page ID
+Page Description
+멤버 초대 > 회원가입
+Description
+
+[버튼] 변경 ・활성화 조건 : SMS 인증 완료 ・선택 시 아래의 기능 적용    ① 인증 완료된 ‘휴대폰 번호’ DB에 업데이트     ② [1-1]기존 팝업 닫힘 처리    ③ [1-2] 변경 완료 팝업 출력        - [1-3] 확인 버튼 선택 시 팝업 닫힘 처리
+2026-04-23
+-
+최초 작성
+VERSION
+DATE
+CG004-5
+Page ID
+Page Description
+내정보 관리 > 휴대폰 번호 변경
+Description
+
+[버튼] 탈퇴하기 ・선택 시 사용자 권한에 따라 분기 처리  ① 소유자 ・[1-1] 탈퇴불가 안내 팝업 출력    - 워크플레이스의 소유자는 탈퇴 불가  ② 멤버  #C01. 상담중인 상담 미존재  ・ [1-2] 탈퇴 안내 팝업 출력  #C02. 상담중인 상담 존재  ・[1-3] 탈퇴불가 안내 팝업 출력  ③ 관리자  ・ [1-2] 탈퇴 안내 팝업 출력 
+[버튼] 탈퇴 ・[2-1] 회원 탈퇴 정책 ・선택 시 아래의 기능 및 UI 적용  ① 사용자 계정을 ‘탈퇴' 상태로 변경  ② [2-1] 회원 탈퇴 안내 Alert 출력  ③ 토큰 처리      - Access Token 만료      - Refresh Token 삭제  ④ SNS 회원    - 탈퇴 시 OAuth 연결 해제    - SSO 세션 종료  ⑤ 일반계정/탈퇴계정 별도로 분리해서 ‘계정정보’ DB에 보관  ⑥ 계정 비밀번호는 즉시 DB에서 삭제  ⑦ 탈퇴일 포함하여 +90일 후 DB에 저장된 데이터 영구 삭제 
+[버튼] 확인 ① 팝업 닫힘 처리 및 자동 로그아웃      - 로그인 화면으로 이동 
+[로그인] 탈퇴계정  ・’재가입 제한' 기간에 속한 탈퇴회원이 로그인 시도한 경우       탈퇴 계정 안내 (재가입 가능일) 안내 팝업 출력 
+개인정보 수집 및  이용 동의 ・회원가입 > 개인정보 수집 및 이용 동의   - 3. 개인정보의 보유 및 이용기간 : 내용 [5-1] 과 같이 업데이트
+2026-5-13
+-
+최초 작성
+VERSION
+DATE
+CG004-5
+Page ID
+Page Description
+내정보 설정 > 권한별 탈퇴
+・[인증] 버튼 선택 시 인증번호 Validation Check
+#C01. 인증완료
+#인증번호 만료
+#C02. 인증번호 불일치
+휴대폰 번호
+010-2222-2222
+Help text
+재입력
+휴대폰 번호
+010-2222-2222
+Help text
+재입력
+휴대폰 번호
+010-2222-2222
+Help text
+재입력
+휴대폰 인증번호
+956636
+Input
+Help text
+인증
+인증이 완료되었습니다.
+휴대폰 인증번호
+956636
+Input
+Help text
+인증이 완료되었습니다.
+이메일 인증번호
+956636
+Input
+Help text
+인증
+인증번호가 일치하지 않습니다.
+휴대폰 인증번호
+인증번호를 입력하세요.
+Input
+Help text
+인증
+인증 시간이 만료되었습니다. 다시 요청해 주세요.  재전송 
+5-1
+5-2
+6
+・Default 
+・’휴대폰 번호’ 정상 입력 ➡️ [보내기] 버튼 활성화
+휴대폰 인증번호
+(0/20)
+휴대폰 인증번호 를 입력하세요.
+인증
+휴대폰 번호
+(0/20)
+‘-’를 제외하고 숫자만 입력하세요.
+보내기
+휴대폰 인증번호
+(0/20)
+휴대폰 인증번호 를 입력하세요.
+인증
+휴대폰 번호
+(0/20)
+010-1111-2222
+보내기
+휴대폰 번호
+010-2222-2222
+Help text
+재입력
+입력한 이메일 주소로 인증번호를 발송했습니다. 
+・[보내기]버튼  ① [재입력] 버튼으로 변경  ②이메일 Input Box 비활성화 처리
+                              ③ 이메일 인증번호 인풋박스 활성화  ④인증번호 발송 완료 MSG 출력 
+                              ⑤ 인증번호 재전송 기능 제공 ⑥남은시간 카운팅 
+・인증번호 정상 입력 시 [인증] 버튼 활성화
+휴대폰 번호
+010-2222-2222
+Help text
+재입력
+입력한 이메일 주소로 인증번호를 발송했습니다. 
+휴대폰 인증번호
+인증번호를 입력하세요.
+Input
+Help text
+인증
+남은시간 2분 59초  재전송
+휴대폰 인증번호
+956636
+Input
+Help text
+인증
+남은시간 2분 59초  재전송
+1
+2
+3
+2-1
+2-3
+2-4
+4
+5
+1
+1-1
+・SMS 인증 번호 [Web 발신] [클라우드게이트] SMS 인증번호는 966180 입니다. 인증번호를 정확히 입력해 주세요.
+[휴대폰 번호] 에러 메시지
+휴대폰 번호
+‘-’를 제외하고 숫자만 입력하세요.
+필수 입력 항목입니다.
+보내기
+입력하신 이메일로 인증 알림을 보냈습니다. 남은시간 9분 59초
+재전송
+휴대폰 번호
+010-2222-23
+휴대폰 번호를 학인하세요.
+보내기
+입력하신 이메일로 인증 알림을 보냈습니다. 남은시간 9분 59초
+재전송
+휴대폰 번호
+010-1111-1111
+인증번호를 발송할 수 없는 휴대폰 번호입니다.
+보내기
+휴대폰 번호
+010-1111-1111
+현재 등록된 휴대폰 번호와 동일합니다.
+보내기
+휴대폰 번호
+010-1111-2222
+인증번호는 1일 최대 5회까지 발송 가능합니다.
+보내기
+입력하신 이메일로 인증 알림을 보냈습니다. 남은시간 9분 59초
+재전송
+1-1
+1-1
+1-3
+1-4
+1-2
+2-2
+변경 완료
+휴대폰 번호가 변경되었습니다.
+취소
+확인
+1-2
+1-3
+1-2
+2-1
+2
+3
+1-2
+2-1
+4
+cloudgate
+대시보드
+상담데스크
+채팅
+콜
+문의 게시판
+티켓
+메시지
+워크플레이스
+설정
+설정
+회원 관리
+기본 설정
+브랜드 설정
+보안 설정
+운영 인사이트
+운영 인사이트
+통합 대시보드
+성과 분석
+상담유형 분석
+상담사 분석
+설문 분석
+상담 기록
+상담 기록
+상담 내역
+메시지 내역
+구독/결제
+구독/결제
+가입 정보
+구독/신청 변경
+결제 정보
+청구 내역
+사용량 조회
+브랜드
+브랜드1
+브랜드2
+Label
+브랜드 검색
+Input
+Help text
+검색
+Search ⌘K
+채팅 상담
+채팅 상담
+콜 상담
+콜 상담
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Shipping zones
+· 워크플레이스의 설정 기능은 계정의 권한에 따라 다르게 제공됩니다. 워크플레이스 권한보기
+· 권한에 따라 활용 가능한 메뉴가 다르게 제공됩니다. 권한에 따른 역할보기
+계정 초대
+내정보 관리
+채널 연동
+상담 관리
+채팅 상담 관리
+콜 상담 관리
+권한 설정
+상담사 근태 관리
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+내정보 관리
+계정 정보를 확인하고 수정할 수 있습니다.
+상담 분석
+/
+회원 관리
+/
+Breadcrumb
+/
+내정보 설정
+이용가이드
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+프로필
+Chip
+Chip
+Chip
++4
+Help text
+Username
+이미지
+Input
+Help text
+Label
+Search Category
+Input
+Help text
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+계정 정보
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이메일
+Input
+Help text
+twc1234@thewc.co.kr
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+비밀번호
+Input
+Help text
+비밀번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+휴대폰 번호
+Input
+Help text
+010-2222-2222
+휴대폰 번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 일자
+Input
+Help text
+2025-10-10
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 방법 
+Input
+Help text
+Naver
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+소속 워크플레이스
+Input
+Help text
+THEWC
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+권한
+Input
+Help text
+소유자
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+계정 상태
+Input
+Help text
+비활성화
+탈퇴하기
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+내정보 설정
+계정 정보를 확인하고 수정할 수 있습니다.
+상담 분석
+/
+회원 관리
+/
+Breadcrumb
+/
+내정보 설정
+이용가이드
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+계정 정보
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이메일
+Input
+Help text
+twc1234@thewc.co.kr
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+비밀번호
+Input
+Help text
+비밀번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동  
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+휴대폰 번호
+Input
+Help text
+010-2222-2222
+휴대폰 번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 일자
+Input
+Help text
+2025-10-10
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 방법 
+Input
+Help text
+Naver
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+소속 워크플레이스
+Input
+Help text
+THEWC
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+권한
+Input
+Help text
+소유자
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+계정 상태
+Input
+Help text
+비활성화
+탈퇴하기
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+The White Communication.
+이용가이드
+서비스 이용약관
+개인정보 처리방침
+개인정보 수집 및 이용
+cloudgate
+대시보드
+상담데스크
+채팅
+콜
+문의 게시판
+티켓
+메시지
+워크플레이스
+설정
+설정
+회원 관리
+기본 설정
+브랜드 설정
+보안 설정
+운영 인사이트
+운영 인사이트
+통합 대시보드
+성과 분석
+상담유형 분석
+상담사 분석
+설문 분석
+상담 기록
+상담 기록
+상담 내역
+메시지 내역
+구독/결제
+구독/결제
+가입 정보
+구독/신청 변경
+결제 정보
+청구 내역
+사용량 조회
+브랜드
+브랜드1
+브랜드2
+Label
+브랜드 검색
+Input
+Help text
+검색
+Search ⌘K
+채팅 상담
+채팅 상담
+콜 상담
+콜 상담
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Shipping zones
+· 워크플레이스의 설정 기능은 계정의 권한에 따라 다르게 제공됩니다. 워크플레이스 권한보기
+· 권한에 따라 활용 가능한 메뉴가 다르게 제공됩니다. 권한에 따른 역할보기
+계정 초대
+내정보 관리
+채널 연동
+상담 관리
+채팅 상담 관리
+콜 상담 관리
+권한 설정
+상담사 근태 관리
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+내정보 관리
+계정 정보를 확인하고 수정할 수 있습니다.
+상담 분석
+/
+회원 관리
+/
+Breadcrumb
+/
+내정보 설정
+이용가이드
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+프로필
+Chip
+Chip
+Chip
++4
+Help text
+Username
+이미지
+Input
+Help text
+Label
+Search Category
+Input
+Help text
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+계정 정보
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이메일
+Input
+Help text
+twc1234@thewc.co.kr
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+비밀번호
+Input
+Help text
+비밀번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+휴대폰 번호
+Input
+Help text
+010-2222-2222
+휴대폰 번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 일자
+Input
+Help text
+2025-10-10
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 방법 
+Input
+Help text
+Naver
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+소속 워크플레이스
+Input
+Help text
+THEWC
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+권한
+Input
+Help text
+소유자
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+계정 상태
+Input
+Help text
+비활성화
+탈퇴하기
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+내정보 설정
+계정 정보를 확인하고 수정할 수 있습니다.
+상담 분석
+/
+회원 관리
+/
+Breadcrumb
+/
+내정보 설정
+이용가이드
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+계정 정보
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이메일
+Input
+Help text
+twc1234@thewc.co.kr
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+비밀번호
+Input
+Help text
+비밀번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동  
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+휴대폰 번호
+Input
+Help text
+010-2222-2222
+휴대폰 번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 일자
+Input
+Help text
+2025-10-10
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 방법 
+Input
+Help text
+Naver
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+소속 워크플레이스
+Input
+Help text
+THEWC
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+권한
+Input
+Help text
+소유자
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+계정 상태
+Input
+Help text
+비활성화
+탈퇴하기
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+The White Communication.
+이용가이드
+서비스 이용약관
+개인정보 처리방침
+개인정보 수집 및 이용
+1-2
+cloudgate
+대시보드
+상담데스크
+채팅
+콜
+문의 게시판
+티켓
+메시지
+워크플레이스
+설정
+설정
+회원 관리
+기본 설정
+브랜드 설정
+보안 설정
+운영 인사이트
+운영 인사이트
+통합 대시보드
+성과 분석
+상담유형 분석
+상담사 분석
+설문 분석
+상담 기록
+상담 기록
+상담 내역
+메시지 내역
+구독/결제
+구독/결제
+가입 정보
+구독/신청 변경
+결제 정보
+청구 내역
+사용량 조회
+브랜드
+브랜드1
+브랜드2
+Label
+브랜드 검색
+Input
+Help text
+검색
+Search ⌘K
+채팅 상담
+채팅 상담
+콜 상담
+콜 상담
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Shipping zones
+· 워크플레이스의 설정 기능은 계정의 권한에 따라 다르게 제공됩니다. 워크플레이스 권한보기
+· 권한에 따라 활용 가능한 메뉴가 다르게 제공됩니다. 권한에 따른 역할보기
+계정 초대
+내정보 관리
+채널 연동
+상담 관리
+채팅 상담 관리
+콜 상담 관리
+권한 설정
+상담사 근태 관리
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+내정보 관리
+계정 정보를 확인하고 수정할 수 있습니다.
+상담 분석
+/
+회원 관리
+/
+Breadcrumb
+/
+내정보 설정
+이용가이드
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+프로필
+Chip
+Chip
+Chip
++4
+Help text
+Username
+이미지
+Input
+Help text
+Label
+Search Category
+Input
+Help text
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+계정 정보
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이메일
+Input
+Help text
+twc1234@thewc.co.kr
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+비밀번호
+Input
+Help text
+비밀번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+휴대폰 번호
+Input
+Help text
+010-2222-2222
+휴대폰 번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 일자
+Input
+Help text
+2025-10-10
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 방법 
+Input
+Help text
+Naver
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+소속 워크플레이스
+Input
+Help text
+THEWC
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+권한
+Input
+Help text
+소유자
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+계정 상태
+Input
+Help text
+비활성화
+탈퇴하기
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+내정보 관리
+계정 정보를 확인하고 수정할 수 있습니다.
+상담 분석
+/
+회원 관리
+/
+Breadcrumb
+/
+내정보 설정
+이용가이드
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+계정 정보
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이메일
+Input
+Help text
+twc1234@thewc.co.kr
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+비밀번호
+Input
+Help text
+비밀번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동  
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+휴대폰 번호
+Input
+Help text
+010-2222-2222
+휴대폰 번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 일자
+Input
+Help text
+2025-10-10
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 방법 
+Input
+Help text
+Naver
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+소속 워크플레이스
+Input
+Help text
+THEWC
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+권한
+Input
+Help text
+소유자
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+계정 상태
+Input
+Help text
+비활성화
+탈퇴하기
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+The White Communication.
+이용가이드
+서비스 이용약관
+개인정보 처리방침
+개인정보 수집 및 이용
+1-2
+최종 변경일 : 2022.01.22 (60일 경과) 
+cloudgate
+대시보드
+상담데스크
+채팅
+콜
+문의 게시판
+티켓
+메시지
+워크플레이스
+설정
+설정
+회원 관리
+기본 설정
+브랜드 설정
+보안 설정
+운영 인사이트
+운영 인사이트
+통합 대시보드
+성과 분석
+상담유형 분석
+상담사 분석
+설문 분석
+상담 기록
+상담 기록
+상담 내역
+메시지 내역
+구독/결제
+구독/결제
+가입 정보
+구독/신청 변경
+결제 정보
+청구 내역
+사용량 조회
+브랜드
+브랜드1
+브랜드2
+Label
+브랜드 검색
+Input
+Help text
+검색
+Search ⌘K
+채팅 상담
+채팅 상담
+콜 상담
+콜 상담
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Shipping zones
+· 워크플레이스의 설정 기능은 계정의 권한에 따라 다르게 제공됩니다. 워크플레이스 권한보기
+· 권한에 따라 활용 가능한 메뉴가 다르게 제공됩니다. 권한에 따른 역할보기
+계정 초대
+내정보 관리
+채널 연동
+상담 관리
+채팅 상담 관리
+콜 상담 관리
+권한 설정
+상담사 근태 관리
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+내정보 관리
+계정 정보를 확인하고 수정할 수 있습니다.
+상담 분석
+/
+회원 관리
+/
+Breadcrumb
+/
+내정보 설정
+이용가이드
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+프로필
+Chip
+Chip
+Chip
++4
+Help text
+Username
+이미지
+Input
+Help text
+Label
+Search Category
+Input
+Help text
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+계정 정보
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이메일
+Input
+Help text
+twc1234@thewc.co.kr
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+비밀번호
+Input
+Help text
+비밀번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+휴대폰 번호
+Input
+Help text
+010-2222-2222
+휴대폰 번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 일자
+Input
+Help text
+2025-10-10
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 방법 
+Input
+Help text
+Naver
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+소속 워크플레이스
+Input
+Help text
+THEWC
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+권한
+Input
+Help text
+소유자
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+계정 상태
+Input
+Help text
+비활성화
+탈퇴하기
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+내정보 관리
+계정 정보를 확인하고 수정할 수 있습니다.
+상담 분석
+/
+회원 관리
+/
+Breadcrumb
+/
+내정보 설정
+이용가이드
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+계정 정보
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이메일
+Input
+Help text
+twc1234@thewc.co.kr
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+비밀번호
+Input
+Help text
+비밀번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동  
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+휴대폰 번호
+Input
+Help text
+010-2222-2222
+휴대폰 번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 일자
+Input
+Help text
+2025-10-10
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 방법 
+Input
+Help text
+Naver
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+소속 워크플레이스
+Input
+Help text
+THEWC
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+권한
+Input
+Help text
+소유자
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+계정 상태
+Input
+Help text
+비활성화
+탈퇴하기
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+The White Communication.
+이용가이드
+서비스 이용약관
+개인정보 처리방침
+개인정보 수집 및 이용
+1-2
+cloudgate
+대시보드
+상담데스크
+채팅
+콜
+문의 게시판
+티켓
+메시지
+워크플레이스
+설정
+설정
+회원 관리
+기본 설정
+브랜드 설정
+보안 설정
+운영 인사이트
+운영 인사이트
+통합 대시보드
+성과 분석
+상담유형 분석
+상담사 분석
+설문 분석
+상담 기록
+상담 기록
+상담 내역
+메시지 내역
+구독/결제
+구독/결제
+가입 정보
+구독/신청 변경
+결제 정보
+청구 내역
+사용량 조회
+브랜드
+브랜드1
+브랜드2
+Label
+브랜드 검색
+Input
+Help text
+검색
+Search ⌘K
+채팅 상담
+채팅 상담
+콜 상담
+콜 상담
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Shipping zones
+· 워크플레이스의 설정 기능은 계정의 권한에 따라 다르게 제공됩니다. 워크플레이스 권한보기
+· 권한에 따라 활용 가능한 메뉴가 다르게 제공됩니다. 권한에 따른 역할보기
+계정 초대
+내정보 관리
+채널 연동
+상담 관리
+채팅 상담 관리
+콜 상담 관리
+권한 설정
+상담사 근태 관리
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+내정보 관리
+계정 정보를 확인하고 수정할 수 있습니다.
+상담 분석
+/
+회원 관리
+/
+Breadcrumb
+/
+내정보 설정
+이용가이드
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+프로필
+Chip
+Chip
+Chip
++4
+Help text
+Username
+이미지
+Input
+Help text
+Label
+Search Category
+Input
+Help text
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+계정 정보
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이메일
+Input
+Help text
+twc1234@thewc.co.kr
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+비밀번호
+Input
+Help text
+비밀번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+휴대폰 번호
+Input
+Help text
+010-2222-2222
+휴대폰 번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 일자
+Input
+Help text
+2025-10-10
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 방법 
+Input
+Help text
+Naver
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+소속 워크플레이스
+Input
+Help text
+THEWC
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+권한
+Input
+Help text
+소유자
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+계정 상태
+Input
+Help text
+비활성화
+탈퇴하기
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+브랜드 관리
+연동 관리
+채팅 상담 관리
+상담 관리
+AI 상담서비스 관리
+설문조사 관리
+내정보 설정
+계정 정보를 확인하고 수정할 수 있습니다.
+상담 분석
+/
+회원 관리
+/
+Breadcrumb
+/
+내정보 설정
+이용가이드
+브랜드 선택
+브랜드 선택 후 조회 가능합니다.
+브랜드명
+브랜드1
+Chip
+Chip
+Chip
++4
+Help text
+계정 검색
+계정 정보
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이메일
+Input
+Help text
+twc1234@thewc.co.kr
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+비밀번호
+Input
+Help text
+비밀번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동  
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+휴대폰 번호
+Input
+Help text
+010-2222-2222
+휴대폰 번호 변경
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 일자
+Input
+Help text
+2025-10-10
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+가입 방법 
+Input
+Help text
+Naver
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+소속 워크플레이스
+Input
+Help text
+THEWC
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+권한
+Input
+Help text
+소유자
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+계정 상태
+Input
+Help text
+비활성화
+탈퇴하기
+할당 지점
+전체
+지점1
+지점2
+할당 지점 없음
+검색 기준
+상담유형 & 태그
+Chip
+Chip
+Chip
++4
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+브랜드 선택
+브랜드선택 후 조회 가능합니다.
+브랜드명
+브랜드를 선택하세요.
+Chip
+Help text
+검색 기간
+주차별
+Help text
+Username
+2025-06-30 ~ 2025-07-06
+Help text
+상담 채널
+메모
+톡
+챗봇
+메시지
+메일
+검색 기준
+상담유형 & 태그
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+상담 유형
+대분류
+Help text
+검색 기간
+중분류
+Help text
+검색 기간
+소분류
+Help text
+태그
+태그 검색
+Help text
+Username
+2024-06-30 ~ 2024-07-06
+Input
+Help text
+검색 초기화
+검색
+Label
+Search Category
+Input
+Help text
+메뉴 목록명
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+일괄적용
+병합
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+Text
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categories
+Categ
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Text
+Smart Phone
+Choose from wide range of smartphones online at best prices.
+12,548
+12,548
+Smart Phone
+검색 조건을 선택 및 입력 후
+검색 버튼을 클릭하세요.
+Smart Phone
+검색 결과가 없습니다.
+다른 키워드로 검색해보세요.
+총 45
+1
+2
+3
+4
+5
+6
+The White Communication.
+이용가이드
+서비스 이용약관
+개인정보 처리방침
+개인정보 수집 및 이용
+1
+1-2
+1
+2
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+이름
+Input
+Help text
+홍길동  
+취소
+저장
+표
+그래프
+Label
+표
+Chip
+Chip
+Chip
++4
+Help text
+지점 관리
+내보내기
+등록
+Label
+15
+Chip
+Chip
+Chip
++4
+Help text
+홍길동   
+2-1
+1
+최종 변경일 : 2022.01.22 (60일 경과) 
+최종 변경일 : 2022.01.22 (60일 경과) 
+가입 상태
+가입 완료
+탈퇴
+초대 취소
+권한
+소유자
+관리자
+멤버
+Username
+비밀번호
+Input
+Help text
+비밀번호 변경
+안전한 계정 이용을 위해 비밀번호는 90일마다 변경을 권장합니다.
+5
+6
+최종 변경일 : 2022.01.22 (60일 경과) 
+최종 변경일 : 2022.01.22 (60일 경과) 
+탈퇴 계정
+DB 데이터 보관
+재가입 제한
+로그인
+기간
+90일
+30일
+불가
+ [탈퇴 정책]
+일반가입/SNS 회원(네이버, 카카오, 구글) 탈퇴 가능
+재가입 제한 - 재가입 불가 기간 : 탈퇴일 포함 +30일 - 재가입 제한 30일 이후에는 동일 정보로 ‘신규 가입’ 허용 - 일반계정 : 이메일 기준으로 재가입 제한 - SNS 로그인 계정 : 동일 Provider UID기준으로 재가입 제한
+DB 데이터 보관 정책 - 일반계정/탈퇴계정 별도로 분리해서 ‘계정정보’ DB에 보관 - 탈퇴일 포함하여 +90일 후 DB에 저장된 데이터 영구 삭제 - 탈퇴 시 계정 비밀번호는 즉시 DB에서 삭제  
+
+
+[회원가입 > 개인정보 수집 및 이용 동의] URL : https://thewc.co.kr/privacypolicy-cgterms/
+
+예시) 3. 개인정보의 보유 및 이용기간 회사는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.
+1) 고객 문의 응대
+보관기간: 문의일로부터 3년
+보관이유: 문의 처리, 의사 소통 경로 확보
+보관항목: 아이디, 이름, 연락처, 이메일 주소, 문의내역
+2) 회원 탈퇴 또는 동의 철회 시 부정 이용 방지
+보관기간: 회원 탈퇴일로부터 90일간 보관 후 지체 없이 파기
+보관이유: 부정 이용(재가입 혜택 중복 수령 등 어뷰징) 방지, 불법 이용자에 대한 관련 기관 수사 협조, 소비자의 불만 및 분쟁 해결
+보관항목: 이메일 주소, 이름, 연락처, 접속 로그 (※ 단, 관계 법령 위반에 따른 수사·조사 등이 진행 중인 경우 해당 수사·조사 종료 시까지, 서비스 이용에 따른 채권·채무관계 잔존 시 해당 채권·채무관계 정산 시까지 보관을 연장할 수 있습니다.)
+3) 장기 미이용 회원 처리
+보관기간: 최근 1년 이상 서비스 이용(로그인) 이력이 없는 경우 휴면 계정으로 전환하여 별도 보관
+보관이유: 장기 미이용 회원의 개인정보 보호 및 격리 보관
+보관항목: 회원 가입 시 수집한 개인정보 전체 및 서비스 이용 기록 (※ 회사는 휴면 계정 전환 30일 전까지 개인정보가 분리·보관되는 사실과 전환 예정일 및 보관 대상 개인정보 항목을 이메일 등으로 회원에게 통지하며, 휴면 전환된 계정은 로그인 시 제공되는 '계정 활성화' 절차를 거쳐 정상 서비스 이용이 가능합니다.)
+회원가입
+가입을 위한 정보를 입력해주세요.
+워크플레이스 생성
+워크플레이스 정보를 입력해주세요.
+비즈니스 인증
+워크플레이스 정보를 입력해주세요.
+회원가입
+서비스 가입 후 무료로 시작할 수 있으며, 유료 플랜으로 전환하여 다양한 기능을 이용할 수 있습니다.
+이메일
+(0/20)
+사용자 계정으로 사용할 이메일 주소를 입력하세요.
+보내기
+ 이메일 인증코드*
+(0/20)
+인증코드를 입력해주세요.
+전체
+워크플레이스 선택 또는 검색하세요.
+Enter your friend’s email address and invite them to join Snet
+john.doe@gmail.com
+Message
+Submit
+휴대폰 번호*
+(0/20)
+휴대폰 번호를 입력해주세요.
+전체
+워크플레이스 선택 또는 검색하세요.
+Enter your friend’s email address and invite them to join Snet
+john.doe@gmail.com
+Message
+Submit
+이메일 인증번호
+(0/20)
+인증번호를 입력하세요.
+인증
+휴대폰 번호
+(0/20)
+‘-’를 제외하고 숫자만 입력하세요.
+보내기
+ 이메일 인증코드*
+(0/20)
+인증코드를 입력해주세요.
+전체
+워크플레이스 선택 또는 검색하세요.
+Enter your friend’s email address and invite them to join Snet
+john.doe@gmail.com
+Message
+Submit
+휴대폰 번호*
+(0/20)
+휴대폰 번호를 입력해주세요.
+전체
+워크플레이스 선택 또는 검색하세요.
+Enter your friend’s email address and invite them to join Snet
+john.doe@gmail.com
+Message
+Submit
+휴대폰 인증번호
+(0/20)
+휴대폰 인증번호 를 입력하세요.
+인증
+비밀번호
+(0/20)
+문자, 숫자, 기호를 조합해 8자 이상 비밀번호를 입력하세요.
+전체
+워크플레이스 선택 또는 검색하세요.
+Enter your friend’s email address and invite them to join Snet
+john.doe@gmail.com
+Message
+Submit
+비밀번호 확인
+(0/20)
+비밀번호를 한번 더 입력하세요.
+전체
+워크플레이스 선택 또는 검색하세요.
+Enter your friend’s email address and invite them to join Snet
+john.doe@gmail.com
+Message
+Submit
+이름
+(0/20)
+이름을 입력하세요.
+전체
+워크플레이스 선택 또는 검색하세요.
+Enter your friend’s email address and invite them to join Snet
+john.doe@gmail.com
+Message
+Submit
+전체 약관 동의
+보기
+회원가입 및 이용약관 (필수)
+보기
+개인정보 수집 및  이용 동의 (필수)
+보기
+초기화
+이미 클라우드게이트 계정이 있다면? 로그인
+가입하기
+5-1
+5

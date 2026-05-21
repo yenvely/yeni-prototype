@@ -11,11 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const screenHome = document.getElementById('screen-home');
   const screenChat = document.getElementById('screen-chat');
   const screenMypage = document.getElementById('screen-mypage');
+  const screenMyInfoSettings = document.getElementById('screen-myinfo-settings');
+  const screenDesignSystem = document.getElementById('screen-design-system');
   const bottomNav = document.getElementById('bottom-nav');
   
   const navHome = document.getElementById('nav-home');
   const navChat = document.getElementById('nav-chat');
   const navMypage = document.getElementById('nav-mypage');
+  const navDesignSystem = document.getElementById('nav-design-system');
   
   // Login Form
   const emailInput = document.getElementById('email');
@@ -149,6 +152,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // --- 2.5. Collapsible Sandbox Control Panel Sidebar ---
+  const controlPanel = document.getElementById('control-panel');
+  const controlPanelToggle = document.getElementById('control-panel-toggle');
+  if (controlPanel && controlPanelToggle) {
+    controlPanelToggle.addEventListener('click', () => {
+      controlPanel.classList.toggle('collapsed');
+      const icon = controlPanelToggle.querySelector('i');
+      if (controlPanel.classList.contains('collapsed')) {
+        icon.className = 'fa-solid fa-angles-right';
+        showToast('제어판이 축소되었습니다.');
+      } else {
+        icon.className = 'fa-solid fa-angles-left';
+        showToast('제어판이 확장되었습니다.');
+      }
+    });
+  }
+
   // Autofocus email input on load
   if (emailInput) {
     emailInput.focus();
@@ -170,8 +190,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 4. Navigation & Screen Switching ---
   function switchScreen(targetScreenId) {
-    const screens = [screenLogin, screenForgotPw, screenHome, screenChat, screenMypage];
-    screens.forEach(s => s.classList.remove('active'));
+    const screens = [screenLogin, screenForgotPw, screenHome, screenChat, screenMypage, screenMyInfoSettings, screenDesignSystem];
+    screens.forEach(s => {
+      if (s) s.classList.remove('active');
+    });
+
+    const navItems = [navHome, navChat, navMypage, navDesignSystem];
+    navItems.forEach(n => {
+      if (n) n.classList.remove('active');
+    });
     
     if (targetScreenId === 'login') {
       screenLogin.classList.add('active');
@@ -182,24 +209,26 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (targetScreenId === 'home') {
       screenHome.classList.add('active');
       bottomNav.classList.add('visible');
-      navHome.classList.add('active');
-      navChat.classList.remove('active');
-      navMypage.classList.remove('active');
+      if (navHome) navHome.classList.add('active');
     } else if (targetScreenId === 'chat') {
       screenChat.classList.add('active');
       bottomNav.classList.add('visible');
-      navHome.classList.remove('active');
-      navChat.classList.add('active');
-      navMypage.classList.remove('active');
+      if (navChat) navChat.classList.add('active');
       
       // Update Tab contents on opening
       renderChatTabs();
     } else if (targetScreenId === 'mypage') {
       screenMypage.classList.add('active');
       bottomNav.classList.add('visible');
-      navHome.classList.remove('active');
-      navChat.classList.remove('active');
-      navMypage.classList.add('active');
+      if (navMypage) navMypage.classList.add('active');
+    } else if (targetScreenId === 'myinfo-settings') {
+      screenMyInfoSettings.classList.add('active');
+      bottomNav.classList.add('visible');
+      if (navMypage) navMypage.classList.add('active');
+    } else if (targetScreenId === 'design-system') {
+      if (screenDesignSystem) screenDesignSystem.classList.add('active');
+      bottomNav.classList.add('visible');
+      if (navDesignSystem) navDesignSystem.classList.add('active');
     }
   }
 
@@ -214,6 +243,12 @@ document.addEventListener('DOMContentLoaded', () => {
   navMypage.addEventListener('click', () => {
     if (isLoggedIn) switchScreen('mypage');
   });
+
+  if (navDesignSystem) {
+    navDesignSystem.addEventListener('click', () => {
+      if (isLoggedIn) switchScreen('design-system');
+    });
+  }
 
   // Clicking waiting or ongoing cards on home triggers chat navigation
   homeStatWaiting.addEventListener('click', () => {
@@ -1166,6 +1201,851 @@ document.addEventListener('DOMContentLoaded', () => {
           });
           break;
       }
+    });
+  });
+
+  // ==========================================
+  // --- '내정보 설정' (My Info Settings) Screen logic ---
+  // ==========================================
+
+  // Elements
+  const goMyInfoBtn = document.getElementById('go-to-myinfo-btn');
+  const myinfoBackBtn = document.getElementById('myinfo-back-btn');
+  
+  // Sandbox test controls
+  const testUserRoleSelect = document.getElementById('test-user-role');
+  const testOngoingChatCheckbox = document.getElementById('test-ongoing-chat');
+
+  // Name Editing
+  const myinfoNameInput = document.getElementById('myinfo-name-input');
+  const myinfoNameError = document.getElementById('myinfo-name-error');
+  const myinfoNameActions = document.getElementById('myinfo-name-actions');
+  const myinfoNameCancel = document.getElementById('myinfo-name-cancel');
+  const myinfoNameSave = document.getElementById('myinfo-name-save');
+  const myinfoRoleTxt = document.getElementById('myinfo-role-txt');
+  const myinfoBadgeRole = document.getElementById('myinfo-badge-role');
+  const profileNameEl = document.querySelector('.profile-name');
+  const profileRoleEl = document.querySelector('.profile-role');
+
+  // Password Modal
+  const myinfoChangePwBtn = document.getElementById('myinfo-change-pw-btn');
+  const myinfoPwModal = document.getElementById('myinfo-pw-modal');
+  const myinfoCurrPw = document.getElementById('myinfo-curr-pw');
+  const myinfoNewPw = document.getElementById('myinfo-new-pw');
+  const myinfoConfirmPw = document.getElementById('myinfo-confirm-pw');
+  const myinfoCurrPwError = document.getElementById('myinfo-curr-pw-error');
+  const myinfoNewPwError = document.getElementById('myinfo-new-pw-error');
+  const myinfoConfirmPwError = document.getElementById('myinfo-confirm-pw-error');
+  const myinfoPwCancel = document.getElementById('myinfo-pw-cancel');
+  const myinfoPwSubmit = document.getElementById('myinfo-pw-submit');
+
+  const myinfoRuleLength = document.getElementById('myinfo-rule-length');
+  const myinfoRuleLower = document.getElementById('myinfo-rule-lower');
+  const myinfoRuleUpper = document.getElementById('myinfo-rule-upper');
+  const myinfoRuleNumber = document.getElementById('myinfo-rule-number');
+  const myinfoRuleSpecial = document.getElementById('myinfo-rule-special');
+  const myinfoRuleMatch = document.getElementById('myinfo-rule-match');
+
+  // Phone Modal
+  const myinfoChangePhoneBtn = document.getElementById('myinfo-change-phone-btn');
+  const myinfoPhoneModal = document.getElementById('myinfo-phone-modal');
+  const myinfoPhoneInput = document.getElementById('myinfo-phone-input');
+  const myinfoPhoneSendBtn = document.getElementById('myinfo-phone-send-btn');
+  const myinfoPhoneError = document.getElementById('myinfo-phone-error');
+  const myinfoPhoneCodeGroup = document.getElementById('myinfo-phone-code-group');
+  const myinfoPhoneCodeInput = document.getElementById('myinfo-phone-code-input');
+  const myinfoPhoneVerifyBtn = document.getElementById('myinfo-phone-verify-btn');
+  const myinfoPhoneTimerBox = document.getElementById('myinfo-phone-timer-box');
+  const myinfoPhoneTimerTxt = document.getElementById('myinfo-phone-timer-txt');
+  const myinfoPhoneResendBtn = document.getElementById('myinfo-phone-resend-btn');
+  const myinfoPhoneCodeError = document.getElementById('myinfo-phone-code-error');
+  const myinfoPhoneCancel = document.getElementById('myinfo-phone-cancel');
+  const myinfoPhoneSubmit = document.getElementById('myinfo-phone-submit');
+  const myinfoPhoneTxt = document.getElementById('myinfo-phone-txt');
+
+  // Withdrawal
+  const myinfoWithdrawBtn = document.getElementById('myinfo-withdraw-btn');
+
+  // State variables
+  let currentMockRole = 'owner'; // default
+  let hasOngoingChatMock = false; // default
+  let currentSavedName = '권예은';
+  let phoneAttemptCount = 0;
+  let phoneTimerInterval = null;
+  let phoneVerificationCode = "";
+  let isPhoneVerified = false;
+
+  // --- A. Navigation & Switching ---
+  if (goMyInfoBtn) {
+    goMyInfoBtn.addEventListener('click', () => {
+      switchScreen('myinfo-settings');
+      syncRoleUI();
+    });
+  }
+
+  if (myinfoBackBtn) {
+    myinfoBackBtn.addEventListener('click', () => {
+      switchScreen('mypage');
+    });
+  }
+
+  // --- B. Sandbox Test Controls Sync ---
+  if (testUserRoleSelect) {
+    testUserRoleSelect.addEventListener('change', () => {
+      currentMockRole = testUserRoleSelect.value;
+      syncRoleUI();
+      showToast(`역할이 '${currentMockRole === 'owner' ? '소유자' : currentMockRole === 'admin' ? '관리자' : '멤버'}'(으)로 테스트 변경되었습니다.`);
+    });
+  }
+
+  if (testOngoingChatCheckbox) {
+    testOngoingChatCheckbox.addEventListener('change', () => {
+      hasOngoingChatMock = testOngoingChatCheckbox.checked;
+      showToast(`진행 중인 상담 여부가 '${hasOngoingChatMock ? '있음' : '없음'}'(으)로 테스트 변경되었습니다.`);
+    });
+  }
+
+  function syncRoleUI() {
+    let roleText = '소유자';
+    let roleClass = 'owner';
+    if (currentMockRole === 'admin') {
+      roleText = '관리자';
+      roleClass = 'admin';
+    } else if (currentMockRole === 'member') {
+      roleText = '멤버';
+      roleClass = 'member';
+    }
+
+    // Update Profile Card
+    if (profileRoleEl) {
+      profileRoleEl.textContent = `워크플레이스 ${roleText}`;
+    }
+
+    // Update Settings Page
+    if (myinfoRoleTxt) {
+      myinfoRoleTxt.textContent = roleText;
+      myinfoRoleTxt.className = `user-badge ${roleClass}`;
+    }
+    if (myinfoBadgeRole) {
+      myinfoBadgeRole.textContent = roleText;
+      myinfoBadgeRole.className = `user-badge ${roleClass}`;
+      myinfoBadgeRole.style.margin = '0 auto';
+    }
+
+    // SNS / Email PW change toggle policy (SNS vs Email)
+    const pwRow = document.getElementById('myinfo-password-group-row');
+    if (pwRow) {
+      const emailTxt = document.getElementById('myinfo-email-txt');
+      if (currentMockRole === 'member') {
+        // Mocking member as an SNS Google login type
+        pwRow.style.display = 'none'; // hidden for SNS users
+        if (emailTxt) {
+          emailTxt.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; background: #fee500; color: #3c1e1e;">
+                <i class="fa-solid fa-comment" style="font-size: 9px;"></i> 카카오 연동
+              </span>
+              <span style="font-size: 12px; font-weight: 500; color: var(--text-primary);">member@kakao.com</span>
+            </div>
+          `;
+        }
+      } else if (currentMockRole === 'admin') {
+        pwRow.style.display = 'block';
+        if (emailTxt) {
+          emailTxt.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; background: #03c75a; color: #fff;">
+                N 네이버 연동
+              </span>
+              <span style="font-size: 12px; font-weight: 500; color: var(--text-primary);">admin@naver.com</span>
+            </div>
+          `;
+        }
+      } else {
+        pwRow.style.display = 'block';
+        if (emailTxt) {
+          emailTxt.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; background: #ea4335; color: #fff;">
+                <i class="fa-brands fa-google" style="font-size: 9px;"></i> 구글 연동
+              </span>
+              <span style="font-size: 12px; font-weight: 500; color: var(--text-primary);">twc1234@thewc.co.kr</span>
+            </div>
+          `;
+        }
+      }
+    }
+  }
+
+  // --- C. Name Editing with Validations ---
+  if (myinfoNameInput) {
+    myinfoNameInput.addEventListener('input', () => {
+      let val = myinfoNameInput.value;
+      
+      // 1. Intercept special characters physically
+      const cleanVal = val.replace(/[^a-zA-Z0-9가-힣\s]/g, '');
+      if (val !== cleanVal) {
+        myinfoNameInput.value = cleanVal;
+        val = cleanVal;
+        showToast('한글, 영문, 숫자만 입력할 수 있습니다.');
+      }
+      
+      // 2. Intercept and truncate 20+ length physically
+      if (val.length > 20) {
+        myinfoNameInput.value = val.substring(0, 20);
+        val = val.substring(0, 20);
+        showToast('이름은 최대 20자까지 입력 가능합니다.');
+      }
+
+      const trimmedVal = val.trim();
+      const parentGroup = document.getElementById('myinfo-name-group');
+      
+      // Show action buttons when modified
+      if (trimmedVal !== currentSavedName) {
+        myinfoNameActions.style.display = 'flex';
+      } else {
+        myinfoNameActions.style.display = 'none';
+      }
+
+      // Realtime validation
+      let hasError = false;
+      let errorMsgText = "";
+
+      if (trimmedVal.length === 0) {
+        hasError = true;
+        errorMsgText = "필수 입력 항목입니다.";
+      }
+
+      if (hasError) {
+        parentGroup.classList.add('has-error');
+        myinfoNameError.querySelector('.text').textContent = errorMsgText;
+        myinfoNameSave.disabled = true;
+      } else {
+        parentGroup.classList.remove('has-error');
+        myinfoNameSave.disabled = false;
+      }
+    });
+
+    myinfoNameCancel.addEventListener('click', () => {
+      myinfoNameInput.value = currentSavedName;
+      const parentGroup = document.getElementById('myinfo-name-group');
+      parentGroup.classList.remove('has-error');
+      myinfoNameActions.style.display = 'none';
+      showToast('이름 변경이 취소되었습니다.');
+    });
+
+    myinfoNameSave.addEventListener('click', () => {
+      const val = myinfoNameInput.value.trim();
+      if (val.length === 0 || !/^[a-zA-Z0-9가-힣\s]+$/.test(val)) return;
+
+      currentSavedName = val;
+      myinfoNameActions.style.display = 'none';
+      
+      // Update global profile views
+      if (profileNameEl) profileNameEl.textContent = val;
+      const dashboardHeader = document.querySelector('.home-header h2');
+      if (dashboardHeader) dashboardHeader.textContent = `${val}님`;
+
+      // Update avatar initials
+      const avatars = document.querySelectorAll('.avatar-wrapper, .member-item-avatar');
+      avatars.forEach(av => {
+        if (av.textContent.trim().length === 1 && (av.textContent.trim() === '권' || av.textContent.trim() === currentSavedName.charAt(0))) {
+          av.textContent = val.charAt(0);
+        }
+      });
+
+      showToast(`이름이 '${val}'(으)로 저장 완료되었습니다.`);
+    });
+  }
+
+  // --- D. Password Change Modal Logic ---
+  // Masking toggles for change password modal
+  function setupMaskingToggle(btnEl, inputEl, eyeEl) {
+    if (btnEl && inputEl && eyeEl) {
+      btnEl.addEventListener('click', () => {
+        const isMasked = inputEl.getAttribute('type') === 'password';
+        if (isMasked) {
+          inputEl.setAttribute('type', 'text');
+          eyeEl.className = 'fa-solid fa-eye-slash';
+        } else {
+          inputEl.setAttribute('type', 'password');
+          eyeEl.className = 'fa-solid fa-eye';
+        }
+      });
+    }
+  }
+  setupMaskingToggle(document.getElementById('myinfo-toggle-curr-pw'), myinfoCurrPw, document.getElementById('myinfo-eye-curr'));
+  setupMaskingToggle(document.getElementById('myinfo-toggle-new-pw'), myinfoNewPw, document.getElementById('myinfo-eye-new'));
+  setupMaskingToggle(document.getElementById('myinfo-toggle-confirm-pw'), myinfoConfirmPw, document.getElementById('myinfo-eye-confirm'));
+
+  if (myinfoChangePwBtn) {
+    myinfoChangePwBtn.addEventListener('click', () => {
+      myinfoPwModal.classList.add('active');
+      resetPwModalState();
+    });
+  }
+
+  if (myinfoPwCancel) {
+    myinfoPwCancel.addEventListener('click', () => {
+      myinfoPwModal.classList.remove('active');
+    });
+  }
+
+  function resetPwModalState() {
+    myinfoCurrPw.value = "";
+    myinfoNewPw.value = "";
+    myinfoConfirmPw.value = "";
+    
+    // reset masking
+    myinfoCurrPw.setAttribute('type', 'password');
+    myinfoNewPw.setAttribute('type', 'password');
+    myinfoConfirmPw.setAttribute('type', 'password');
+    document.getElementById('myinfo-eye-curr').className = 'fa-solid fa-eye';
+    document.getElementById('myinfo-eye-new').className = 'fa-solid fa-eye';
+    document.getElementById('myinfo-eye-confirm').className = 'fa-solid fa-eye';
+
+    const groups = ['myinfo-curr-pw-group', 'myinfo-new-pw-group', 'myinfo-confirm-pw-group'];
+    groups.forEach(g => {
+      const el = document.getElementById(g);
+      if (el) {
+        el.classList.remove('has-error');
+        el.classList.remove('has-success');
+      }
+    });
+
+    const rules = [myinfoRuleLength, myinfoRuleLower, myinfoRuleUpper, myinfoRuleNumber, myinfoRuleSpecial, myinfoRuleMatch];
+    rules.forEach(r => {
+      if (r) {
+        r.className = '';
+        r.querySelector('i').className = 'fa-solid fa-circle-dot';
+      }
+    });
+    myinfoPwSubmit.disabled = true;
+  }
+
+  function checkMyInfoPwRules() {
+    const currVal = myinfoCurrPw.value;
+    const newVal = myinfoNewPw.value;
+    const confVal = myinfoConfirmPw.value;
+
+    let isLength = newVal.length >= 8 && newVal.length <= 90;
+    let isLower = /[a-z]/.test(newVal);
+    let isUpper = /[A-Z]/.test(newVal);
+    let isNumber = /[0-9]/.test(newVal);
+    let isSpecial = /[`!@#$%^&*()_+\-=\[\]{}|;:'",.<>\/?]/.test(newVal);
+    let isMatch = newVal.length > 0 && newVal === confVal;
+
+    // Repeats check (5 consecutive identical digits or chars)
+    let hasRepeatPattern = /(.)\1{4}/.test(newVal);
+    const newGroup = document.getElementById('myinfo-new-pw-group');
+    
+    if (newVal.length > 0) {
+      if (hasRepeatPattern) {
+        isLength = false; // invalidate
+        if (newGroup) {
+          newGroup.classList.add('has-error');
+          const errText = document.getElementById('myinfo-new-pw-error');
+          if (errText) errText.querySelector('.text').textContent = '동일 문자/숫자를 5회 연속 반복하여 사용할 수 없습니다.';
+        }
+      } else {
+        if (newGroup) newGroup.classList.remove('has-error');
+      }
+    } else {
+      if (newGroup) newGroup.classList.remove('has-error');
+    }
+
+    function toggleRule(el, isValid) {
+      if (el) {
+        const icon = el.querySelector('i');
+        if (isValid) {
+          el.className = 'valid';
+          icon.className = 'fa-solid fa-circle-check';
+        } else {
+          el.className = '';
+          icon.className = 'fa-solid fa-circle-dot';
+        }
+      }
+    }
+
+    toggleRule(myinfoRuleLength, isLength);
+    toggleRule(myinfoRuleLower, isLower);
+    toggleRule(myinfoRuleUpper, isUpper);
+    toggleRule(myinfoRuleNumber, isNumber);
+    toggleRule(myinfoRuleSpecial, isSpecial);
+    toggleRule(myinfoRuleMatch, isMatch);
+
+    // Dynamic error message for match confirm input
+    const confGroup = document.getElementById('myinfo-confirm-pw-group');
+    if (confVal.length > 0) {
+      if (!isMatch) {
+        confGroup.classList.add('has-error');
+        myinfoConfirmPwError.querySelector('.text').textContent = '새 비밀번호가 일치하지 않습니다.';
+      } else {
+        confGroup.classList.remove('has-error');
+        confGroup.classList.add('has-success');
+      }
+    } else {
+      confGroup.classList.remove('has-error');
+      confGroup.classList.remove('has-success');
+    }
+
+    const allValid = isLength && isLower && isUpper && isNumber && isSpecial && isMatch && currVal.length > 0 && !hasRepeatPattern;
+    myinfoPwSubmit.disabled = !allValid;
+  }
+
+  myinfoCurrPw.addEventListener('input', checkMyInfoPwRules);
+  myinfoNewPw.addEventListener('input', checkMyInfoPwRules);
+  myinfoConfirmPw.addEventListener('input', checkMyInfoPwRules);
+
+  if (myinfoPwSubmit) {
+    myinfoPwSubmit.addEventListener('click', () => {
+      const currVal = myinfoCurrPw.value;
+      const newVal = myinfoNewPw.value;
+
+      // 1. Current password check
+      if (currVal !== customPassword) {
+        const currGroup = document.getElementById('myinfo-curr-pw-group');
+        currGroup.classList.add('has-error');
+        myinfoCurrPwError.querySelector('.text').textContent = '현재 비밀번호가 일치하지 않습니다.';
+        return;
+      }
+
+      // 2. Collision policy check (new pw same as current)
+      if (newVal === customPassword) {
+        showPopup({
+          iconClass: 'fa-solid fa-triangle-exclamation',
+          color: 'var(--warning-color)',
+          bg: 'hsla(38, 92%, 50%, 0.15)',
+          title: '비밀번호 변경 불가',
+          body: '현재 비밀번호와 동일한 새 비밀번호로는 변경할 수 없습니다. [C01]',
+          buttons: [
+            {
+              text: '확인',
+              type: 'primary'
+            }
+          ]
+        });
+        return;
+      }
+
+      // Success
+      myinfoPwSubmit.disabled = true;
+      myinfoPwSubmit.textContent = "변경 중...";
+      
+      setTimeout(() => {
+        customPassword = newVal; // update internal credential
+        myinfoPwModal.classList.remove('active');
+        myinfoPwSubmit.textContent = "변경";
+        
+        // Show success alert dialog
+        showPopup({
+          iconClass: 'fa-solid fa-circle-check',
+          color: 'var(--success-color)',
+          bg: 'var(--success-glow)',
+          title: '비밀번호 변경 완료',
+          body: '정상적으로 비밀번호 변경이 완료되었습니다. [C02]',
+          buttons: [
+            {
+              text: '확인',
+              type: 'primary'
+            }
+          ]
+        });
+        
+        const now = new Date();
+        const dateStr = `${now.getFullYear()}. ${String(now.getMonth() + 1).padStart(2, '0')}. ${String(now.getDate()).padStart(2, '0')}`;
+        document.getElementById('myinfo-pw-last-changed').textContent = `최종 변경일: ${dateStr} (0일 경과)`;
+      }, 1000);
+    });
+  }
+
+  // --- E. Phone Number Change Modal Logic ---
+  // Input hyphen auto formatter
+  if (myinfoPhoneInput) {
+    myinfoPhoneInput.addEventListener('input', () => {
+      const parentGroup = document.getElementById('myinfo-phone-group');
+      if (phoneAttemptCount >= 5) {
+        parentGroup.classList.add('has-error');
+        myinfoPhoneError.querySelector('.text').textContent = '인증번호는 1일 최대 5회까지 발송 가능합니다.';
+        myinfoPhoneSendBtn.disabled = true;
+        return;
+      }
+
+      let val = myinfoPhoneInput.value.replace(/[^0-9]/g, '');
+      
+      // Auto formatting 3-4-4
+      if (val.length > 3 && val.length <= 7) {
+        val = val.substring(0, 3) + '-' + val.substring(3);
+      } else if (val.length > 7) {
+        val = val.substring(0, 3) + '-' + val.substring(3, 7) + '-' + val.substring(7, 11);
+      }
+      myinfoPhoneInput.value = val;
+
+      const isValid = /^\d{3}-\d{4}-\d{4}$/.test(val);
+
+      if (val.length > 0 && !isValid) {
+        parentGroup.classList.add('has-error');
+        myinfoPhoneError.querySelector('.text').textContent = '휴대폰 번호를 확인하세요.';
+        myinfoPhoneSendBtn.disabled = true;
+      } else {
+        parentGroup.classList.remove('has-error');
+        myinfoPhoneSendBtn.disabled = !isValid;
+      }
+    });
+  }
+
+  if (myinfoChangePhoneBtn) {
+    myinfoChangePhoneBtn.addEventListener('click', () => {
+      myinfoPhoneModal.classList.add('active');
+      resetPhoneModalState();
+    });
+  }
+
+  if (myinfoPhoneCancel) {
+    myinfoPhoneCancel.addEventListener('click', () => {
+      myinfoPhoneModal.classList.remove('active');
+      clearInterval(phoneTimerInterval);
+    });
+  }
+
+  function resetPhoneModalState() {
+    myinfoPhoneInput.value = "";
+    myinfoPhoneInput.disabled = false;
+    myinfoPhoneSendBtn.disabled = true;
+    myinfoPhoneSendBtn.textContent = "보내기";
+    myinfoPhoneSendBtn.className = "btn btn-primary";
+    myinfoPhoneSendBtn.onclick = null;
+    
+    myinfoPhoneCodeGroup.style.display = "none";
+    myinfoPhoneCodeInput.value = "";
+    myinfoPhoneCodeInput.disabled = true;
+    myinfoPhoneVerifyBtn.disabled = true;
+    myinfoPhoneSubmit.disabled = true;
+
+    const groups = ['myinfo-phone-group', 'myinfo-phone-code-group'];
+    groups.forEach(g => {
+      const el = document.getElementById(g);
+      if (el) {
+        el.classList.remove('has-error');
+        el.classList.remove('has-success');
+      }
+    });
+
+    isPhoneVerified = false;
+    clearInterval(phoneTimerInterval);
+
+    if (phoneAttemptCount >= 5) {
+      myinfoPhoneInput.disabled = true;
+      myinfoPhoneSendBtn.disabled = true;
+      const parent = document.getElementById('myinfo-phone-group');
+      if (parent) {
+        parent.classList.add('has-error');
+        myinfoPhoneError.querySelector('.text').textContent = '인증번호는 1일 최대 5회까지 발송 가능합니다.';
+      }
+    }
+  }
+
+  // Send verification code
+  if (myinfoPhoneSendBtn) {
+    myinfoPhoneSendBtn.addEventListener('click', () => {
+      const phoneNum = myinfoPhoneInput.value;
+
+      // Check duplicate with current phone number
+      if (phoneNum === myinfoPhoneTxt.textContent) {
+        const parent = document.getElementById('myinfo-phone-group');
+        parent.classList.add('has-error');
+        myinfoPhoneError.querySelector('.text').textContent = '현재 등록된 휴대폰 번호와 동일합니다.';
+        return;
+      }
+
+      // Check max attempts
+      if (phoneAttemptCount >= 5) {
+        const parent = document.getElementById('myinfo-phone-group');
+        parent.classList.add('has-error');
+        myinfoPhoneError.querySelector('.text').textContent = '인증번호는 1일 최대 5회까지 발송 가능합니다.';
+        return;
+      }
+
+      phoneAttemptCount++;
+      sendSMSCodeSimulated();
+    });
+  }
+
+  if (myinfoPhoneResendBtn) {
+    myinfoPhoneResendBtn.addEventListener('click', () => {
+      if (phoneAttemptCount >= 5) {
+        showToast('하루에 최대 5회만 인증번호 전송이 가능합니다!');
+        return;
+      }
+      phoneAttemptCount++;
+      sendSMSCodeSimulated();
+    });
+  }
+
+  function sendSMSCodeSimulated() {
+    showToast('인증번호 SMS 문자를 전송했습니다.');
+    
+    // Generate simulated 6-digit verification code
+    phoneVerificationCode = String(Math.floor(100000 + Math.random() * 900000));
+    console.log(`[CG SMS Debug] Verification code: ${phoneVerificationCode}`);
+    
+    // Show verification island alert
+    triggerIslandNotification(`SMS 인증번호: ${phoneVerificationCode}`, 'fa-solid fa-comment-sms', 4000);
+
+    // Disable phone input
+    myinfoPhoneInput.disabled = true;
+    
+    // Toggle send button to "재입력" (Reset / Edit phone number)
+    myinfoPhoneSendBtn.textContent = "재입력";
+    myinfoPhoneSendBtn.className = "btn btn-secondary";
+    myinfoPhoneSendBtn.onclick = () => {
+      // Re-enable and reset state to input phone number again
+      myinfoPhoneInput.disabled = false;
+      myinfoPhoneInput.focus();
+      myinfoPhoneSendBtn.textContent = "보내기";
+      myinfoPhoneSendBtn.className = "btn btn-primary";
+      myinfoPhoneSendBtn.onclick = null;
+      myinfoPhoneCodeGroup.style.display = "none";
+      clearInterval(phoneTimerInterval);
+    };
+
+    // Show verification inputs
+    myinfoPhoneCodeGroup.style.display = "block";
+    myinfoPhoneCodeInput.disabled = false;
+    myinfoPhoneCodeInput.value = "";
+    myinfoPhoneCodeInput.focus();
+    myinfoPhoneVerifyBtn.disabled = true;
+    
+    // Start countdown timer: 3 minutes (180 seconds)
+    let timeLeft = 180;
+    const timerBox = document.getElementById('myinfo-phone-timer-box');
+    timerBox.className = "timer-box timer-pulsing";
+    
+    clearInterval(phoneTimerInterval);
+    
+    function updatePhoneCountdown() {
+      const minutes = Math.floor(timeLeft / 60);
+      let seconds = timeLeft % 60;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+      myinfoPhoneTimerTxt.textContent = `0${minutes}:${seconds}`;
+
+      if (timeLeft <= 0) {
+        clearInterval(phoneTimerInterval);
+        timerBox.className = "timer-box";
+        myinfoPhoneCodeInput.disabled = true;
+        myinfoPhoneVerifyBtn.disabled = true;
+        
+        const codeGroup = document.getElementById('myinfo-phone-code-group');
+        codeGroup.classList.add('has-error');
+        myinfoPhoneCodeError.querySelector('.text').textContent = '인증 시간이 만료되었습니다. 다시 요청해 주세요.';
+      }
+      timeLeft--;
+    }
+    updatePhoneCountdown();
+    phoneTimerInterval = setInterval(updatePhoneCountdown, 1000);
+  }
+
+  // Enable code verify button
+  if (myinfoPhoneCodeInput) {
+    myinfoPhoneCodeInput.addEventListener('input', () => {
+      const val = myinfoPhoneCodeInput.value.replace(/[^0-9]/g, '');
+      myinfoPhoneCodeInput.value = val;
+      myinfoPhoneVerifyBtn.disabled = val.length !== 6;
+    });
+  }
+
+  // Verify Phone Code
+  if (myinfoPhoneVerifyBtn) {
+    myinfoPhoneVerifyBtn.addEventListener('click', () => {
+      const codeVal = myinfoPhoneCodeInput.value.trim();
+      const codeGroup = document.getElementById('myinfo-phone-code-group');
+
+      if (codeVal !== phoneVerificationCode) {
+        codeGroup.classList.add('has-error');
+        myinfoPhoneCodeError.querySelector('.text').textContent = '인증번호가 일치하지 않습니다.';
+        return;
+      }
+
+      // Success
+      clearInterval(phoneTimerInterval);
+      codeGroup.classList.remove('has-error');
+      codeGroup.classList.add('has-success');
+      
+      const timerBox = document.getElementById('myinfo-phone-timer-box');
+      timerBox.className = "timer-box";
+      
+      myinfoPhoneCodeInput.disabled = true;
+      myinfoPhoneVerifyBtn.disabled = true;
+      
+      showToast('휴대폰 점유 인증이 완료되었습니다.');
+      isPhoneVerified = true;
+      myinfoPhoneSubmit.disabled = false;
+    });
+  }
+
+  // Submit phone change
+  if (myinfoPhoneSubmit) {
+    myinfoPhoneSubmit.addEventListener('click', () => {
+      if (!isPhoneVerified) return;
+
+      const newPhone = myinfoPhoneInput.value;
+      myinfoPhoneSubmit.disabled = true;
+      myinfoPhoneSubmit.textContent = "변경 중...";
+
+      setTimeout(() => {
+        myinfoPhoneTxt.textContent = newPhone;
+        myinfoPhoneModal.classList.remove('active');
+        myinfoPhoneSubmit.textContent = "변경";
+
+        showPopup({
+          iconClass: 'fa-solid fa-circle-check',
+          color: 'var(--success-color)',
+          bg: 'var(--success-glow)',
+          title: '휴대폰 번호 변경 완료',
+          body: `휴대폰 번호가 성공적으로 변경되었습니다.<br><strong style="color: var(--primary-color);">${newPhone}</strong>`,
+          buttons: [
+            {
+              text: '확인',
+              type: 'primary'
+            }
+          ]
+        });
+      }, 1000);
+    });
+  }
+
+  // --- F. Withdrawal (회원 탈퇴) Flow by Roles ---
+  if (myinfoWithdrawBtn) {
+    myinfoWithdrawBtn.addEventListener('click', () => {
+      // 1. Check Owner Case
+      if (currentMockRole === 'owner') {
+        showPopup({
+          iconClass: 'fa-solid fa-triangle-exclamation',
+          color: 'var(--warning-color)',
+          bg: 'hsla(38, 92%, 50%, 0.15)',
+          title: '회원 탈퇴 불가 안내',
+          body: `
+            <div style="font-size:12px; line-height:1.45;">
+              현재 계정은 <strong>워크플레이스 소유자</strong>로 지정되어 있어 회원 탈퇴를 처리할 수 없습니다.<br>
+              탈퇴를 안전하게 마칠 수 있도록 아래 미해결 절차를 먼저 조치하십시오.
+              <ul class="deact-instruction-list">
+                <li><i class="fa-solid fa-circle-chevron-right" style="color:var(--primary-color);"></i> 워크플레이스의 소유자 권한을 다른 멤버에게 이관</li>
+                <li><i class="fa-solid fa-circle-chevron-right" style="color:var(--primary-color);"></i> 본인 명의로 등록된 구독 결제 수단 이관 또는 해지</li>
+              </ul>
+            </div>
+          `,
+          buttons: [
+            {
+              text: '확인',
+              type: 'primary'
+            }
+          ]
+        });
+        return;
+      }
+
+      // 2. Check Has Ongoing Counseling Case (Admin / Member)
+      if (hasOngoingChatMock) {
+        showPopup({
+          iconClass: 'fa-solid fa-triangle-exclamation',
+          color: 'var(--warning-color)',
+          bg: 'hsla(38, 92%, 50%, 0.15)',
+          title: '상담 중 강제 제한',
+          body: `
+            <div style="font-size:12px; line-height:1.45;">
+              현재 아직 종료되지 않은 <strong>인입 상담 세션이 존재</strong>하여 탈퇴가 불가능합니다.<br>
+              배정받은 고객 세션을 먼저 원활히 마무리한 다음 다시 시도하십시오.
+              <p style="margin-top: 8px; font-weight: 700; color: var(--error-color);">배정 채널: 브랜드01, 브랜드02</p>
+            </div>
+          `,
+          buttons: [
+            {
+              text: '확인',
+              type: 'primary'
+            }
+          ]
+        });
+        return;
+      }
+
+      // 3. Allowed Deactivation Case (Admin / Member with NO ongoing chats)
+      showPopup({
+        iconClass: 'fa-solid fa-circle-exclamation',
+        color: 'var(--error-color)',
+        bg: 'var(--error-glow)',
+        title: '정말 탈퇴하시겠습니까?',
+        body: `
+          <div style="font-size:12px; line-height:1.45; text-align: left;">
+            탈퇴를 진행할 경우 본인 계정과 연계된 모든 활동 기록 및 설정 정보는 절대 복구할 수 없으며, 
+            클라우드게이트 상담 데스크 서비스 접근이 영구 정지됩니다.
+            <div style="margin-top:8px; padding:8px; background:var(--border-color); border-radius:8px; font-size:10px; color:var(--text-secondary);">
+              * 탈퇴 승인 후 30일 이내에는 동일 휴대폰/이메일로 재가입이 불가합니다.<br>
+              * 계정 정보 보관 및 비밀번호 정보는 즉시 말소 파기 처리됩니다.
+            </div>
+          </div>
+        `,
+        buttons: [
+          {
+            text: '취소',
+            type: 'secondary'
+          },
+          {
+            text: '동의 및 탈퇴 승인',
+            type: 'primary',
+            action: () => {
+              // Perform withdrawal log out success
+              showToast('탈퇴 프로세스를 가동하여 계정을 폐기 중입니다...');
+              
+              setTimeout(() => {
+                showPopup({
+                  iconClass: 'fa-solid fa-circle-check',
+                  color: 'var(--success-color)',
+                  bg: 'var(--success-glow)',
+                  title: '회원 탈퇴 최종 완료',
+                  body: '계정 탈퇴 처리가 안전하게 승인 완료되었습니다.<br>클라우드게이트 서비스를 그동안 이용해주셔서 감사드립니다.',
+                  buttons: [
+                    {
+                      text: '로그인 화면으로 이동',
+                      type: 'primary',
+                      action: () => {
+                        handleLogout(); // standard logout in app.js
+                      }
+                    }
+                  ]
+                });
+              }, 1200);
+            }
+          }
+        ]
+      });
+    });
+  }
+
+  // --- G. Premium Ripple Interaction Binding ---
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn');
+    if (!btn || btn.disabled) return;
+
+    // Create ripple element
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+
+    // Calculate dimensions
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.width = ripple.style.height = `${size}px`;
+
+    // Coordinates relative to the button
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+
+    btn.appendChild(ripple);
+
+    // Fade out and cleanup
+    ripple.addEventListener('animationend', () => {
+      ripple.remove();
     });
   });
 

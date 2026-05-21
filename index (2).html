@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CloudGate 3.0 디자인 시스템 기반 프리미엄 계산기 프로토타입">
+  <title>CloudGate 3.0 — Calculator Prototype</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================
+       FIGMA DESIGN SYSTEM TOKENS (동일 규격)
+       ========================================== */
+    :root {
+      --primary-color: hsl(243, 75%, 59%);
+      --primary-glow: hsla(243, 75%, 59%, 0.15);
+      --primary-hover: hsl(243, 75%, 52%);
+      --primary-active: hsl(243, 75%, 45%);
+
+      --secondary-color: hsl(215, 15%, 55%);
+      --secondary-glow: hsla(215, 15%, 55%, 0.15);
+      --secondary-hover: hsl(215, 15%, 47%);
+      --secondary-active: hsl(215, 15%, 40%);
+
+      --success-color: hsl(142, 70%, 45%);
+      --success-glow: hsla(142, 70%, 45%, 0.15);
+      --success-hover: hsl(142, 70%, 39%);
+
+      --warning-color: hsl(38, 92%, 50%);
+      --warning-glow: hsla(38, 92%, 50%, 0.15);
+      --warning-hover: hsl(38, 92%, 44%);
+
+      --error-color: hsl(350, 89%, 60%);
+      --error-glow: hsla(350, 89%, 60%, 0.15);
+      --error-hover: hsl(350, 89%, 54%);
+
+      --info-color: hsl(192, 95%, 47%);
+      --info-glow: hsla(192, 95%, 47%, 0.15);
+      --info-hover: hsl(192, 95%, 40%);
+
+      --accent-color: hsl(192, 95%, 47%);
+
+      /* Light Mode (Default) */
+      --bg-desktop: radial-gradient(circle at 0% 0%, hsl(220, 20%, 97%) 0%, hsl(220, 30%, 90%) 100%);
+      --bg-phone: hsl(220, 30%, 98%);
+      --bg-surface: hsl(0, 0%, 100%);
+      --bg-surface-glass: rgba(255, 255, 255, 0.75);
+      --border-color: hsl(220, 15%, 89%);
+      --border-focus: hsl(243, 75%, 59%);
+      --text-primary: hsl(222, 47%, 11%);
+      --text-secondary: hsl(215, 16%, 47%);
+      --text-tertiary: hsl(215, 16%, 65%);
+      --text-on-primary: hsl(0, 0%, 100%);
+
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+      --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.05);
+      --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+
+      --font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-desktop: radial-gradient(circle at 0% 0%, hsl(222, 47%, 11%) 0%, hsl(225, 45%, 6%) 100%);
+      --bg-phone: hsl(224, 45%, 12%);
+      --bg-surface: hsl(224, 45%, 16%);
+      --bg-surface-glass: rgba(26, 32, 46, 0.85);
+      --border-color: hsl(224, 30%, 22%);
+      --text-primary: hsl(210, 40%, 98%);
+      --text-secondary: hsl(215, 20%, 75%);
+      --text-tertiary: hsl(215, 15%, 55%);
+
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+      --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.3), 0 8px 10px -6px rgba(0,0,0,0.3);
+      --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ==========================================
+       GLOBAL RESET
+       ========================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background: var(--bg-desktop);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      padding: 20px;
+      transition: background var(--transition-normal);
+    }
+
+    /* ==========================================
+       MAC-STYLE BROWSER FRAME (index.html 동일)
+       ========================================== */
+    .web-app-frame {
+      position: relative;
+      width: 1200px;
+      height: 800px;
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-color);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: all var(--transition-normal);
+      animation: frameFloat 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes frameFloat {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Window Title Bar */
+    .window-header {
+      height: 44px;
+      background: var(--bg-phone);
+      border-bottom: 1.5px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      position: relative;
+      user-select: none;
+      z-index: 100;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .window-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .window-dot.close { background: #ff5f56; }
+    .window-dot.minimize { background: #ffbd2e; }
+    .window-dot.maximize { background: #27c93f; }
+
+    .window-title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .window-system-time {
+      margin-left: auto;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ==========================================
+       WORKSPACE (sidebar + viewport)
+       ========================================== */
+    .web-workspace {
+      display: flex;
+      flex: 1;
+      width: 100%;
+      height: calc(100% - 44px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ==========================================
+       SIDEBAR NAVIGATION (index.html 동일)
+       ========================================== */
+    .sidebar-nav {
+      width: 220px;
+      background: var(--bg-surface);
+      border-right: 1.5px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      padding: 16px 12px;
+      gap: 4px;
+      z-index: 50;
+    }
+
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px 20px;
+      border-bottom: 1.5px solid var(--border-color);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-brand i {
+      font-size: 20px;
+      color: var(--primary-color);
+    }
+
+    .sidebar-brand span {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .nav-item:hover {
+      background: var(--primary-glow);
+      color: var(--primary-color);
+    }
+
+    .nav-item.active {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      color: #fff;
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    .nav-item i {
+      font-size: 15px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .sidebar-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 16px 14px 6px;
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding: 12px;
+      border-top: 1.5px solid var(--border-color);
+    }
+
+    .sidebar-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background var(--transition-fast);
+    }
+
+    .sidebar-profile:hover {
+      background: var(--primary-glow);
+    }
+
+    .sidebar-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-color), var(--info-color));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .sidebar-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .sidebar-role {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .theme-toggle-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border-color);
+      background: var(--bg-phone);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      transition: all var(--transition-fast);
+    }
+
+    .theme-toggle-btn:hover {
+      background: var(--primary-glow);
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    /* ==========================================
+       MAIN VIEWPORT
+       ========================================== */
+    .viewport {
+      flex: 1;
+      background: var(--bg-phone);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Screens */
+    .screen {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(15px);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+      z-index: 10;
+    }
+
+    .screen.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+      z-index: 20;
+    }
+
+    /* ==========================================
+       SCREEN: CALCULATOR
+       ========================================== */
+    .screen-calc {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 32px;
+    }
+
+    /* ---- Calculator Card ---- */
+    .calc-card {
+      width: 380px;
+      background: var(--bg-surface-glass);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      border: 1.5px solid var(--border-color);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+      transition: all var(--transition-normal);
+    }
+
+    .calc-card::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 20%;
+      right: 20%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, hsla(243, 75%, 59%, 0.35), hsla(192, 95%, 47%, 0.35), transparent);
+      z-index: 10;
+    }
+
+    .calc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px 10px;
+    }
+
+    .calc-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .calc-logo {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary-color), var(--info-color));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    .calc-brand-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .calc-header-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border-color);
+      background: var(--bg-phone);
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calc-header-btn:hover {
+      background: var(--primary-glow);
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .calc-header-btn:active {
+      transform: scale(0.92);
+    }
+
+    .calc-header-btn.toggle-on {
+      background: var(--primary-glow);
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    /* ---- Display ---- */
+    .calc-display {
+      margin: 0 14px;
+      padding: 20px 22px 22px;
+      background: hsl(222, 47%, 11%);
+      border-radius: 18px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid hsla(243, 75%, 59%, 0.08);
+    }
+
+    .calc-display::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 0% 100%, hsla(243, 75%, 59%, 0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 100% 0%, hsla(192, 95%, 47%, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .display-expression {
+      font-size: 13px;
+      font-weight: 400;
+      color: hsl(215, 20%, 55%);
+      min-height: 18px;
+      word-break: break-all;
+      text-align: right;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .display-result {
+      font-size: 40px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      word-break: break-all;
+      text-align: right;
+      width: 100%;
+      transition: all var(--transition-fast);
+      position: relative;
+      z-index: 1;
+      letter-spacing: -1px;
+    }
+
+    .display-result.error {
+      color: var(--error-color);
+      font-size: 22px;
+      animation: displayShake 0.35s ease;
+    }
+
+    @keyframes displayShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-3px); }
+      40%, 80% { transform: translateX(3px); }
+    }
+
+    /* ---- Keypad ---- */
+    .calc-keypad {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 14px;
+    }
+
+    /* Figma DS btn-lg: h=52px, radius=14px */
+    .calc-btn {
+      height: 52px;
+      border-radius: 14px;
+      border: 1.5px solid transparent;
+      font-family: var(--font-family);
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .calc-btn:active {
+      transform: scale(0.95) !important;
+    }
+
+    /* Variant: Number — Label style */
+    .calc-btn.num {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      border-color: var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .calc-btn.num:hover {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+      transform: translateY(-1px);
+    }
+
+    /* Variant: Operator — Outline Primary */
+    .calc-btn.op {
+      background: transparent;
+      color: var(--primary-color);
+      border: 1.5px solid var(--primary-color);
+    }
+
+    .calc-btn.op:hover {
+      background: var(--primary-glow);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+      transform: translateY(-1px);
+    }
+
+    .calc-btn.op.active-op {
+      background: var(--primary-color);
+      color: #fff;
+      box-shadow: 0 4px 16px var(--primary-glow);
+    }
+
+    /* Variant: Function — Label Secondary */
+    .calc-btn.func {
+      background: var(--secondary-glow);
+      color: var(--secondary-color);
+      border-color: transparent;
+    }
+
+    .calc-btn.func:hover {
+      background: hsla(215, 15%, 55%, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* Variant: Equals — Solid Primary */
+    .calc-btn.eq {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 16px var(--primary-glow);
+      grid-row: span 2;
+      height: auto;
+      font-size: 24px;
+    }
+
+    .calc-btn.eq:hover {
+      background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-active) 100%);
+      box-shadow: 0 8px 24px hsla(243, 75%, 59%, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Variant: Clear — Outline Error */
+    .calc-btn.clear {
+      background: transparent;
+      color: var(--error-color);
+      border: 1.5px solid var(--error-color);
+    }
+
+    .calc-btn.clear:hover {
+      background: var(--error-glow);
+      box-shadow: 0 0 0 3px var(--error-glow);
+      transform: translateY(-1px);
+    }
+
+    /* Variant: Percent — Outline Info */
+    .calc-btn.pct {
+      background: transparent;
+      color: var(--info-color);
+      border: 1.5px solid var(--info-color);
+    }
+
+    .calc-btn.pct:hover {
+      background: var(--info-glow);
+      box-shadow: 0 0 0 3px var(--info-glow);
+      transform: translateY(-1px);
+    }
+
+    /* Variant: Sign — Label Warning */
+    .calc-btn.sign {
+      background: var(--warning-glow);
+      color: var(--warning-color);
+      border-color: transparent;
+    }
+
+    .calc-btn.sign:hover {
+      background: hsla(38, 92%, 50%, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .calc-btn.wide {
+      grid-column: span 2;
+    }
+
+    /* Ripple (Figma DS Active Button Style) */
+    .calc-btn .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple-effect 0.5s ease-out;
+      pointer-events: none;
+    }
+
+    .calc-btn.num .ripple { background: hsla(243, 75%, 59%, 0.12); }
+    .calc-btn.op .ripple { background: hsla(243, 75%, 59%, 0.25); }
+    .calc-btn.func .ripple { background: hsla(215, 15%, 55%, 0.2); }
+    .calc-btn.eq .ripple { background: rgba(255, 255, 255, 0.3); }
+    .calc-btn.clear .ripple { background: hsla(350, 89%, 60%, 0.2); }
+    .calc-btn.pct .ripple { background: hsla(192, 95%, 47%, 0.2); }
+    .calc-btn.sign .ripple { background: hsla(38, 92%, 50%, 0.2); }
+
+    @keyframes ripple-effect {
+      to { transform: scale(4); opacity: 0; }
+    }
+
+    /* ==========================================
+       HISTORY PANEL (inside viewport)
+       ========================================== */
+    .history-panel {
+      width: 0;
+      background: var(--bg-surface-glass);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
+      border-left: 0px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s, opacity 0.25s ease, border 0.35s;
+      opacity: 0;
+      padding: 0;
+    }
+
+    .history-panel.open {
+      width: 340px;
+      padding: 24px 20px;
+      opacity: 1;
+      border-left-width: 1.5px;
+    }
+
+    .history-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      white-space: nowrap;
+    }
+
+    .history-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .history-title i { color: var(--primary-color); font-size: 16px; }
+
+    .history-clear-btn {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--error-color);
+      background: var(--error-glow);
+      border: none;
+      border-radius: 8px;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      font-family: var(--font-family);
+      white-space: nowrap;
+    }
+
+    .history-clear-btn:hover { background: hsla(350, 89%, 60%, 0.25); }
+
+    .history-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .history-list::-webkit-scrollbar { width: 4px; }
+    .history-list::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+
+    .history-item {
+      padding: 14px 16px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      animation: histSlide 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes histSlide {
+      from { opacity: 0; transform: translateX(10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .history-item:hover {
+      border-color: var(--primary-color);
+      background: var(--primary-glow);
+      transform: translateX(3px);
+    }
+
+    .history-expr {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-tertiary);
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .history-val {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .history-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex: 1;
+      color: var(--text-tertiary);
+    }
+
+    .history-empty i { font-size: 36px; opacity: 0.3; }
+    .history-empty span { font-size: 13px; font-weight: 500; }
+
+    /* ==========================================
+       SCREEN: DESIGN SYSTEM SHOWCASE
+       ========================================== */
+    .screen-ds {
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .ds-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1.5px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+
+    .ds-header i { color: var(--primary-color); font-size: 18px; }
+    .ds-header h2 { font-size: 16px; font-weight: 700; }
+
+    .ds-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      animation: dsFade 0.4s ease-out;
+    }
+
+    @keyframes dsFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ds-card {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-color);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .ds-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-glow);
+    }
+
+    .ds-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ds-card h3 i { color: var(--primary-color); }
+
+    .color-swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .color-swatch {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-phone);
+    }
+
+    .color-swatch .swatch-block {
+      height: 32px;
+      border-radius: 6px;
+    }
+
+    .color-swatch .swatch-name {
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .color-swatch .swatch-hsl {
+      font-size: 8px;
+      color: var(--text-tertiary);
+    }
+
+    .btn-showcase {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    /* Figma DS button classes re-used */
+    .btn {
+      border-radius: 12px;
+      border: 1.5px solid transparent;
+      font-family: var(--font-family);
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn:active { transform: scale(0.97); }
+
+    .btn-md { height: 44px; padding: 0 20px; font-size: 14px; border-radius: 12px; }
+    .btn-sm { height: 36px; padding: 0 14px; font-size: 12px; border-radius: 8px; }
+    .btn-lg { height: 52px; padding: 0 24px; font-size: 15px; border-radius: 14px; }
+
+    .btn-solid-primary { background: linear-gradient(135deg, var(--primary-color), var(--primary-hover)); color: #fff; box-shadow: 0 4px 12px var(--primary-glow); }
+    .btn-solid-primary:hover { box-shadow: 0 6px 16px hsla(243,75%,59%,0.25); }
+    .btn-solid-success { background: linear-gradient(135deg, var(--success-color), var(--success-hover)); color: #fff; box-shadow: 0 4px 12px var(--success-glow); }
+    .btn-solid-error { background: linear-gradient(135deg, var(--error-color), var(--error-hover)); color: #fff; box-shadow: 0 4px 12px var(--error-glow); }
+    .btn-solid-warning { background: linear-gradient(135deg, var(--warning-color), var(--warning-hover)); color: #fff; box-shadow: 0 4px 12px var(--warning-glow); }
+
+    .btn-outline-primary { background: transparent; color: var(--primary-color); border: 1.5px solid var(--primary-color); }
+    .btn-outline-primary:hover { background: var(--primary-glow); }
+    .btn-outline-info { background: transparent; color: var(--info-color); border: 1.5px solid var(--info-color); }
+    .btn-outline-info:hover { background: var(--info-glow); }
+
+    .btn-label-primary { background: var(--primary-glow); color: var(--primary-color); }
+    .btn-label-primary:hover { background: hsla(243,75%,59%,0.25); }
+
+    .btn-text-primary { background: transparent; color: var(--primary-color); border: none; }
+    .btn-text-primary:hover { background: var(--primary-glow); }
+
+    /* ==========================================
+       TOAST
+       ========================================== */
+    .toast-container {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .toast {
+      background: hsl(222, 47%, 11%);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: var(--font-family);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border: 1px solid hsl(224, 30%, 22%);
+      animation: toastIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), toastOut 0.3s ease 2.5s forwards;
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(-15px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes toastOut {
+      from { opacity: 1; }
+      to { opacity: 0; transform: translateY(-10px); }
+    }
+
+    /* ==========================================
+       KEYBOARD HINT
+       ========================================== */
+    .keyboard-hint {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.5;
+      transition: opacity var(--transition-fast);
+    }
+
+    .keyboard-hint:hover { opacity: 1; }
+
+    .keyboard-hint kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 5px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      font-family: var(--font-family);
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- ===== BROWSER FRAME ===== -->
+  <div class="web-app-frame">
+
+    <!-- Mac-style Window Header -->
+    <div class="window-header">
+      <div class="window-dots">
+        <span class="window-dot close"></span>
+        <span class="window-dot minimize"></span>
+        <span class="window-dot maximize"></span>
+      </div>
+      <div class="window-title">CloudGate 3.0 — Calculator Workspace</div>
+      <div class="window-system-time">
+        <i class="fa-regular fa-clock" style="font-size: 11px;"></i>
+        <span id="device-time">00:00</span>
+      </div>
+    </div>
+
+    <!-- Workspace (Sidebar + Viewport) -->
+    <div class="web-workspace">
+
+      <!-- Sidebar Navigation -->
+      <div class="sidebar-nav">
+        <div class="sidebar-brand">
+          <i class="fa-solid fa-cloud-bolt"></i>
+          <span>CloudGate 3.0</span>
+        </div>
+
+        <div class="nav-item active" id="nav-calc">
+          <i class="fa-solid fa-calculator"></i>
+          <span>계산기</span>
+        </div>
+        <div class="nav-item" id="nav-ds">
+          <i class="fa-solid fa-palette"></i>
+          <span>디자인 시스템</span>
+        </div>
+
+        <div class="sidebar-section-title">도구</div>
+
+        <div class="nav-item" id="nav-converter">
+          <i class="fa-solid fa-right-left"></i>
+          <span>단위 변환</span>
+        </div>
+
+        <div class="sidebar-section-title">설정</div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 14px;">
+          <span style="font-size: 12px; font-weight: 600; color: var(--text-secondary);">테마</span>
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="테마 전환">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <div class="sidebar-profile">
+            <div class="sidebar-avatar">권</div>
+            <div>
+              <div class="sidebar-name">권예은</div>
+              <div class="sidebar-role">Designer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Viewport -->
+      <div class="viewport">
+
+        <!-- SCREEN: Calculator -->
+        <div class="screen screen-calc active" id="screen-calc">
+          <div style="display: flex; flex: 1; align-items: center; justify-content: center; gap: 0;">
+
+            <!-- Calculator Card -->
+            <div class="calc-card">
+              <div class="calc-header">
+                <div class="calc-brand">
+                  <div class="calc-logo">CG</div>
+                  <span class="calc-brand-text">Calculator</span>
+                </div>
+                <button class="calc-header-btn" id="btn-history" title="계산 기록">
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                </button>
+              </div>
+
+              <!-- Display -->
+              <div class="calc-display" id="calc-display">
+                <div class="display-expression" id="display-expr"></div>
+                <div class="display-result" id="display-result">0</div>
+              </div>
+
+              <!-- Keypad -->
+              <div class="calc-keypad" id="calc-keypad">
+                <button class="calc-btn clear" data-action="clear">AC</button>
+                <button class="calc-btn sign" data-action="sign"><i class="fa-solid fa-plus-minus" style="font-size:14px;"></i></button>
+                <button class="calc-btn pct" data-action="percent">%</button>
+                <button class="calc-btn op" data-action="op" data-op="÷">÷</button>
+
+                <button class="calc-btn num" data-action="num" data-val="7">7</button>
+                <button class="calc-btn num" data-action="num" data-val="8">8</button>
+                <button class="calc-btn num" data-action="num" data-val="9">9</button>
+                <button class="calc-btn op" data-action="op" data-op="×">×</button>
+
+                <button class="calc-btn num" data-action="num" data-val="4">4</button>
+                <button class="calc-btn num" data-action="num" data-val="5">5</button>
+                <button class="calc-btn num" data-action="num" data-val="6">6</button>
+                <button class="calc-btn op" data-action="op" data-op="−">−</button>
+
+                <button class="calc-btn num" data-action="num" data-val="1">1</button>
+                <button class="calc-btn num" data-action="num" data-val="2">2</button>
+                <button class="calc-btn num" data-action="num" data-val="3">3</button>
+                <button class="calc-btn eq" data-action="equals">=</button>
+
+                <button class="calc-btn num wide" data-action="num" data-val="0">0</button>
+                <button class="calc-btn num" data-action="decimal">.</button>
+              </div>
+            </div>
+
+            <!-- History Side Panel -->
+            <div class="history-panel" id="history-panel">
+              <div class="history-header">
+                <div class="history-title"><i class="fa-solid fa-clock-rotate-left"></i> 계산 기록</div>
+                <button class="history-clear-btn" id="history-clear-btn">전체 삭제</button>
+              </div>
+              <div class="history-list" id="history-list">
+                <div class="history-empty" id="history-empty">
+                  <i class="fa-regular fa-folder-open"></i>
+                  <span>계산 기록이 없습니다</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SCREEN: Design System -->
+        <div class="screen screen-ds" id="screen-ds">
+          <div class="ds-header">
+            <i class="fa-solid fa-palette"></i>
+            <h2>디자인 시스템 쇼케이스</h2>
+          </div>
+          <div class="ds-grid">
+            <!-- Color Palette -->
+            <div class="ds-card">
+              <h3><i class="fa-solid fa-droplet"></i> 6대 HSL 테마 컬러</h3>
+              <div class="color-swatch-grid">
+                <div class="color-swatch">
+                  <div class="swatch-block" style="background:var(--primary-color); box-shadow: 0 3px 8px var(--primary-glow);"></div>
+                  <span class="swatch-name">Primary</span>
+                  <span class="swatch-hsl">243, 75%, 59%</span>
+                </div>
+                <div class="color-swatch">
+                  <div class="swatch-block" style="background:var(--secondary-color); box-shadow: 0 3px 8px var(--secondary-glow);"></div>
+                  <span class="swatch-name">Secondary</span>
+                  <span class="swatch-hsl">215, 15%, 55%</span>
+                </div>
+                <div class="color-swatch">
+                  <div class="swatch-block" style="background:var(--success-color); box-shadow: 0 3px 8px var(--success-glow);"></div>
+                  <span class="swatch-name">Success</span>
+                  <span class="swatch-hsl">142, 70%, 45%</span>
+                </div>
+                <div class="color-swatch">
+                  <div class="swatch-block" style="background:var(--warning-color); box-shadow: 0 3px 8px var(--warning-glow);"></div>
+                  <span class="swatch-name">Warning</span>
+                  <span class="swatch-hsl">38, 92%, 50%</span>
+                </div>
+                <div class="color-swatch">
+                  <div class="swatch-block" style="background:var(--error-color); box-shadow: 0 3px 8px var(--error-glow);"></div>
+                  <span class="swatch-name">Error</span>
+                  <span class="swatch-hsl">350, 89%, 60%</span>
+                </div>
+                <div class="color-swatch">
+                  <div class="swatch-block" style="background:var(--info-color); box-shadow: 0 3px 8px var(--info-glow);"></div>
+                  <span class="swatch-name">Info</span>
+                  <span class="swatch-hsl">192, 95%, 47%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Button Variants -->
+            <div class="ds-card">
+              <h3><i class="fa-solid fa-hand-pointer"></i> 버튼 변형 (4 Variants)</h3>
+              <div class="btn-showcase">
+                <button class="btn btn-md btn-solid-primary">Solid</button>
+                <button class="btn btn-md btn-label-primary">Label</button>
+                <button class="btn btn-md btn-outline-primary">Outline</button>
+                <button class="btn btn-md btn-text-primary">Text</button>
+              </div>
+              <div class="btn-showcase" style="margin-top: 12px;">
+                <button class="btn btn-lg btn-solid-primary">Large</button>
+                <button class="btn btn-md btn-solid-primary">Medium</button>
+                <button class="btn btn-sm btn-solid-primary">Small</button>
+              </div>
+            </div>
+
+            <!-- Color Button Variants -->
+            <div class="ds-card" style="grid-column: span 2;">
+              <h3><i class="fa-solid fa-swatchbook"></i> 테마별 Solid 버튼</h3>
+              <div class="btn-showcase">
+                <button class="btn btn-md btn-solid-primary">Primary</button>
+                <button class="btn btn-md btn-solid-success">Success</button>
+                <button class="btn btn-md btn-solid-warning">Warning</button>
+                <button class="btn btn-md btn-solid-error">Error</button>
+                <button class="btn btn-md btn-outline-info">Info</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN: Unit Converter -->
+        <div class="screen" id="screen-converter" style="align-items: center; justify-content: center; gap: 16px;">
+          <div style="text-align: center;">
+            <i class="fa-solid fa-right-left" style="font-size: 40px; color: var(--text-tertiary); opacity: 0.3; margin-bottom: 12px;"></i>
+            <h2 style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">단위 변환 (준비 중)</h2>
+            <p style="font-size: 13px; color: var(--text-tertiary);">향후 업데이트에서 길이, 무게, 온도 등의 단위 변환 기능을 제공할 예정입니다.</p>
+          </div>
+        </div>
+
+      </div><!-- /viewport -->
+    </div><!-- /web-workspace -->
+  </div><!-- /web-app-frame -->
+
+  <!-- Keyboard Hint -->
+  <div class="keyboard-hint">
+    <i class="fa-regular fa-keyboard"></i>
+    키보드 입력 지원
+    <kbd>0-9</kbd> <kbd>+-*/</kbd> <kbd>Enter</kbd> <kbd>Esc</kbd>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      // ===== CLOCK =====
+      const deviceTimeEl = document.getElementById('device-time');
+      function updateTime() {
+        const now = new Date();
+        deviceTimeEl.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      }
+      updateTime();
+      setInterval(updateTime, 10000);
+
+      // ===== NAVIGATION =====
+      const screens = {
+        calc: document.getElementById('screen-calc'),
+        ds: document.getElementById('screen-ds'),
+        converter: document.getElementById('screen-converter'),
+      };
+      const navItems = {
+        calc: document.getElementById('nav-calc'),
+        ds: document.getElementById('nav-ds'),
+        converter: document.getElementById('nav-converter'),
+      };
+
+      function switchScreen(id) {
+        Object.values(screens).forEach(s => s.classList.remove('active'));
+        Object.values(navItems).forEach(n => n.classList.remove('active'));
+        if (screens[id]) screens[id].classList.add('active');
+        if (navItems[id]) navItems[id].classList.add('active');
+      }
+
+      Object.keys(navItems).forEach(key => {
+        navItems[key].addEventListener('click', () => switchScreen(key));
+      });
+
+      // ===== THEME TOGGLE =====
+      const htmlEl = document.documentElement;
+      const themeBtn = document.getElementById('theme-toggle');
+      themeBtn.addEventListener('click', () => {
+        const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+        htmlEl.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        themeBtn.querySelector('i').className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+        showToast(isDark ? '라이트 모드' : '다크 모드', 'fa-solid fa-palette', 'var(--primary-color)');
+      });
+
+      // ===== TOAST =====
+      const toastContainer = document.getElementById('toast-container');
+      function showToast(msg, icon = 'fa-solid fa-circle-check', iconColor = 'var(--success-color)') {
+        const t = document.createElement('div');
+        t.className = 'toast';
+        t.innerHTML = `<i class="${icon}" style="color:${iconColor}"></i> ${msg}`;
+        toastContainer.appendChild(t);
+        setTimeout(() => { if (t.parentNode) t.remove(); }, 3000);
+      }
+
+      // ===== CALCULATOR STATE =====
+      let currentVal = '0';
+      let previousVal = '';
+      let currentOp = null;
+      let shouldReset = false;
+      let fullExpr = '';
+      const history = [];
+
+      const displayResult = document.getElementById('display-result');
+      const displayExpr = document.getElementById('display-expr');
+      const keypad = document.getElementById('calc-keypad');
+      const histPanel = document.getElementById('history-panel');
+      const histList = document.getElementById('history-list');
+      const histEmpty = document.getElementById('history-empty');
+      const btnHistory = document.getElementById('btn-history');
+      const historyClearBtn = document.getElementById('history-clear-btn');
+
+      // ===== FORMATTER =====
+      function fmt(val) {
+        if (val === 'Error' || val === 'Infinity' || val === '-Infinity' || val === 'NaN') return 'Error';
+        const num = parseFloat(val);
+        if (isNaN(num)) return val;
+        if (val.endsWith('.') || (val.includes('.') && val.endsWith('0') && val.split('.')[1] !== '0')) return val;
+        const parts = val.split('.');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        return parts.join('.');
+      }
+
+      function updateDisplay() {
+        const formatted = fmt(currentVal);
+        displayResult.textContent = formatted;
+        displayExpr.textContent = fullExpr;
+        displayResult.classList.toggle('error', formatted === 'Error');
+        displayResult.style.fontSize = formatted.length > 12 ? '26px' : formatted.length > 9 ? '32px' : '40px';
+      }
+
+      // ===== CALC ACTIONS =====
+      function inputNum(d) {
+        if (shouldReset) { currentVal = d; shouldReset = false; }
+        else if (currentVal === '0' && d !== '0') currentVal = d;
+        else if (currentVal === '0' && d === '0') return;
+        else { if (currentVal.replace(/[^0-9]/g, '').length >= 15) return; currentVal += d; }
+        updateDisplay();
+      }
+
+      function inputDec() {
+        if (shouldReset) { currentVal = '0.'; shouldReset = false; }
+        else if (!currentVal.includes('.')) currentVal += '.';
+        updateDisplay();
+      }
+
+      function setOp(op) {
+        if (currentOp && !shouldReset) calc();
+        previousVal = currentVal;
+        currentOp = op;
+        shouldReset = true;
+        fullExpr = `${fmt(previousVal)} ${op}`;
+        document.querySelectorAll('.calc-btn.op').forEach(b => b.classList.toggle('active-op', b.dataset.op === op));
+        updateDisplay();
+      }
+
+      function calc() {
+        if (!currentOp || previousVal === '') return;
+        const prev = parseFloat(previousVal);
+        const curr = parseFloat(currentVal);
+        let result;
+        switch (currentOp) {
+          case '+': result = prev + curr; break;
+          case '−': result = prev - curr; break;
+          case '×': result = prev * curr; break;
+          case '÷':
+            if (curr === 0) {
+              currentVal = 'Error'; fullExpr = `${fmt(previousVal)} ÷ 0 =`;
+              currentOp = null; previousVal = ''; shouldReset = true;
+              updateDisplay();
+              showToast('0으로 나눌 수 없습니다', 'fa-solid fa-triangle-exclamation', 'var(--error-color)');
+              return;
+            }
+            result = prev / curr; break;
+          default: return;
+        }
+        const exprStr = `${fmt(previousVal)} ${currentOp} ${fmt(currentVal)}`;
+        result = parseFloat(result.toPrecision(12));
+        fullExpr = `${exprStr} =`;
+        addHistory(exprStr, result.toString());
+        currentVal = result.toString();
+        currentOp = null; previousVal = ''; shouldReset = true;
+        document.querySelectorAll('.calc-btn.op').forEach(b => b.classList.remove('active-op'));
+        updateDisplay();
+      }
+
+      function clearAll() {
+        currentVal = '0'; previousVal = ''; currentOp = null; shouldReset = false; fullExpr = '';
+        document.querySelectorAll('.calc-btn.op').forEach(b => b.classList.remove('active-op'));
+        updateDisplay();
+      }
+
+      function toggleSign() {
+        if (currentVal === '0' || currentVal === 'Error') return;
+        currentVal = currentVal.startsWith('-') ? currentVal.substring(1) : '-' + currentVal;
+        updateDisplay();
+      }
+
+      function applyPct() {
+        if (currentVal === 'Error') return;
+        currentVal = (parseFloat(currentVal) / 100).toString();
+        updateDisplay();
+      }
+
+      function backspace() {
+        if (shouldReset || currentVal === 'Error') return;
+        currentVal = (currentVal.length <= 1 || (currentVal.length === 2 && currentVal.startsWith('-'))) ? '0' : currentVal.slice(0, -1);
+        updateDisplay();
+      }
+
+      // ===== HISTORY =====
+      function addHistory(expr, val) {
+        history.unshift({ expr, val });
+        if (history.length > 50) history.pop();
+        renderHistory();
+      }
+
+      function renderHistory() {
+        histEmpty.style.display = history.length === 0 ? 'flex' : 'none';
+        historyClearBtn.style.display = history.length === 0 ? 'none' : 'block';
+        histList.querySelectorAll('.history-item').forEach(el => el.remove());
+        history.forEach(item => {
+          const el = document.createElement('div');
+          el.className = 'history-item';
+          el.innerHTML = `<div class="history-expr">${item.expr}</div><div class="history-val">= ${fmt(item.val)}</div>`;
+          el.addEventListener('click', () => {
+            currentVal = item.val; shouldReset = true; fullExpr = item.expr + ' =';
+            updateDisplay();
+            showToast('기록에서 값을 불러왔습니다');
+          });
+          histList.insertBefore(el, histEmpty);
+        });
+      }
+
+      historyClearBtn.addEventListener('click', () => {
+        history.length = 0;
+        renderHistory();
+        showToast('계산 기록이 삭제되었습니다');
+      });
+
+      // ===== RIPPLE =====
+      function ripple(e, btn) {
+        const r = document.createElement('span');
+        r.className = 'ripple';
+        const rect = btn.getBoundingClientRect();
+        const sz = Math.max(rect.width, rect.height);
+        r.style.width = r.style.height = `${sz}px`;
+        r.style.left = `${e.clientX - rect.left - sz / 2}px`;
+        r.style.top = `${e.clientY - rect.top - sz / 2}px`;
+        btn.appendChild(r);
+        r.addEventListener('animationend', () => r.remove());
+      }
+
+      // ===== KEYPAD EVENTS =====
+      keypad.addEventListener('click', e => {
+        const btn = e.target.closest('.calc-btn');
+        if (!btn) return;
+        ripple(e, btn);
+        switch (btn.dataset.action) {
+          case 'num': inputNum(btn.dataset.val); break;
+          case 'decimal': inputDec(); break;
+          case 'op': setOp(btn.dataset.op); break;
+          case 'equals': calc(); break;
+          case 'clear': clearAll(); break;
+          case 'sign': toggleSign(); break;
+          case 'percent': applyPct(); break;
+        }
+      });
+
+      // ===== KEYBOARD =====
+      document.addEventListener('keydown', e => {
+        const k = e.key;
+        if (k >= '0' && k <= '9') inputNum(k);
+        else if (k === '.') inputDec();
+        else if (k === '+') setOp('+');
+        else if (k === '-') setOp('−');
+        else if (k === '*') setOp('×');
+        else if (k === '/') { e.preventDefault(); setOp('÷'); }
+        else if (k === 'Enter' || k === '=') calc();
+        else if (k === 'Escape') clearAll();
+        else if (k === 'Backspace') backspace();
+        else if (k === '%') applyPct();
+      });
+
+      // ===== HISTORY TOGGLE =====
+      btnHistory.addEventListener('click', () => {
+        const isOpen = histPanel.classList.toggle('open');
+        btnHistory.classList.toggle('toggle-on', isOpen);
+      });
+
+      // ===== INIT =====
+      updateDisplay();
+      renderHistory();
+
+    })();
+  </script>
+</body>
+</html>

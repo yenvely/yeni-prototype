@@ -4,12 +4,34 @@
   --primary-color: hsl(243, 75%, 59%);
   --primary-glow: hsla(243, 75%, 59%, 0.15);
   --primary-hover: hsl(243, 75%, 52%);
-  --accent-color: hsl(192, 95%, 47%);
+  --primary-active: hsl(243, 75%, 45%);
+  
+  --secondary-color: hsl(215, 15%, 55%);
+  --secondary-glow: hsla(215, 15%, 55%, 0.15);
+  --secondary-hover: hsl(215, 15%, 47%);
+  --secondary-active: hsl(215, 15%, 40%);
+  
   --success-color: hsl(142, 70%, 45%);
   --success-glow: hsla(142, 70%, 45%, 0.15);
+  --success-hover: hsl(142, 70%, 39%);
+  --success-active: hsl(142, 70%, 33%);
+  
   --warning-color: hsl(38, 92%, 50%);
+  --warning-glow: hsla(38, 92%, 50%, 0.15);
+  --warning-hover: hsl(38, 92%, 44%);
+  --warning-active: hsl(38, 92%, 38%);
+  
   --error-color: hsl(350, 89%, 60%);
   --error-glow: hsla(350, 89%, 60%, 0.15);
+  --error-hover: hsl(350, 89%, 54%);
+  --error-active: hsl(350, 89%, 48%);
+  
+  --info-color: hsl(192, 95%, 47%);
+  --info-glow: hsla(192, 95%, 47%, 0.15);
+  --info-hover: hsl(192, 95%, 40%);
+  --info-active: hsl(192, 95%, 33%);
+  
+  --accent-color: hsl(192, 95%, 47%);
   
   /* Theme-specific variables (default Light Mode) */
   --bg-desktop: radial-gradient(circle at 0% 0%, hsl(220, 20%, 97%) 0%, hsl(220, 30%, 90%) 100%);
@@ -74,54 +96,98 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 60px;
-  max-width: 1200px;
+  gap: 40px;
+  max-width: 1600px;
   width: 100%;
   flex-wrap: wrap;
   perspective: 1000px;
 }
 
-/* --- iPhone 15 Pro Device Mockup --- */
-.device-wrapper {
+/* --- Premium Desktop SaaS Web App Frame --- */
+.web-app-frame {
   position: relative;
-  width: 390px;
-  height: 820px;
-  background: hsl(222, 10%, 15%);
-  border: 12px solid hsl(222, 10%, 8%);
-  border-radius: 54px;
-  box-shadow: var(--shadow-phone);
+  width: 1200px;
+  height: 800px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform var(--transition-normal);
+  transition: all var(--transition-normal);
 }
 
-.device-wrapper::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 3px solid rgba(255, 255, 255, 0.08);
-  border-radius: 42px;
-  pointer-events: none;
+/* Mac-style Window Title Bar */
+.window-header {
+  height: 44px;
+  background: var(--bg-phone);
+  border-bottom: 1.5px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+  user-select: none;
   z-index: 100;
 }
 
-/* Dynamic Island */
+.window-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.window-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.window-dot.close { background: #ff5f56; }
+.window-dot.minimize { background: #ffbd2e; }
+.window-dot.maximize { background: #27c93f; }
+
+.window-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.window-system-time {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.web-workspace {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: calc(100% - 44px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Desktop Alert Banner (formerly Dynamic Island) */
 .dynamic-island {
   position: absolute;
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 110px;
-  height: 30px;
+  width: 150px;
+  height: 34px;
   background: #000;
-  border-radius: 20px;
-  z-index: 99;
-  box-shadow: inset 0 0 4px rgba(255,255,255,0.1);
-  transition: width var(--transition-normal), height var(--transition-normal);
+  border-radius: 17px;
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transition: all var(--transition-normal);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,9 +195,11 @@ body {
 }
 
 .dynamic-island.active {
-  width: 260px;
-  height: 44px;
-  border-radius: 25px;
+  width: 320px;
+  height: 48px;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
 }
 
 .island-content {
@@ -148,40 +216,6 @@ body {
 
 .dynamic-island.active .island-content {
   opacity: 1;
-}
-
-/* Device Indicators */
-.status-bar {
-  height: 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 28px 8px 28px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-primary);
-  background: transparent;
-  z-index: 90;
-  user-select: none;
-}
-
-.status-bar .right-icons {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-.home-indicator {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 130px;
-  height: 5px;
-  background: var(--text-primary);
-  border-radius: 10px;
-  opacity: 0.8;
-  z-index: 90;
 }
 
 /* Screen Viewport */
@@ -296,8 +330,31 @@ p {
 
 /* --- [1] LOGIN SCREEN --- */
 .screen-login {
+  align-items: center;
   justify-content: center;
-  gap: 40px;
+  padding: 40px 24px;
+}
+
+.login-card, .forgot-pw-card {
+  background: var(--bg-surface-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid var(--border-color);
+  border-radius: 24px;
+  padding: 36px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: auto;
+  animation: floatIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .login-header {
@@ -429,9 +486,9 @@ p {
 
 /* --- [1.5] FIND & RESET PASSWORD SCREEN --- */
 .screen-forgot-pw {
-  justify-content: flex-start;
-  gap: 20px;
-  padding-top: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
 }
 
 .steps-indicator {
@@ -528,9 +585,35 @@ p {
 
 /* --- [2] HOME SCREEN (DASHBOARD) --- */
 .screen-home {
-  padding-top: 12px;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  padding: 24px;
+  height: 100%;
   overflow-y: auto;
+  align-content: start;
+}
+
+.home-header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+}
+
+.stat-grid {
+  grid-column: 1 / 2;
+}
+
+.chart-widget {
+  grid-column: 1 / 2;
+}
+
+.channels-section {
+  grid-column: 2 / 3;
+  grid-row: 2 / span 2;
 }
 
 .home-header {
@@ -721,8 +804,53 @@ p {
 
 /* --- [2.5] INTERACTIVE COUNSELING DESK (CHAT SIMULATOR) --- */
 .screen-chat {
-  padding: 12px 0 74px 0;
-  gap: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.chat-sidebar-pane {
+  width: 320px;
+  border-right: 1.5px solid var(--border-color);
+  background: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 12px;
+}
+
+.chat-placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--bg-phone);
+  padding: 40px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.chat-placeholder .placeholder-content {
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-placeholder h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.chat-placeholder p {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.5;
 }
 
 .chat-tab-header {
@@ -836,16 +964,21 @@ p {
 
 /* Chatting Interface Layer */
 .chat-interface {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  flex: 1;
+  position: relative;
   height: 100%;
   background: var(--bg-phone);
-  z-index: 100;
+  z-index: 10;
   display: none;
   flex-direction: column;
-  animation: slideInLeft 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chat-interface.active {
+  display: flex;
+}
+
+.chat-interface.active + .chat-placeholder {
+  display: none;
 }
 
 @keyframes slideInLeft {
@@ -980,10 +1113,21 @@ p {
 
 /* --- [3] MY PAGE SCREEN --- */
 .screen-mypage {
-  padding-top: 12px;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  padding: 24px;
   overflow-y: auto;
+  align-content: start;
 }
+
+.screen-mypage > .profile-card { grid-column: 1 / 2; grid-row: 1; }
+.screen-mypage > .setting-list { grid-column: 1 / 2; grid-row: 2; }
+.screen-mypage > .settings-group:nth-of-type(1) { grid-column: 1 / 2; grid-row: 3; }
+.screen-mypage > #logout-btn { grid-column: 1 / 2; grid-row: 4; }
+
+.screen-mypage > .settings-group:nth-of-type(2) { grid-column: 2 / 3; grid-row: 1 / span 2; }
+.screen-mypage > .settings-group:nth-of-type(3) { grid-column: 2 / 3; grid-row: 3 / span 2; }
 
 .profile-card {
   background: var(--bg-surface);
@@ -1234,58 +1378,144 @@ input:checked + .slider:before {
   transform: translateX(20px);
 }
 
-/* --- BOTTOM NAV BAR --- */
+/* --- BOTTOM NAV BAR (Re-engineered as Desktop Sidebar) --- */
 .bottom-nav {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 64px;
-  background: var(--bg-surface-glass);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid var(--border-color);
+  position: relative;
+  width: 240px;
+  height: 100%;
+  background: var(--bg-phone);
+  border-right: 1.5px solid var(--border-color);
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding-bottom: 8px;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  gap: 24px;
   z-index: 80;
   opacity: 0;
-  transform: translateY(100%);
+  width: 0;
+  overflow: hidden;
   transition: all var(--transition-normal);
 }
 
 .bottom-nav.visible {
   opacity: 1;
-  transform: translateY(0);
+  width: 240px;
+  padding: 24px 16px;
+}
+
+/* Sidebar Brand / Logo */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  color: var(--text-primary);
+}
+
+.sidebar-brand i {
+  font-size: 20px;
+  color: var(--primary-color);
+  filter: drop-shadow(0 2px 8px var(--primary-glow));
+}
+
+.sidebar-brand span {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
 }
 
 .nav-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 4px;
-  color: var(--text-tertiary);
+  gap: 12px;
+  color: var(--text-secondary);
   text-decoration: none;
   cursor: pointer;
-  transition: color var(--transition-fast);
+  padding: 12px 14px;
+  border-radius: 12px;
+  transition: all var(--transition-fast);
 }
 
 .nav-item i {
-  font-size: 20px;
+  font-size: 16px;
   transition: transform var(--transition-fast);
 }
 
 .nav-item span {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
 }
 
-.nav-item.active {
-  color: var(--primary-color);
+.nav-item:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
 }
 
-.nav-item:hover i {
-  transform: translateY(-2px);
+.nav-item.active {
+  color: var(--text-on-primary);
+  background: linear-gradient(135deg, var(--primary-color) 0%, hsl(243, 75%, 52%) 100%);
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.nav-item.active:hover {
+  color: var(--text-on-primary);
+}
+
+/* Profile summary card inside desktop sidebar */
+.sidebar-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: 14px;
+  margin-top: auto;
+}
+
+.sidebar-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary-glow);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sidebar-profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.sidebar-profile-details .profile-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sidebar-profile-details .profile-role {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /* --- MOCK POPUPS & DIALOGS --- */
@@ -1376,6 +1606,7 @@ input:checked + .slider:before {
 
 /* --- SIDE POLICY INTERACTIVE CONTROLLER --- */
 .control-panel {
+  position: relative;
   width: 320px;
   background: var(--bg-surface-glass);
   backdrop-filter: blur(10px);
@@ -1386,8 +1617,62 @@ input:checked + .slider:before {
   flex-direction: column;
   gap: 20px;
   box-shadow: var(--shadow-lg);
-  max-height: 820px;
+  height: 800px;
+  max-height: 800px;
   overflow-y: auto;
+  transition: all var(--transition-normal);
+}
+
+.control-panel.collapsed {
+  width: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  overflow: visible;
+}
+
+.control-panel.collapsed * {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.control-panel-toggle {
+  position: absolute;
+  top: 24px;
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  z-index: 200;
+  transition: all var(--transition-fast);
+}
+
+.control-panel-toggle:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.control-panel-toggle i {
+  transition: transform var(--transition-normal);
+}
+
+.control-panel.collapsed .control-panel-toggle {
+  right: -45px;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.control-panel.collapsed .control-panel-toggle i {
+  transform: rotate(180deg);
 }
 
 .panel-header {
@@ -1514,3 +1799,457 @@ input:checked + .slider:before {
   border-color: var(--primary-color);
   transform: scale(1.05);
 }
+
+/* --- '내정보 설정' (My Info Settings) Screen Styles --- */
+.screen-myinfo-settings {
+  padding-bottom: 0;
+  height: 100%;
+}
+
+.screen-myinfo-settings > div[style*="overflow-y"] {
+  display: grid !important;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  padding: 10px 24px 24px 24px !important;
+  align-content: start;
+  height: calc(100% - 60px);
+}
+
+.screen-myinfo-settings > div[style*="overflow-y"] > div:nth-child(1) { grid-column: 1 / 2; grid-row: 1; }
+.screen-myinfo-settings > div[style*="overflow-y"] > div:nth-child(2) { grid-column: 1 / 2; grid-row: 2; }
+.screen-myinfo-settings > div[style*="overflow-y"] > #myinfo-password-group-row { grid-column: 1 / 2; grid-row: 3; }
+.screen-myinfo-settings > div[style*="overflow-y"] > div:nth-child(5) { grid-column: 1 / 2; grid-row: 4; }
+.screen-myinfo-settings > div[style*="overflow-y"] > #myinfo-withdraw-btn { grid-column: 1 / 2; grid-row: 5; }
+
+.screen-myinfo-settings > div[style*="overflow-y"] > div:nth-child(3) { grid-column: 2 / 3; grid-row: 1 / span 5; }
+
+/* Details list read-only rows styling */
+.screen-myinfo-settings .setting-list div {
+  transition: background var(--transition-fast);
+}
+
+.screen-myinfo-settings .setting-list div:hover {
+  background: hsla(243, 75%, 59%, 0.02);
+}
+
+/* Modern badges */
+.screen-myinfo-settings .user-badge {
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 20px;
+}
+
+/* Desktop popup wide card overrides */
+#myinfo-pw-modal .popup-card, #myinfo-phone-modal .popup-card {
+  max-width: 440px !important;
+  padding: 32px;
+}
+
+#myinfo-badge-role.admin, #myinfo-role-txt.admin {
+  color: var(--accent-color);
+  background: hsla(192, 95%, 47%, 0.15);
+}
+
+#myinfo-badge-role.member, #myinfo-role-txt.member {
+  color: var(--text-secondary);
+  background: var(--border-color);
+}
+
+/* Action panel for Name Editing */
+#myinfo-name-actions button {
+  box-shadow: none;
+}
+
+/* Modals complexity list specific sizing */
+#myinfo-pw-rules-list {
+  grid-template-columns: repeat(2, 1fr);
+  padding: 10px;
+  gap: 6px;
+}
+
+#myinfo-pw-rules-list li {
+  font-size: 10px;
+}
+
+/* Deactivation block instruction item lists */
+.deact-instruction-list {
+  text-align: left;
+  padding-left: 20px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.deact-instruction-list li {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Form error styles shake effect */
+.input-group.has-error .input-field {
+  border-color: var(--error-color) !important;
+  box-shadow: 0 0 0 3px var(--error-glow) !important;
+}
+
+.input-group.has-error .error-msg {
+  display: flex;
+}
+
+/* Shake animation */
+@keyframes inputShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+.input-group.has-error .input-wrapper {
+  animation: inputShake 0.3s ease;
+}
+
+/* Input validation success border */
+.input-group.has-success .input-field {
+  border-color: var(--success-color) !important;
+  box-shadow: 0 0 0 3px var(--success-glow) !important;
+}
+
+/* ==========================================
+   [BUTTON DESIGN SYSTEM: 3 SIZES, 4 VARIANTS, 6 THEMES]
+   ========================================== */
+
+/* Button general overrides & touch interactions */
+.btn {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  font-family: var(--font-family);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn:active {
+  transform: scale(0.97) !important;
+}
+
+.btn:disabled {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* 1. Dimensions & Sizes */
+.btn-lg {
+  height: 52px;
+  padding: 0 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 14px;
+  width: auto;
+}
+
+.btn-md {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+  width: auto;
+}
+
+.btn-sm {
+  height: 36px;
+  padding: 0 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  width: auto;
+}
+
+/* 2. Style Variants per HSL Theme Colors */
+
+/* Solid Variants (Standard Premium Filled) */
+.btn-solid {
+  border: 1.5px solid transparent;
+}
+.btn-solid.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+.btn-solid.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-active) 100%);
+  box-shadow: 0 6px 16px hsla(243, 75%, 59%, 0.25);
+}
+
+.btn-solid.btn-secondary {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-hover) 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--secondary-glow);
+}
+.btn-solid.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--secondary-hover) 0%, var(--secondary-active) 100%);
+  box-shadow: 0 6px 16px hsla(215, 15%, 55%, 0.25);
+}
+
+.btn-solid.btn-success {
+  background: linear-gradient(135deg, var(--success-color) 0%, var(--success-hover) 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--success-glow);
+}
+.btn-solid.btn-success:hover {
+  background: linear-gradient(135deg, var(--success-hover) 0%, var(--success-active) 100%);
+  box-shadow: 0 6px 16px hsla(142, 70%, 45%, 0.25);
+}
+
+.btn-solid.btn-warning {
+  background: linear-gradient(135deg, var(--warning-color) 0%, var(--warning-hover) 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--warning-glow);
+}
+.btn-solid.btn-warning:hover {
+  background: linear-gradient(135deg, var(--warning-hover) 0%, var(--warning-active) 100%);
+  box-shadow: 0 6px 16px hsla(38, 92%, 50%, 0.25);
+}
+
+.btn-solid.btn-error {
+  background: linear-gradient(135deg, var(--error-color) 0%, var(--error-hover) 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--error-glow);
+}
+.btn-solid.btn-error:hover {
+  background: linear-gradient(135deg, var(--error-hover) 0%, var(--error-active) 100%);
+  box-shadow: 0 6px 16px hsla(350, 89%, 60%, 0.25);
+}
+
+.btn-solid.btn-info {
+  background: linear-gradient(135deg, var(--info-color) 0%, var(--info-hover) 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--info-glow);
+}
+.btn-solid.btn-info:hover {
+  background: linear-gradient(135deg, var(--info-hover) 0%, var(--info-active) 100%);
+  box-shadow: 0 6px 16px hsla(192, 95%, 47%, 0.25);
+}
+
+/* Label Variants (Light Translucent Tint Backgrounds) */
+.btn-label {
+  border: 1.5px solid transparent;
+}
+.btn-label.btn-primary {
+  background: var(--primary-glow);
+  color: var(--primary-color);
+}
+.btn-label.btn-primary:hover {
+  background: hsla(243, 75%, 59%, 0.25);
+}
+
+.btn-label.btn-secondary {
+  background: var(--secondary-glow);
+  color: var(--secondary-color);
+}
+.btn-label.btn-secondary:hover {
+  background: hsla(215, 15%, 55%, 0.25);
+}
+
+.btn-label.btn-success {
+  background: var(--success-glow);
+  color: var(--success-color);
+}
+.btn-label.btn-success:hover {
+  background: hsla(142, 70%, 45%, 0.25);
+}
+
+.btn-label.btn-warning {
+  background: var(--warning-glow);
+  color: var(--warning-color);
+}
+.btn-label.btn-warning:hover {
+  background: hsla(38, 92%, 50%, 0.25);
+}
+
+.btn-label.btn-error {
+  background: var(--error-glow);
+  color: var(--error-color);
+}
+.btn-label.btn-error:hover {
+  background: hsla(350, 89%, 60%, 0.25);
+}
+
+.btn-label.btn-info {
+  background: var(--info-glow);
+  color: var(--info-color);
+}
+.btn-label.btn-info:hover {
+  background: hsla(192, 95%, 47%, 0.25);
+}
+
+/* Outline Variants (Delicate Borders, Glassy Vibe) */
+.btn-outline {
+  background: transparent;
+}
+.btn-outline.btn-primary {
+  border: 1.5px solid var(--primary-color);
+  color: var(--primary-color);
+}
+.btn-outline.btn-primary:hover {
+  background: var(--primary-glow);
+}
+
+.btn-outline.btn-secondary {
+  border: 1.5px solid var(--secondary-color);
+  color: var(--secondary-color);
+}
+.btn-outline.btn-secondary:hover {
+  background: var(--secondary-glow);
+}
+
+.btn-outline.btn-success {
+  border: 1.5px solid var(--success-color);
+  color: var(--success-color);
+}
+.btn-outline.btn-success:hover {
+  background: var(--success-glow);
+}
+
+.btn-outline.btn-warning {
+  border: 1.5px solid var(--warning-color);
+  color: var(--warning-color);
+}
+.btn-outline.btn-warning:hover {
+  background: var(--warning-glow);
+}
+
+.btn-outline.btn-error {
+  border: 1.5px solid var(--error-color);
+  color: var(--error-color);
+}
+.btn-outline.btn-error:hover {
+  background: var(--error-glow);
+}
+
+.btn-outline.btn-info {
+  border: 1.5px solid var(--info-color);
+  color: var(--info-color);
+}
+.btn-outline.btn-info:hover {
+  background: var(--info-glow);
+}
+
+/* Text Variants (Borderless, Clean Text Buttons) */
+.btn-text {
+  background: transparent;
+  border: 1.5px solid transparent;
+}
+.btn-text.btn-primary {
+  color: var(--primary-color);
+}
+.btn-text.btn-primary:hover {
+  background: var(--primary-glow);
+}
+
+.btn-text.btn-secondary {
+  color: var(--secondary-color);
+}
+.btn-text.btn-secondary:hover {
+  background: var(--secondary-glow);
+}
+
+.btn-text.btn-success {
+  color: var(--success-color);
+}
+.btn-text.btn-success:hover {
+  background: var(--success-glow);
+}
+
+.btn-text.btn-warning {
+  color: var(--warning-color);
+}
+.btn-text.btn-warning:hover {
+  background: var(--warning-glow);
+}
+
+.btn-text.btn-error {
+  color: var(--error-color);
+}
+.btn-text.btn-error:hover {
+  background: var(--error-glow);
+}
+
+.btn-text.btn-info {
+  color: var(--info-color);
+}
+.btn-text.btn-info:hover {
+  background: var(--info-glow);
+}
+
+/* 3. Ripple Touch Animation Styles */
+.btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-effect 0.55s ease-out;
+  background: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+/* Ripple color adjustments for light backgrounds */
+.btn-label .ripple, .btn-outline .ripple, .btn-text .ripple {
+  background: rgba(115, 103, 240, 0.25);
+}
+
+.btn-label.btn-primary .ripple, .btn-outline.btn-primary .ripple, .btn-text.btn-primary .ripple { background: hsla(243, 75%, 59%, 0.3); }
+.btn-label.btn-secondary .ripple, .btn-outline.btn-secondary .ripple, .btn-text.btn-secondary .ripple { background: hsla(215, 15%, 55%, 0.3); }
+.btn-label.btn-success .ripple, .btn-outline.btn-success .ripple, .btn-text.btn-success .ripple { background: hsla(142, 70%, 45%, 0.3); }
+.btn-label.btn-warning .ripple, .btn-outline.btn-warning .ripple, .btn-text.btn-warning .ripple { background: hsla(38, 92%, 50%, 0.3); }
+.btn-label.btn-error .ripple, .btn-outline.btn-error .ripple, .btn-text.btn-error .ripple { background: hsla(350, 89%, 60%, 0.3); }
+.btn-label.btn-info .ripple, .btn-outline.btn-info .ripple, .btn-text.btn-info .ripple { background: hsla(192, 95%, 47%, 0.3); }
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 4. Design System Showcase Screens Layout & Micro-Animations */
+.screen-design-system {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px 24px 24px 24px !important;
+}
+
+.design-system-grid {
+  animation: dsFadeIn 0.4s ease-out;
+}
+
+.ds-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ds-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md) !important;
+  border-color: var(--primary-glow) !important;
+}
+
+@keyframes dsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+

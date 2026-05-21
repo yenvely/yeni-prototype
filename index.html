@@ -14,7 +14,10 @@
   <div class="app-container">
     
     <!-- --- [LEFT SIDE] INTERACTIVE POLICY CONTROLLER --- -->
-    <div class="control-panel">
+    <div class="control-panel" id="control-panel">
+      <button class="control-panel-toggle" id="control-panel-toggle" aria-label="제어판 접기/펴기">
+        <i class="fa-solid fa-angles-left"></i>
+      </button>
       <div class="panel-header">
         <h2>
           <i class="fa-solid fa-sliders-h" style="color: var(--primary-color);"></i>
@@ -101,35 +104,104 @@
         </button>
       </div>
 
+      <!-- Section: Sandbox My Info Settings Controllers -->
+      <div class="panel-section">
+        <h3>⚙️ 내정보 설정 테스트 제어</h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 12px; background: var(--bg-phone); border: 1.5px solid var(--border-color); border-radius: 12px; margin-top: 8px;">
+          
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <label for="test-user-role" style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">현재 테스트 계정 권한</label>
+            <div class="select-wrapper" style="width: 100%;">
+              <select id="test-user-role" style="width: 100%; padding: 8px 12px; border-radius: 8px; border: 1.5px solid var(--border-color); background: var(--bg-surface); color: var(--text-primary); font-family: var(--font-family); font-size: 12px;">
+                <option value="owner" selected>소유자 (Owner)</option>
+                <option value="admin">관리자 (Admin)</option>
+                <option value="member">멤버 (Member)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+            <input type="checkbox" id="test-ongoing-chat" style="width: 15px; height: 15px; accent-color: var(--primary-color); cursor: pointer;">
+            <label for="test-ongoing-chat" style="font-size: 11px; font-weight: 700; color: var(--text-secondary); cursor: pointer; user-select: none;">진행 중인 상담 존재 여부</label>
+          </div>
+
+        </div>
+      </div>
+
       <!-- Instructions Link -->
       <div style="font-size: 11px; color: var(--text-tertiary); text-align: center; border-top: 1.5px solid var(--border-color); padding-top: 12px; margin-top: 10px;">
         Designed for <strong style="color: var(--primary-color);">yenvely/yeni-prototype</strong>
       </div>
     </div>
 
-    <!-- --- [RIGHT SIDE] IPHONE 15 PRO DEVICE MOCKUP --- -->
-    <div class="device-wrapper">
+    <!-- --- [RIGHT SIDE] PREMIUM DESKTOP SaaS WEB FRAME --- -->
+    <div class="web-app-frame" id="web-app-frame">
       
-      <!-- Dynamic Island for layout alerts -->
-      <div class="dynamic-island" id="island">
-        <div class="island-content" id="island-content">
-          <i class="fa-solid fa-circle-check" style="color: var(--success-color);"></i>
-          <span>Welcome to CloudGate</span>
+      <!-- Mac-style Window Header -->
+      <div class="window-header">
+        <div class="window-dots">
+          <span class="window-dot close"></span>
+          <span class="window-dot minimize"></span>
+          <span class="window-dot maximize"></span>
+        </div>
+        <div class="window-title">CloudGate 3.0 Web Desk Workspace</div>
+        
+        <!-- Live clock inside window header, keeping device-time id active -->
+        <div class="window-system-time">
+          <i class="fa-regular fa-clock" style="font-size: 11px;"></i>
+          <span id="device-time">14:02</span>
         </div>
       </div>
 
-      <!-- Status Bar -->
-      <div class="status-bar">
-        <div class="time" id="device-time">14:02</div>
-        <div class="right-icons">
-          <i class="fa-solid fa-signal"></i>
-          <i class="fa-solid fa-wifi"></i>
-          <i class="fa-solid fa-battery-full"></i>
+      <div class="web-workspace">
+        
+        <!-- Dynamic Island Toast Alert inside workspace -->
+        <div class="dynamic-island" id="island">
+          <div class="island-content" id="island-content">
+            <i class="fa-solid fa-circle-check" style="color: var(--success-color);"></i>
+            <span>Welcome to CloudGate</span>
+          </div>
         </div>
-      </div>
 
-      <!-- Viewport / Inside the Screen -->
-      <div class="viewport">
+        <!-- Sidebar Navigation (Positioned on the left inside web-workspace) -->
+        <div class="bottom-nav" id="bottom-nav">
+          <div class="sidebar-brand">
+            <i class="fa-solid fa-cloud-bolt"></i>
+            <span>CloudGate 3.0</span>
+          </div>
+          
+          <div class="sidebar-menu">
+            <div class="nav-item active" id="nav-home">
+              <i class="fa-solid fa-house"></i>
+              <span>홈 대시보드</span>
+            </div>
+            <div class="nav-item" id="nav-chat">
+              <i class="fa-solid fa-comments"></i>
+              <span>상담 데스크</span>
+            </div>
+            <div class="nav-item" id="nav-design-system">
+              <i class="fa-solid fa-palette"></i>
+              <span>디자인 시스템</span>
+            </div>
+            <div class="nav-item" id="nav-mypage">
+              <i class="fa-solid fa-user"></i>
+              <span>마이페이지</span>
+            </div>
+          </div>
+
+          <!-- Active profile summary card in desktop sidebar -->
+          <div class="sidebar-profile-card">
+            <div class="sidebar-avatar" id="sidebar-avatar-initial">권</div>
+            <div class="sidebar-profile-details">
+              <div class="profile-name">권예은</div>
+              <div class="profile-role">소유자</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Desktop Content Viewport -->
+        <div class="viewport">
 
         <!-- --- POPUP OVERLAY (Common Modal for Policies) --- -->
         <div class="popup-overlay" id="popup-overlay">
@@ -148,157 +220,161 @@
 
         <!-- --- SCREEN 1: LOGIN (SCR-LOGIN-001) --- -->
         <div class="screen screen-login active" id="screen-login">
-          <div class="login-header">
-            <div class="service-logo">
-              <i class="fa-solid fa-cloud-bolt"></i>
-            </div>
-            <h1>CloudGate 3.0</h1>
-            <p>보안이 강화된 차세대 클라우드 상담 데스크</p>
-          </div>
-
-          <div class="login-form">
-            <!-- Email Input Field -->
-            <div class="input-group" id="email-group">
-              <label for="email">이메일 주소</label>
-              <div class="input-wrapper">
-                <input 
-                  type="email" 
-                  id="email" 
-                  class="input-field" 
-                  placeholder="이메일 주소를 입력하세요." 
-                  autocomplete="email"
-                  required
-                >
+          <div class="login-card">
+            <div class="login-header">
+              <div class="service-logo">
+                <i class="fa-solid fa-cloud-bolt"></i>
               </div>
-              <span class="error-msg" id="email-error">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span class="text">필수 입력 항목입니다.</span>
-              </span>
+              <h1>CloudGate 3.0</h1>
+              <p>보안이 강화된 차세대 클라우드 상담 데스크</p>
             </div>
 
-            <!-- Password Input Field -->
-            <div class="input-group" id="pw-group">
-              <label for="password">비밀번호</label>
-              <div class="input-wrapper">
-                <input 
-                  type="password" 
-                  id="password" 
-                  class="input-field" 
-                  placeholder="비밀번호를 입력하세요." 
-                  required
-                >
-                <button type="button" class="toggle-pw" id="toggle-pw-btn" aria-label="비밀번호 보기">
-                  <i class="fa-solid fa-eye" id="eye-icon"></i>
-                </button>
+            <div class="login-form">
+              <!-- Email Input Field -->
+              <div class="input-group" id="email-group">
+                <label for="email">이메일 주소</label>
+                <div class="input-wrapper">
+                  <input 
+                    type="email" 
+                    id="email" 
+                    class="input-field" 
+                    placeholder="이메일 주소를 입력하세요." 
+                    autocomplete="email"
+                    required
+                  >
+                </div>
+                <span class="error-msg" id="email-error">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                  <span class="text">필수 입력 항목입니다.</span>
+                </span>
               </div>
-              <span class="error-msg" id="pw-error">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span class="text">필수 입력 항목입니다.</span>
-              </span>
+
+              <!-- Password Input Field -->
+              <div class="input-group" id="pw-group">
+                <label for="password">비밀번호</label>
+                <div class="input-wrapper">
+                  <input 
+                    type="password" 
+                    id="password" 
+                    class="input-field" 
+                    placeholder="비밀번호를 입력하세요." 
+                    required
+                  >
+                  <button type="button" class="toggle-pw" id="toggle-pw-btn" aria-label="비밀번호 보기">
+                    <i class="fa-solid fa-eye" id="eye-icon"></i>
+                  </button>
+                </div>
+                <span class="error-msg" id="pw-error">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                  <span class="text">필수 입력 항목입니다.</span>
+                </span>
+              </div>
+
+              <button class="btn btn-primary" id="login-btn" style="margin-top: 10px;">
+                <span class="btn-text">로그인</span>
+                <div class="spinner" id="login-spinner"></div>
+              </button>
+
+              <a href="#" class="forgot-pw" id="trigger-forgot-pw-link">비밀번호를 잊으셨나요?</a>
             </div>
-
-            <button class="btn btn-primary" id="login-btn" style="margin-top: 10px;">
-              <span class="btn-text">로그인</span>
-              <div class="spinner" id="login-spinner"></div>
-            </button>
-
-            <a href="#" class="forgot-pw" id="trigger-forgot-pw-link">비밀번호를 잊으셨나요?</a>
           </div>
         </div>
 
         <!-- --- SCREEN 1.5: FIND & RESET PASSWORD (NEW FLOW) --- -->
         <div class="screen screen-forgot-pw" id="screen-forgot-pw">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 4px;">
-            <button class="chat-back-btn" id="forgot-pw-back-btn" aria-label="뒤로가기">
-              <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <h2 style="font-size: 16px;">비밀번호 찾기 / 재설정</h2>
-          </div>
-
-          <!-- Step Progress Indicator -->
-          <div class="steps-indicator">
-            <div class="step-node active" id="step-node-1">
-              <i class="fa-solid fa-shield-halved"></i>
-              <span>1. 이메일 인증</span>
+          <div class="forgot-pw-card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <button class="chat-back-btn" id="forgot-pw-back-btn" aria-label="뒤로가기">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <h2 style="font-size: 16px;">비밀번호 찾기 / 재설정</h2>
             </div>
-            <div class="step-node" id="step-node-2">
-              <i class="fa-solid fa-key"></i>
-              <span>2. 새 비밀번호</span>
-            </div>
-          </div>
 
-          <!-- STEP 1: Email Code Sending & Verification -->
-          <div class="forgot-pw-step active" id="forgot-step-1">
-            <p style="font-size: 12px;">등록된 이메일 주소로 전송된 6자리 인증 코드를 작성해주세요.</p>
-            
-            <div class="input-group">
-              <label>이메일 주소</label>
-              <div class="input-wrapper" style="gap: 8px;">
-                <input type="email" id="forgot-email" class="input-field" placeholder="가입 이메일을 입력하세요.">
-                <button class="btn btn-primary" id="send-code-btn" style="padding: 12px 14px; width: auto; font-size: 12px; white-space: nowrap;">
-                  코드 전송
-                </button>
+            <!-- Step Progress Indicator -->
+            <div class="steps-indicator">
+              <div class="step-node active" id="step-node-1">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>1. 이메일 인증</span>
+              </div>
+              <div class="step-node" id="step-node-2">
+                <i class="fa-solid fa-key"></i>
+                <span>2. 새 비밀번호</span>
               </div>
             </div>
 
-            <div class="input-group">
-              <label>인증코드 (6자리)</label>
-              <input type="text" id="forgot-code" class="input-field" placeholder="인증코드 6자리를 입력하세요" disabled maxlength="6">
+            <!-- STEP 1: Email Code Sending & Verification -->
+            <div class="forgot-pw-step active" id="forgot-step-1">
+              <p style="font-size: 12px; margin-bottom: 12px;">등록된 이메일 주소로 전송된 6자리 인증 코드를 작성해주세요.</p>
               
-              <div class="timer-box" id="forgot-timer-box" style="display: none;">
-                <i class="fa-solid fa-clock"></i>
-                <span id="verification-timer">30:00</span>
+              <div class="input-group">
+                <label>이메일 주소</label>
+                <div class="input-wrapper" style="gap: 8px;">
+                  <input type="email" id="forgot-email" class="input-field" placeholder="가입 이메일을 입력하세요.">
+                  <button class="btn btn-primary" id="send-code-btn" style="padding: 12px 14px; width: auto; font-size: 12px; white-space: nowrap;">
+                    코드 전송
+                  </button>
+                </div>
               </div>
+
+              <div class="input-group">
+                <label>인증코드 (6자리)</label>
+                <input type="text" id="forgot-code" class="input-field" placeholder="인증코드 6자리를 입력하세요" disabled maxlength="6">
+                
+                <div class="timer-box" id="forgot-timer-box" style="display: none;">
+                  <i class="fa-solid fa-clock"></i>
+                  <span id="verification-timer">30:00</span>
+                </div>
+              </div>
+
+              <button class="btn btn-primary" id="verify-code-btn" style="margin-top: 10px;" disabled>
+                인증 완료
+              </button>
             </div>
 
-            <button class="btn btn-primary" id="verify-code-btn" style="margin-top: 10px;" disabled>
-              인증 완료
-            </button>
-          </div>
-
-          <!-- STEP 2: Password Complexity Checklist Setting -->
-          <div class="forgot-pw-step" id="forgot-step-2">
-            <p style="font-size: 12px; color: var(--text-secondary);">보안 정책에 부합하는 새로운 강력한 비밀번호를 설정하세요.</p>
-            
-            <!-- New Password Input -->
-            <div class="input-group" id="forgot-new-pw-group">
-              <label>새 비밀번호</label>
-              <div class="input-wrapper">
-                <input type="password" id="forgot-new-pw" class="input-field" placeholder="새 비밀번호 입력">
-                <button type="button" class="toggle-pw" id="forgot-toggle-pw-1">
-                  <i class="fa-solid fa-eye" id="forgot-eye-1"></i>
-                </button>
+            <!-- STEP 2: Password Complexity Checklist Setting -->
+            <div class="forgot-pw-step" id="forgot-step-2">
+              <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">보안 정책에 부합하는 새로운 강력한 비밀번호를 설정하세요.</p>
+              
+              <!-- New Password Input -->
+              <div class="input-group" id="forgot-new-pw-group">
+                <label>새 비밀번호</label>
+                <div class="input-wrapper">
+                  <input type="password" id="forgot-new-pw" class="input-field" placeholder="새 비밀번호 입력">
+                  <button type="button" class="toggle-pw" id="forgot-toggle-pw-1">
+                    <i class="fa-solid fa-eye" id="forgot-eye-1"></i>
+                  </button>
+                </div>
               </div>
-            </div>
 
-            <!-- Confirm Password Input -->
-            <div class="input-group" id="forgot-confirm-pw-group">
-              <label>비밀번호 확인</label>
-              <div class="input-wrapper">
-                <input type="password" id="forgot-confirm-pw" class="input-field" placeholder="비밀번호 재확인 입력">
-                <button type="button" class="toggle-pw" id="forgot-toggle-pw-2">
-                  <i class="fa-solid fa-eye" id="forgot-eye-2"></i>
-                </button>
+              <!-- Confirm Password Input -->
+              <div class="input-group" id="forgot-confirm-pw-group">
+                <label>비밀번호 확인</label>
+                <div class="input-wrapper">
+                  <input type="password" id="forgot-confirm-pw" class="input-field" placeholder="비밀번호 재확인 입력">
+                  <button type="button" class="toggle-pw" id="forgot-toggle-pw-2">
+                    <i class="fa-solid fa-eye" id="forgot-eye-2"></i>
+                  </button>
+                </div>
+                <span class="error-msg" id="forgot-confirm-error">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                  <span class="text">비밀번호가 일치하지 않습니다.</span>
+                </span>
               </div>
-              <span class="error-msg" id="forgot-confirm-error">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span class="text">비밀번호가 일치하지 않습니다.</span>
-              </span>
+
+              <!-- Policy Checklist Boxes (Dynamic checkmarks) -->
+              <ul class="pw-rules">
+                <li id="rule-length"><i class="fa-solid fa-circle-dot"></i> 최소 8자 이상</li>
+                <li id="rule-lower"><i class="fa-solid fa-circle-dot"></i> 소문자 포함</li>
+                <li id="rule-upper"><i class="fa-solid fa-circle-dot"></i> 대문자 포함</li>
+                <li id="rule-number"><i class="fa-solid fa-circle-dot"></i> 숫자 포함</li>
+                <li id="rule-special"><i class="fa-solid fa-circle-dot"></i> 특수문자 포함</li>
+                <li id="rule-match"><i class="fa-solid fa-circle-dot"></i> 비밀번호 일치</li>
+              </ul>
+
+              <button class="btn btn-primary" id="change-pw-submit-btn" style="margin-top: 10px;" disabled>
+                비밀번호 변경 완료
+              </button>
             </div>
-
-            <!-- Policy Checklist Boxes (Dynamic checkmarks) -->
-            <ul class="pw-rules">
-              <li id="rule-length"><i class="fa-solid fa-circle-dot"></i> 최소 8자 이상</li>
-              <li id="rule-lower"><i class="fa-solid fa-circle-dot"></i> 소문자 포함</li>
-              <li id="rule-upper"><i class="fa-solid fa-circle-dot"></i> 대문자 포함</li>
-              <li id="rule-number"><i class="fa-solid fa-circle-dot"></i> 숫자 포함</li>
-              <li id="rule-special"><i class="fa-solid fa-circle-dot"></i> 특수문자 포함</li>
-              <li id="rule-match"><i class="fa-solid fa-circle-dot"></i> 비밀번호 일치</li>
-            </ul>
-
-            <button class="btn btn-primary" id="change-pw-submit-btn" style="margin-top: 10px;" disabled>
-              비밀번호 변경 완료
-            </button>
           </div>
         </div>
 
@@ -402,38 +478,40 @@
         <!-- --- SCREEN 2.5: COUNSELING DESK / CHAT SIMULATOR (NEW SCREEN) --- -->
         <div class="screen screen-chat" id="screen-chat">
           
-          <!-- Chat Queue tabs -->
-          <div class="chat-tab-header">
-            <div class="chat-tab active" id="tab-waiting">
-              대기 중
-              <span class="badge" id="waiting-count-badge">1</span>
-            </div>
-            <div class="chat-tab" id="tab-ongoing">
-              진행 중
-              <span class="badge" id="ongoing-count-badge" style="background: var(--accent-color); display: none;">0</span>
-            </div>
-          </div>
-
-          <!-- Chat Lists container -->
-          <div class="chat-queue-list" id="chat-queue-list">
-            <!-- Dynamically populated room cards. Example initially present: -->
-            <div class="chat-room-item" id="waiting-room-minsu">
-              <div class="chat-room-info">
-                <div class="customer-avatar">김</div>
-                <div class="chat-room-text">
-                  <span class="customer-name">김민수 고객</span>
-                  <span class="chat-room-lastmsg">결제 플랜 및 구독 관리 변경 문의드립니다...</span>
-                </div>
+          <div class="chat-sidebar-pane">
+            <!-- Chat Queue tabs -->
+            <div class="chat-tab-header">
+              <div class="chat-tab active" id="tab-waiting">
+                대기 중
+                <span class="badge" id="waiting-count-badge">1</span>
               </div>
-              <button class="btn btn-primary" id="start-chat-btn" style="width: auto; padding: 6px 12px; font-size: 11px; border-radius: 8px;">
-                상담 시작
-              </button>
+              <div class="chat-tab" id="tab-ongoing">
+                진행 중
+                <span class="badge" id="ongoing-count-badge" style="background: var(--accent-color); display: none;">0</span>
+              </div>
             </div>
 
-            <!-- Empty indicator -->
-            <div id="chat-empty-msg" style="display: none; text-align: center; color: var(--text-tertiary); font-size: 12px; margin-top: 40px; width: 100%;">
-              <i class="fa-solid fa-check-circle" style="font-size: 24px; color: var(--success-color); margin-bottom: 8px; display: block;"></i>
-              상담 요청 대기 건이 없습니다.
+            <!-- Chat Lists container -->
+            <div class="chat-queue-list" id="chat-queue-list">
+              <!-- Dynamically populated room cards. Example initially present: -->
+              <div class="chat-room-item" id="waiting-room-minsu">
+                <div class="chat-room-info">
+                  <div class="customer-avatar">김</div>
+                  <div class="chat-room-text">
+                    <span class="customer-name">김민수 고객</span>
+                    <span class="chat-room-lastmsg">결제 플랜 및 구독 관리 변경 문의드립니다...</span>
+                  </div>
+                </div>
+                <button class="btn btn-primary" id="start-chat-btn" style="width: auto; padding: 6px 12px; font-size: 11px; border-radius: 8px;">
+                  상담 시작
+                </button>
+              </div>
+
+              <!-- Empty indicator -->
+              <div id="chat-empty-msg" style="display: none; text-align: center; color: var(--text-tertiary); font-size: 12px; margin-top: 40px; width: 100%;">
+                <i class="fa-solid fa-check-circle" style="font-size: 24px; color: var(--success-color); margin-bottom: 8px; display: block;"></i>
+                상담 요청 대기 건이 없습니다.
+              </div>
             </div>
           </div>
 
@@ -479,6 +557,15 @@
             </div>
           </div>
 
+          <!-- Empty state placeholder for right pane -->
+          <div class="chat-placeholder" id="chat-placeholder">
+            <div class="placeholder-content">
+              <i class="fa-solid fa-comments" style="font-size: 48px; color: var(--primary-color); opacity: 0.8; margin-bottom: 16px;"></i>
+              <h3>상담을 선택해주세요</h3>
+              <p>대기 중이거나 진행 중인 고객 상담을 선택하면 여기에 대화창이 활성화됩니다.</p>
+            </div>
+          </div>
+
         </div>
 
         <!-- --- SCREEN 3: MY PAGE --- -->
@@ -490,6 +577,17 @@
             <div class="profile-info">
               <div class="profile-name">권예은</div>
               <div class="profile-role">워크플레이스 소유자</div>
+            </div>
+          </div>
+
+          <!-- My Info Settings Navigation Button -->
+          <div class="setting-list" style="margin-top: 12px; margin-bottom: 4px;">
+            <div class="setting-item" id="go-to-myinfo-btn" style="cursor: pointer; border: 1.5px solid var(--border-color); border-radius: 14px; padding: 14px 16px; background: var(--bg-surface); display: flex; justify-content: space-between; align-items: center; transition: all var(--transition-fast);">
+              <div class="setting-item-label" style="display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-user-pen" style="color: var(--primary-color);"></i>
+                <span style="font-weight: 600;">내정보 설정</span>
+              </div>
+              <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: var(--text-tertiary);"></i>
             </div>
           </div>
 
@@ -615,27 +713,473 @@
           </button>
         </div>
 
-        <!-- Bottom Navigation Bar (Visible only when logged in) -->
-        <div class="bottom-nav" id="bottom-nav">
-          <div class="nav-item active" id="nav-home">
-            <i class="fa-solid fa-house"></i>
-            <span>홈 대시보드</span>
+        <!-- --- SCREEN 3.5: MY INFO SETTINGS (NEW SCREEN) --- -->
+        <div class="screen screen-myinfo-settings" id="screen-myinfo-settings" style="padding-top: 12px;">
+          <!-- Header -->
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-bottom: 1.5px solid var(--border-color); padding-bottom: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button class="chat-back-btn" id="myinfo-back-btn" aria-label="뒤로가기" style="border: none; background: none; color: var(--text-primary); cursor: pointer; padding: 4px 8px;">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <h2 style="font-size: 16px;">내정보 설정</h2>
+            </div>
           </div>
-          <div class="nav-item" id="nav-chat">
-            <i class="fa-solid fa-comments"></i>
-            <span>상담 데스크</span>
-          </div>
-          <div class="nav-item" id="nav-mypage">
-            <i class="fa-solid fa-user"></i>
-            <span>마이페이지</span>
+
+          <div style="overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 16px; padding-bottom: 10px;">
+            
+            <!-- Profile Avatar and Subtitles -->
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 0;">
+              <div class="avatar-wrapper" style="width: 64px; height: 64px; border-radius: 50%; background: var(--primary-glow); color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; box-shadow: var(--shadow-sm);">
+                권
+              </div>
+              <div style="text-align: center;">
+                <span class="user-badge" id="myinfo-badge-role" style="font-size: 10px; margin: 0 auto;">소유자</span>
+              </div>
+            </div>
+
+            <!-- Name Input (Editable with validations) -->
+            <div class="settings-group" style="margin-bottom: 4px;">
+              <h3 style="margin-bottom: 6px; font-size: 12px; color: var(--text-secondary);">이름*</h3>
+              <div class="input-group" id="myinfo-name-group" style="gap: 4px;">
+                <div class="input-wrapper">
+                  <input type="text" id="myinfo-name-input" class="input-field" placeholder="이름을 입력하세요." value="권예은" maxlength="20" required>
+                </div>
+                <span class="error-msg" id="myinfo-name-error" style="font-size: 11px; color: var(--error-color); margin-top: 2px;">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                  <span class="text">필수 입력 항목입니다.</span>
+                </span>
+                
+                <!-- Inline Action Panel for Name (Appears when dirty) -->
+                <div id="myinfo-name-actions" style="display: none; justify-content: flex-end; gap: 8px; margin-top: 6px;">
+                  <button type="button" class="btn btn-secondary" id="myinfo-name-cancel" style="width: auto; padding: 6px 12px; font-size: 11px; border-radius: 8px;">취소</button>
+                  <button type="button" class="btn btn-primary" id="myinfo-name-save" style="width: auto; padding: 6px 12px; font-size: 11px; border-radius: 8px;">저장</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Account Details List (Read-only) -->
+            <div class="settings-group">
+              <h3>계정 정보</h3>
+              <div class="setting-list" style="background: var(--bg-surface); border: 1.5px solid var(--border-color); border-radius: 14px; overflow: hidden;">
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--border-color);">
+                  <span style="font-size: 12px; color: var(--text-secondary);">이메일</span>
+                  <span style="font-size: 12px; font-weight: 600;" id="myinfo-email-txt">twc1234@thewc.co.kr</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--border-color);">
+                  <span style="font-size: 12px; color: var(--text-secondary);">가입일자</span>
+                  <span style="font-size: 12px; font-weight: 600;">2023.12.06</span>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--border-color);">
+                  <span style="font-size: 12px; color: var(--text-secondary);">가입방법</span>
+                  <span style="font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 4px;">
+                    <i class="fa-solid fa-envelope" style="font-size: 10px; color: var(--text-tertiary);"></i>
+                    이메일
+                  </span>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--border-color);">
+                  <span style="font-size: 12px; color: var(--text-secondary);">워크플레이스</span>
+                  <span style="font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 140px;" title="yenvely/yeni-prototype">yenvely/yeni-prototype</span>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--border-color);">
+                  <span style="font-size: 12px; color: var(--text-secondary);">권한</span>
+                  <span class="user-badge" id="myinfo-role-txt" style="padding: 2px 6px; font-size: 10px;">소유자</span>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px;">
+                  <span style="font-size: 12px; color: var(--text-secondary);">계정 상태</span>
+                  <span style="font-size: 12px; font-weight: 600; color: var(--success-color); display: flex; align-items: center; gap: 4px;">
+                    <i class="fa-solid fa-circle" style="font-size: 8px;"></i>
+                    활성
+                  </span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Password Change Setting -->
+            <div class="settings-group" id="myinfo-password-group-row">
+              <h3>비밀번호 설정</h3>
+              <div class="setting-list" style="background: var(--bg-surface); border: 1.5px solid var(--border-color); border-radius: 14px; overflow: hidden;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px;">
+                  <div style="display: flex; flex-direction: column; gap: 2px;">
+                    <span style="font-size: 12px; font-weight: 600;">비밀번호 변경</span>
+                    <span style="font-size: 10px; color: var(--text-tertiary);" id="myinfo-pw-last-changed">최종 변경일: 2026. 04. 22 (28일 경과)</span>
+                  </div>
+                  <button type="button" class="btn btn-secondary" id="myinfo-change-pw-btn" style="width: auto; padding: 6px 12px; font-size: 11px; border-radius: 8px;">변경</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone Number Setting -->
+            <div class="settings-group">
+              <h3>휴대폰 번호 설정</h3>
+              <div class="setting-list" style="background: var(--bg-surface); border: 1.5px solid var(--border-color); border-radius: 14px; overflow: hidden;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px;">
+                  <div style="display: flex; flex-direction: column; gap: 2px;">
+                    <span style="font-size: 12px; font-weight: 600;" id="myinfo-phone-txt">010-2222-2222</span>
+                    <span style="font-size: 10px; color: var(--text-tertiary);">최종 변경일: 2026. 04. 22</span>
+                  </div>
+                  <button type="button" class="btn btn-secondary" id="myinfo-change-phone-btn" style="width: auto; padding: 6px 12px; font-size: 11px; border-radius: 8px;">변경</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Account Withdrawal -->
+            <button class="btn btn-secondary" id="myinfo-withdraw-btn" style="margin-top: 10px; border: 1.5px solid var(--error-color); background: none; color: var(--error-color);">
+              <i class="fa-solid fa-user-xmark"></i>
+              회원 탈퇴
+            </button>
+
           </div>
         </div>
 
-        <!-- Home indicator line -->
-        <div class="home-indicator"></div>
+        <!-- --- SCREEN 4: DESIGN SYSTEM SHOWCASE (NEW SCREEN) --- -->
+        <div class="screen screen-design-system" id="screen-design-system" style="padding-top: 12px; overflow-y: auto;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-bottom: 1.5px solid var(--border-color); padding-bottom: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-palette" style="color: var(--primary-color); font-size: 18px;"></i>
+              <h2 style="font-size: 16px;">디자인 시스템 쇼케이스</h2>
+            </div>
+            <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">CloudGate 3.0 Live Theme Token</span>
+          </div>
 
-      </div>
-    </div>
+          <div class="design-system-grid" style="display: grid; grid-template-columns: 1fr; gap: 20px; padding-bottom: 20px;">
+            
+            <!-- Card 1: Color Palette -->
+            <div class="ds-card" style="background: var(--bg-surface); border: 1.5px solid var(--border-color); border-radius: 16px; padding: 20px; box-shadow: var(--shadow-sm);">
+              <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-droplet" style="color: var(--primary-color);"></i>
+                6대 시그니처 HSL 테마 컬러
+              </h3>
+              <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">Figma 규격에 명시된 6가지 핵심 테마 컬러로, 다크 모드에 맞춰 유기적인 명도/채도 대비를 지원합니다.</p>
+              
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px;">
+                <div style="display: flex; flex-direction: column; gap: 6px; padding: 10px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-phone);">
+                  <div style="height: 40px; border-radius: 8px; background: var(--primary-color); box-shadow: 0 4px 10px var(--primary-glow);"></div>
+                  <span style="font-size: 11px; font-weight: 700;">Primary</span>
+                  <span style="font-size: 9px; color: var(--text-tertiary);">HSL 243, 75%, 59%</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; padding: 10px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-phone);">
+                  <div style="height: 40px; border-radius: 8px; background: var(--secondary-color); box-shadow: 0 4px 10px var(--secondary-glow);"></div>
+                  <span style="font-size: 11px; font-weight: 700;">Secondary</span>
+                  <span style="font-size: 9px; color: var(--text-tertiary);">HSL 215, 15%, 55%</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; padding: 10px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-phone);">
+                  <div style="height: 40px; border-radius: 8px; background: var(--success-color); box-shadow: 0 4px 10px var(--success-glow);"></div>
+                  <span style="font-size: 11px; font-weight: 700;">Success</span>
+                  <span style="font-size: 9px; color: var(--text-tertiary);">HSL 142, 70%, 45%</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; padding: 10px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-phone);">
+                  <div style="height: 40px; border-radius: 8px; background: var(--warning-color); box-shadow: 0 4px 10px var(--warning-glow);"></div>
+                  <span style="font-size: 11px; font-weight: 700;">Warning</span>
+                  <span style="font-size: 9px; color: var(--text-tertiary);">HSL 38, 92%, 50%</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; padding: 10px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-phone);">
+                  <div style="height: 40px; border-radius: 8px; background: var(--error-color); box-shadow: 0 4px 10px var(--error-glow);"></div>
+                  <span style="font-size: 11px; font-weight: 700;">Error</span>
+                  <span style="font-size: 9px; color: var(--text-tertiary);">HSL 350, 89%, 60%</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; padding: 10px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-phone);">
+                  <div style="height: 40px; border-radius: 8px; background: var(--info-color); box-shadow: 0 4px 10px var(--info-glow);"></div>
+                  <span style="font-size: 11px; font-weight: 700;">Info</span>
+                  <span style="font-size: 9px; color: var(--text-tertiary);">HSL 192, 95%, 47%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Interactive Buttons Showcase -->
+            <div class="ds-card" style="background: var(--bg-surface); border: 1.5px solid var(--border-color); border-radius: 16px; padding: 20px; box-shadow: var(--shadow-sm);">
+              <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-hand-pointer" style="color: var(--primary-color);"></i>
+                버튼 컴포넌트 규격 & 4대 변형
+              </h3>
+              <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">
+                Figma 디자인 가이드 명세에 따른 **3대 크기 규격(Large 52px, Medium 44px, Small 36px)**과 **4대 변형 스타일(Solid, Label, Outline, Text)**을 직접 클릭하여 `scale(0.98)` 반응 및 **Ripple 물결 효과**를 체험해보세요.
+              </p>
+
+              <!-- Sub-section: 3 Sizes -->
+              <div style="margin-bottom: 24px;">
+                <h4 style="font-size: 12px; font-weight: 700; color: var(--text-secondary); border-left: 3px solid var(--primary-color); padding-left: 6px; margin-bottom: 12px;">1) 3가지 크기 규격 (Sizes)</h4>
+                <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                  <button class="btn btn-solid btn-primary btn-lg">Large (52px)</button>
+                  <button class="btn btn-solid btn-primary btn-md">Medium (44px)</button>
+                  <button class="btn btn-solid btn-primary btn-sm">Small (36px)</button>
+                </div>
+              </div>
+
+              <!-- Sub-section: 4 Variants -->
+              <div>
+                <h4 style="font-size: 12px; font-weight: 700; color: var(--text-secondary); border-left: 3px solid var(--primary-color); padding-left: 6px; margin-bottom: 12px;">2) 4가지 스타일 변형 (Variants Showcase)</h4>
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                  
+                  <!-- Primary Row -->
+                  <div style="display: grid; grid-template-columns: 80px 1fr; align-items: center; gap: 12px;">
+                    <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">Primary</span>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                      <button class="btn btn-solid btn-primary btn-md">Solid</button>
+                      <button class="btn btn-label btn-primary btn-md">Label</button>
+                      <button class="btn btn-outline btn-primary btn-md">Outline</button>
+                      <button class="btn btn-text btn-primary btn-md">Text</button>
+                    </div>
+                  </div>
+
+                  <!-- Success Row -->
+                  <div style="display: grid; grid-template-columns: 80px 1fr; align-items: center; gap: 12px;">
+                    <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">Success</span>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                      <button class="btn btn-solid btn-success btn-md">Solid</button>
+                      <button class="btn btn-label btn-success btn-md">Label</button>
+                      <button class="btn btn-outline btn-success btn-md">Outline</button>
+                      <button class="btn btn-text btn-success btn-md">Text</button>
+                    </div>
+                  </div>
+
+                  <!-- Warning Row -->
+                  <div style="display: grid; grid-template-columns: 80px 1fr; align-items: center; gap: 12px;">
+                    <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">Warning</span>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                      <button class="btn btn-solid btn-warning btn-md">Solid</button>
+                      <button class="btn btn-label btn-warning btn-md">Label</button>
+                      <button class="btn btn-outline btn-warning btn-md">Outline</button>
+                      <button class="btn btn-text btn-warning btn-md">Text</button>
+                    </div>
+                  </div>
+
+                  <!-- Error Row -->
+                  <div style="display: grid; grid-template-columns: 80px 1fr; align-items: center; gap: 12px;">
+                    <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">Error</span>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                      <button class="btn btn-solid btn-error btn-md">Solid</button>
+                      <button class="btn btn-label btn-error btn-md">Label</button>
+                      <button class="btn btn-outline btn-error btn-md">Outline</button>
+                      <button class="btn btn-text btn-error btn-md">Text</button>
+                    </div>
+                  </div>
+
+                  <!-- Info Row -->
+                  <div style="display: grid; grid-template-columns: 80px 1fr; align-items: center; gap: 12px;">
+                    <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">Info</span>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                      <button class="btn btn-solid btn-info btn-md">Solid</button>
+                      <button class="btn btn-label btn-info btn-md">Label</button>
+                      <button class="btn btn-outline btn-info btn-md">Outline</button>
+                      <button class="btn btn-text btn-info btn-md">Text</button>
+                    </div>
+                  </div>
+
+                  <!-- Disabled State Example -->
+                  <div style="display: grid; grid-template-columns: 80px 1fr; align-items: center; gap: 12px;">
+                    <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">Disabled</span>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                      <button class="btn btn-solid btn-primary btn-md" disabled>Solid</button>
+                      <button class="btn btn-label btn-primary btn-md" disabled>Label</button>
+                      <button class="btn btn-outline btn-primary btn-md" disabled>Outline</button>
+                      <button class="btn btn-text btn-primary btn-md" disabled>Text</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Card 3: Form Inputs & Controls -->
+            <div class="ds-card" style="background: var(--bg-surface); border: 1.5px solid var(--border-color); border-radius: 16px; padding: 20px; box-shadow: var(--shadow-sm);">
+              <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-keyboard" style="color: var(--primary-color);"></i>
+                텍스트 입력 필드 & 폼 요소 (Form Elements)
+              </h3>
+              <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">보더 반경 `14px`와 선 폭 `1.5px` 규격을 준수하며, 상태별(Focus, Success, Error) 보더 및 쉐도우 글로우 변화를 실시간 제공합니다.</p>
+              
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+                
+                <!-- Input Normal -->
+                <div class="input-group">
+                  <label style="font-size: 11px; font-weight: 600;">기본 입력 상태 (Default / Focus)</label>
+                  <input type="text" class="input-field" placeholder="포커스 시 프라이머리 글로우 반영">
+                </div>
+
+                <!-- Input Success -->
+                <div class="input-group has-success">
+                  <label style="font-size: 11px; font-weight: 600;">검증 성공 상태 (Success)</label>
+                  <input type="text" class="input-field" value="올바른 형식의 휴대폰 번호입니다." style="border-color: var(--success-color); box-shadow: 0 0 0 3px var(--success-glow);" readonly>
+                  <span class="error-msg" style="display: flex; color: var(--success-color);"><i class="fa-solid fa-circle-check"></i> <span>성공 피드백 노출</span></span>
+                </div>
+
+                <!-- Input Error -->
+                <div class="input-group has-error">
+                  <label style="font-size: 11px; font-weight: 600;">검증 오류 상태 (Error)</label>
+                  <input type="text" class="input-field" value="한글, 영문, 숫자만 입력 가능합니다." style="border-color: var(--error-color); box-shadow: 0 0 0 3px var(--error-glow);" readonly>
+                  <span class="error-msg" style="display: flex; margin-top: 2px;"><i class="fa-solid fa-triangle-exclamation"></i> <span>에러 정책에 따라 인라인 즉시 안내</span></span>
+                </div>
+
+                <!-- Toggle Switch & Checkbox Showcase -->
+                <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center; padding: 10px; border-radius: 14px; border: 1.5px dashed var(--border-color); background: var(--bg-phone);">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-size: 12px; font-weight: 600;">보안 이관 설정 스위치</span>
+                    <label class="switch">
+                      <input type="checkbox" id="ds-toggle-switch" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" id="ds-check-box" style="width: 16px; height: 16px; accent-color: var(--primary-color); cursor: pointer;" checked>
+                    <label for="ds-check-box" style="font-size: 12px; font-weight: 600; cursor: pointer; user-select: none;">약관 최종 동의 체크박스</label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Card 4: Badges & Initial Avatars -->
+            <div class="ds-card" style="background: var(--bg-surface); border: 1.5px solid var(--border-color); border-radius: 16px; padding: 20px; box-shadow: var(--shadow-sm);">
+              <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--text-primary); display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-tags" style="color: var(--primary-color);"></i>
+                역할별 배지 & 이니셜 아바타 (Badges & Avatars)
+              </h3>
+              <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">사용자 권한(Owner, Admin, Member)에 맞춘 뚜렷하고 고급스러운 배지 디자인 체계와 이니셜 원형 아바타 규격입니다.</p>
+
+              <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+                
+                <!-- Roles Badges -->
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">1) 역할별 배지 (Role Badges)</span>
+                  <div style="display: flex; gap: 8px; align-items: center;">
+                    <span class="user-badge owner" style="padding: 4px 10px; font-size: 11px;">소유자 (Owner)</span>
+                    <span class="user-badge admin" style="padding: 4px 10px; font-size: 11px; color: var(--accent-color); background: hsla(192, 95%, 47%, 0.15);">관리자 (Admin)</span>
+                    <span class="user-badge member" style="padding: 4px 10px; font-size: 11px; color: var(--text-secondary); background: var(--border-color);">멤버 (Member)</span>
+                  </div>
+                </div>
+
+                <!-- Initial Avatars -->
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">2) 이니셜 아바타 (Initial Avatars)</span>
+                  <div style="display: flex; gap: 10px; align-items: center;">
+                    <div class="avatar-wrapper" style="width: 40px; height: 40px; border-radius: 50%; background: var(--primary-glow); color: var(--primary-color); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700;">권</div>
+                    <div class="avatar-wrapper" style="width: 40px; height: 40px; border-radius: 50%; background: hsla(192, 95%, 47%, 0.15); color: var(--accent-color); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700;">김</div>
+                    <div class="avatar-wrapper" style="width: 40px; height: 40px; border-radius: 50%; background: var(--border-color); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700;">박</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- --- POPUP OVERLAY 2: PASSWORD CHANGE MODAL --- -->
+        <div class="popup-overlay" id="myinfo-pw-modal">
+          <div class="popup-card">
+            <div class="popup-icon" style="color: var(--primary-color); background: var(--primary-glow); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; font-size: 18px;">
+              <i class="fa-solid fa-key"></i>
+            </div>
+            <div class="popup-title" style="margin-bottom: 12px; font-size: 15px;">비밀번호 변경</div>
+            
+            <div style="display: flex; flex-direction: column; gap: 10px; width: 100%; text-align: left; margin-bottom: 14px;">
+              <!-- Current PW -->
+              <div class="input-group" id="myinfo-curr-pw-group" style="gap: 4px;">
+                <label style="font-size: 11px; font-weight: 600;">현재 비밀번호</label>
+                <div class="input-wrapper">
+                  <input type="password" id="myinfo-curr-pw" class="input-field" placeholder="현재 비밀번호를 입력하세요." style="padding: 10px 12px; font-size: 13px;" required>
+                  <button type="button" class="toggle-pw" id="myinfo-toggle-curr-pw" style="right: 12px;"><i class="fa-solid fa-eye" id="myinfo-eye-curr"></i></button>
+                </div>
+                <span class="error-msg" id="myinfo-curr-pw-error" style="font-size: 10px;"><i class="fa-solid fa-triangle-exclamation"></i><span class="text">필수 입력 항목입니다.</span></span>
+              </div>
+              
+              <!-- New PW -->
+              <div class="input-group" id="myinfo-new-pw-group" style="gap: 4px;">
+                <label style="font-size: 11px; font-weight: 600;">새 비밀번호</label>
+                <div class="input-wrapper">
+                  <input type="password" id="myinfo-new-pw" class="input-field" placeholder="새 비밀번호를 입력하세요." style="padding: 10px 12px; font-size: 13px;" required>
+                  <button type="button" class="toggle-pw" id="myinfo-toggle-new-pw" style="right: 12px;"><i class="fa-solid fa-eye" id="myinfo-eye-new"></i></button>
+                </div>
+                <span class="error-msg" id="myinfo-new-pw-error" style="font-size: 10px;"><i class="fa-solid fa-triangle-exclamation"></i><span class="text">필수 입력 항목입니다.</span></span>
+              </div>
+
+              <!-- New PW Confirm -->
+              <div class="input-group" id="myinfo-confirm-pw-group" style="gap: 4px;">
+                <label style="font-size: 11px; font-weight: 600;">새 비밀번호 확인</label>
+                <div class="input-wrapper">
+                  <input type="password" id="myinfo-confirm-pw" class="input-field" placeholder="비밀번호를 한번 더 입력하세요." style="padding: 10px 12px; font-size: 13px;" required>
+                  <button type="button" class="toggle-pw" id="myinfo-toggle-confirm-pw" style="right: 12px;"><i class="fa-solid fa-eye" id="myinfo-eye-confirm"></i></button>
+                </div>
+                <span class="error-msg" id="myinfo-confirm-pw-error" style="font-size: 10px;"><i class="fa-solid fa-triangle-exclamation"></i><span class="text">필수 입력 항목입니다.</span></span>
+              </div>
+
+              <!-- Complexity checks -->
+              <ul class="pw-rules" id="myinfo-pw-rules-list" style="padding: 8px 10px; gap: 4px; border-radius: 10px; margin-top: 2px;">
+                <li id="myinfo-rule-length"><i class="fa-solid fa-circle-dot"></i> 8~90자</li>
+                <li id="myinfo-rule-lower"><i class="fa-solid fa-circle-dot"></i> 소문자</li>
+                <li id="myinfo-rule-upper"><i class="fa-solid fa-circle-dot"></i> 대문자</li>
+                <li id="myinfo-rule-number"><i class="fa-solid fa-circle-dot"></i> 숫자</li>
+                <li id="myinfo-rule-special"><i class="fa-solid fa-circle-dot"></i> 특수문자</li>
+                <li id="myinfo-rule-match"><i class="fa-solid fa-circle-dot"></i> 비밀번호 일치</li>
+              </ul>
+            </div>
+
+            <div class="popup-buttons" style="gap: 8px;">
+              <button class="btn btn-secondary" id="myinfo-pw-cancel" style="padding: 8px 12px; font-size: 12px; border-radius: 10px;">취소</button>
+              <button class="btn btn-primary" id="myinfo-pw-submit" style="padding: 8px 12px; font-size: 12px; border-radius: 10px;" disabled>변경</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- --- POPUP OVERLAY 3: PHONE NUMBER CHANGE MODAL --- -->
+        <div class="popup-overlay" id="myinfo-phone-modal">
+          <div class="popup-card">
+            <div class="popup-icon" style="color: var(--accent-color); background: hsla(192, 95%, 47%, 0.15); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; font-size: 18px;">
+              <i class="fa-solid fa-mobile-screen"></i>
+            </div>
+            <div class="popup-title" style="margin-bottom: 12px; font-size: 15px;">휴대폰 번호 변경</div>
+            
+            <div style="display: flex; flex-direction: column; gap: 10px; width: 100%; text-align: left; margin-bottom: 14px;">
+              
+              <!-- Phone number input group -->
+              <div class="input-group" id="myinfo-phone-group" style="gap: 4px;">
+                <label style="font-size: 11px; font-weight: 600;">휴대폰 번호</label>
+                <div class="input-wrapper" style="gap: 6px;">
+                  <input type="text" id="myinfo-phone-input" class="input-field" placeholder="'-' 제외하고 숫자만 입력" style="padding: 10px 12px; font-size: 13px;" maxlength="13">
+                  <button type="button" class="btn btn-primary" id="myinfo-phone-send-btn" style="width: auto; padding: 10px 12px; font-size: 11px; white-space: nowrap; border-radius: 10px; flex-shrink: 0;" disabled>보내기</button>
+                </div>
+                <span class="error-msg" id="myinfo-phone-error" style="font-size: 10px;"><i class="fa-solid fa-triangle-exclamation"></i><span class="text">필수 입력 항목입니다.</span></span>
+              </div>
+              
+              <!-- Phone verify code input group (Initially disabled) -->
+              <div class="input-group" id="myinfo-phone-code-group" style="gap: 4px; display: none;">
+                <label style="font-size: 11px; font-weight: 600;">인증번호 (6자리)</label>
+                <div class="input-wrapper" style="gap: 6px;">
+                  <input type="text" id="myinfo-phone-code-input" class="input-field" placeholder="인증번호를 입력하세요." style="padding: 10px 12px; font-size: 13px;" maxlength="6" disabled>
+                  <button type="button" class="btn btn-primary" id="myinfo-phone-verify-btn" style="width: auto; padding: 10px 12px; font-size: 11px; white-space: nowrap; border-radius: 10px; flex-shrink: 0;" disabled>인증</button>
+                </div>
+                
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 2px;">
+                  <div class="timer-box" id="myinfo-phone-timer-box" style="margin-top: 0; padding: 2px 6px; font-size: 10px; font-weight: 700; border-radius: 6px;">
+                    <i class="fa-solid fa-clock"></i>
+                    <span id="myinfo-phone-timer-txt">03:00</span>
+                  </div>
+                  <button type="button" id="myinfo-phone-resend-btn" style="border: none; background: none; color: var(--primary-color); font-size: 10px; font-weight: 700; cursor: pointer; text-decoration: underline;">재전송</button>
+                </div>
+                <span class="error-msg" id="myinfo-phone-code-error" style="font-size: 10px; margin-top: 2px;"><i class="fa-solid fa-triangle-exclamation"></i><span class="text">인증번호가 일치하지 않습니다.</span></span>
+              </div>
+
+            </div>
+
+            <div class="popup-buttons" style="gap: 8px;">
+              <button class="btn btn-secondary" id="myinfo-phone-cancel" style="padding: 8px 12px; font-size: 12px; border-radius: 10px;">취소</button>
+              <button class="btn btn-primary" id="myinfo-phone-submit" style="padding: 8px 12px; font-size: 12px; border-radius: 10px;" disabled>변경</button>
+            </div>
+          </div>
+        </div>
+
+        </div> <!-- End of .viewport -->
+
+      </div> <!-- End of .web-workspace -->
+    </div> <!-- End of .web-app-frame -->
 
   </div>
 
