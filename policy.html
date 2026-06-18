@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CloudGate 3.0 정책서 작성 및 관리 도구 — 3depth 메뉴 기반 정책 문서 편집기">
+  <title>CloudGate 3.0 — 정책서</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="policy.css">
+</head>
+<body>
+
+  <!-- ============================================
+       MAC-STYLE BROWSER FRAME
+       ============================================ -->
+  <div class="web-app-frame">
+    
+    <!-- Window Title Bar -->
+    <div class="window-header">
+      <div class="window-dots">
+        <span class="window-dot close"></span>
+        <span class="window-dot minimize"></span>
+        <span class="window-dot maximize"></span>
+      </div>
+      <div class="window-title">CloudGate 3.0 정책서 관리</div>
+      <div class="window-system-time">
+        <i class="fa-regular fa-clock" style="font-size: 11px;"></i>
+        <span id="device-time">14:48</span>
+      </div>
+    </div>
+
+    <!-- ============================================
+         MAIN WORKSPACE (Sidebar + Content)
+         ============================================ -->
+    <div class="web-workspace">
+
+      <!-- ==========================================
+           LEFT SIDEBAR — 3-DEPTH MENU NAVIGATION
+           ========================================== -->
+      <div class="policy-sidebar" id="policy-sidebar">
+        
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+          <div class="sidebar-brand">
+            <i class="fa-solid fa-cloud-bolt sidebar-brand-icon"></i>
+            <span class="sidebar-brand-label">CLOUDGATE 3.0</span>
+          </div>
+          <div class="sidebar-title">정책서</div>
+          <div class="sidebar-subtitle">메뉴 항목 관리 · 검색</div>
+        </div>
+
+        <!-- 3-Depth Menu List -->
+        <div class="sidebar-menu" id="sidebar-menu">
+
+          <!-- 상담 관리 (has children) -->
+          <div class="menu-group open" data-group="consulting">
+            <div class="menu-parent">
+              <div class="menu-parent-left">
+                <span class="menu-parent-name">상담 관리</span>
+                <span class="menu-parent-count">8</span>
+              </div>
+              <i class="fa-solid fa-chevron-right menu-parent-arrow"></i>
+            </div>
+            <div class="menu-children">
+              <div class="menu-child active" data-menu="call-consulting">콜 상담</div>
+              <div class="menu-child" data-menu="assign-consulting">배정 상담</div>
+            </div>
+          </div>
+
+          <!-- 대시보드 (standalone) -->
+          <div class="menu-group">
+            <div class="menu-parent standalone" data-menu="dashboard">
+              <div class="menu-parent-left">
+                <span class="menu-parent-name">대시보드</span>
+                <span class="menu-parent-count">1</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 자정 상담 (standalone) -->
+          <div class="menu-group">
+            <div class="menu-parent standalone" data-menu="midnight-consulting">
+              <div class="menu-parent-left">
+                <span class="menu-parent-name">자정 상담</span>
+                <span class="menu-parent-count">n</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 고객 정보 (standalone) -->
+          <div class="menu-group">
+            <div class="menu-parent standalone" data-menu="customer-info">
+              <div class="menu-parent-left">
+                <span class="menu-parent-name">고객 정보</span>
+                <span class="menu-parent-count">1</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 통화 관리 (standalone) -->
+          <div class="menu-group">
+            <div class="menu-parent standalone" data-menu="call-management">
+              <div class="menu-parent-left">
+                <span class="menu-parent-name">통화 관리</span>
+                <span class="menu-parent-count">1</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 주문 연동 (standalone) -->
+          <div class="menu-group">
+            <div class="menu-parent standalone" data-menu="order-integration">
+              <div class="menu-parent-left">
+                <span class="menu-parent-name">주문 연동</span>
+                <span class="menu-parent-count">1</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 설정 (standalone) -->
+          <div class="menu-group">
+            <div class="menu-parent standalone" data-menu="settings">
+              <div class="menu-parent-left">
+                <span class="menu-parent-name">설정</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <button class="sidebar-footer-btn" id="btn-menu-manage">
+            <i class="fa-solid fa-bars"></i>
+            메뉴 관리
+          </button>
+          <button class="sidebar-footer-btn" id="btn-history">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            과거 이력
+          </button>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           RIGHT MAIN CONTENT AREA
+           ========================================== -->
+      <div class="policy-main">
+
+        <!-- Top Header Bar -->
+        <div class="policy-header">
+          <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="policy-search" placeholder="정책 검색 — 예: 제3자 동의 참조되지만 주요정보 어떻게 보이나">
+          </div>
+          <div class="header-actions">
+            <button class="header-btn primary" id="btn-add-policy">
+              <i class="fa-solid fa-plus"></i>
+              정책 추가
+            </button>
+            <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Scrollable Policy Content Area -->
+        <div class="policy-content" id="policy-content">
+
+          <!-- Info Banner -->
+          <div class="info-banner">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>이 정책서는 팀그룹 간 협업을 위한 목적의 공유문서입니다 · 마지막 수정</span>
+            <span class="date">수정 2026.06.18</span>
+          </div>
+
+          <!-- Version Link -->
+          <div class="version-link">
+            <a href="#" id="btn-new-version">
+              <i class="fa-solid fa-code-branch"></i>
+              새 버전 보기
+            </a>
+          </div>
+
+          <!-- Section: 콜 상담 -->
+          <div class="policy-section" id="section-call-consulting">
+            <div class="policy-section-title">
+              <h2>콜 상담</h2>
+              <span class="count-badge">2건 등록</span>
+            </div>
+
+            <!-- Tags Filter Bar -->
+            <div class="tags-bar">
+              <div class="tag-filter active">#콜분류코드</div>
+              <div class="tag-filter">#상담매핑</div>
+              <div class="tag-filter">#배정상태관리</div>
+              <div class="tags-actions">
+                <button class="tag-action-btn filter"><i class="fa-solid fa-filter"></i> 필터</button>
+                <button class="tag-action-btn edit"><i class="fa-solid fa-eye"></i> 모아보기</button>
+                <button class="tag-action-btn delete"><i class="fa-solid fa-trash"></i> 삭제</button>
+              </div>
+            </div>
+
+            <!-- Policy Block 1 (P001) -->
+            <div class="policy-block" id="policy-block-001">
+              <div class="block-header">
+                <span class="block-id">P001</span>
+                <span class="block-title">상담중 / 배력조회 상태 배치 구분</span>
+                <div class="block-tags">
+                  <span class="block-tag">#콜분류코드</span>
+                  <span class="block-tag">#상담매핑</span>
+                </div>
+              </div>
+              <div class="block-body">
+                <div class="block-rule normal">
+                  <span class="rule-label normal">정상</span>
+                  <span class="rule-text">상담사가 인입(콜)을 받는 동시에 고객 정보를 매핑하고 이전기록 코드를 포함함 R.</span>
+                </div>
+                <div class="block-rule hold">
+                  <span class="rule-label hold">보류</span>
+                  <span class="rule-text">현재 상태 유지 끝난 "상타임중"배치, 사인 조회 목적의 데이터는 해당 없음 지정함.</span>
+                </div>
+                <div class="block-rule alert">
+                  <span class="rule-label alert">확인</span>
+                  <span class="rule-text">두 상담이 동시에 포착(race condition)되면 상담중 상태일 때 추가 배정 불가.</span>
+                </div>
+              </div>
+              <div class="block-footer">
+                <span class="block-meta">
+                  <i class="fa-regular fa-clock"></i>
+                  마지막 CUSTOM툴 등 UI조 · 고객화면 개편
+                </span>
+                <div class="block-actions">
+                  <button class="block-action-btn"><i class="fa-solid fa-pen"></i> 수정</button>
+                  <button class="block-action-btn danger"><i class="fa-solid fa-trash"></i> 삭제</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Policy Block 2 (P002) -->
+            <div class="policy-block" id="policy-block-002">
+              <div class="block-header">
+                <span class="block-id">P002</span>
+                <span class="block-title">콜 인입 시 자동 배정 정책</span>
+                <div class="block-tags">
+                  <span class="block-tag">#배정상태관리</span>
+                </div>
+              </div>
+              <div class="block-body">
+                <div class="block-rule normal">
+                  <span class="rule-label normal">정상</span>
+                  <span class="rule-text">인입된 콜은 대기 큐에 등록되며, 우선순위 알고리즘에 따라 상담사에게 자동 배정됩니다.</span>
+                </div>
+                <div class="block-rule normal">
+                  <span class="rule-label normal">정상</span>
+                  <span class="rule-text">상담사 상태가 '대기 중'일 경우에만 콜이 배정됩니다. 현재 상담 진행 중인 상담사에게는 배정되지 않습니다.</span>
+                </div>
+                <div class="block-rule hold">
+                  <span class="rule-label hold">보류</span>
+                  <span class="rule-text">배정 알고리즘 우선순위: ① 마지막 상담 종료 시간 기준 오래된 순 → ② 당일 총 상담 수 적은 순 → ③ 직급 기준 낮은 순.</span>
+                </div>
+              </div>
+              <div class="block-footer">
+                <span class="block-meta">
+                  <i class="fa-regular fa-clock"></i>
+                  배정 로직 v2.1 · 2026.06.15 수정
+                </span>
+                <div class="block-actions">
+                  <button class="block-action-btn"><i class="fa-solid fa-pen"></i> 수정</button>
+                  <button class="block-action-btn danger"><i class="fa-solid fa-trash"></i> 삭제</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Bottom Footer Bar -->
+        <div class="policy-footer">
+          <button class="footer-btn" id="footer-new-version">
+            <i class="fa-solid fa-code-branch"></i>
+            새 버전
+          </button>
+          <button class="footer-btn" id="footer-history">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            과거 이력
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       MODAL: MENU MANAGEMENT
+       ============================================ -->
+  <div class="modal-overlay" id="modal-menu-manage">
+    <div class="modal-card">
+      <div class="modal-title">메뉴 관리</div>
+      <div class="modal-desc">소 제 3.0 기능 구조에 맞게 정책서 이름만변경해주세요. 순서는 ↑ ↓ 으로 바꿉니다.</div>
+
+      <!-- Menu List -->
+      <div class="modal-menu-list" id="modal-menu-list">
+        <!-- Items will be rendered by JS -->
+      </div>
+
+      <!-- Input Section -->
+      <div class="modal-input-section">
+        <div class="modal-input-row">
+          <div class="modal-input-group">
+            <span class="modal-input-label">새 메뉴 이름</span>
+            <input type="text" class="modal-input" id="new-menu-name" placeholder="예: 결제 설정">
+          </div>
+          <div class="modal-input-group">
+            <span class="modal-input-label">위치</span>
+            <select class="modal-select" id="new-menu-position">
+              <option value="top">최상위 메뉴</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="modal-btn" id="modal-close-btn">닫기</button>
+        <button class="modal-btn primary" id="modal-add-btn">
+          <i class="fa-solid fa-plus"></i>
+          메뉴 추가
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- JavaScript -->
+  <script src="policy.js"></script>
+</body>
+</html>
